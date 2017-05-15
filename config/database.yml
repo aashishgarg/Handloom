@@ -1,0 +1,24 @@
+default: &default
+  adapter: mysql2
+  pool: 5
+  timeout: 5000
+  encoding: utf8mb4
+  collation: utf8mb4_unicode_ci
+
+development:
+  <<: *default
+  database: export_house_development
+  username: root
+  password: Welcome@123
+
+staging:
+  <<: *default
+  database: export_house_staging
+  username: root
+  password: Welcome@123
+
+production:
+  <<: *default
+  database: export_house_production
+  username: root
+  password: Welcome@123

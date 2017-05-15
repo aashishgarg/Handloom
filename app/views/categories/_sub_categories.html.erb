@@ -1,0 +1,5 @@
+<ul class="nav nav-pills nav-stacked sub_categories_list">
+  <% @category.sub_categories.each_with_index do |category, index| %>
+      <%= render partial: 'categories/sub_category', locals: {category: category, index: index} %>
+  <% end %>
+</ul>

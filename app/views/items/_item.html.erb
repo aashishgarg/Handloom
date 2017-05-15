@@ -1,0 +1,13 @@
+<div class="col-sm-4" id="<%= sub_category.id %>">
+  <div class="product-image-wrapper">
+    <div class="single-products">
+      <div class="productinfo text-center">
+        <%= link_to item_path(item) do %>
+            <%= image_tag item.item_variants.present? ? item.item_variants.first.item_image : 'sample_item.jpeg', class: 'index_item' %>
+            <p><%= item.name %></p>
+        <% end %>
+        <!--<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add item</a>-->
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="left-sidebar">
+          <div class="panel-group category-products" id="accordian">
+            <%= render partial: 'categories/categories' %>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-9 padding-right">
+        <div class="features_items"><!--features_items-->
+          <% @sub_category.items.each_with_index do |item, index| %>
+              <%= render partial: 'items/item', locals: {item: item, sub_category: @sub_category} %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

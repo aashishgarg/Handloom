@@ -1,0 +1,21 @@
+<% Category.root_categories.each do |category| %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordian" href="#mens_<%= category.id %>">
+            <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+            <%= category.name %>
+          </a>
+        </h4>
+      </div>
+      <div id="mens_<%= category.id %>" class="panel-collapse collapse">
+        <div class="panel-body">
+          <ul>
+            <% category.sub_categories.each do |sub_category| %>
+                <li><%= link_to sub_category.name, items_path(sub_category: sub_category.id), remote: true %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+<% end %>

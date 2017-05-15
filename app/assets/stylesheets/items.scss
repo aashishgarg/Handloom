@@ -1,0 +1,22 @@
+.index_page_image_item {
+  height: 200px;
+  width: 200px;
+}
+
+.features_items {
+  .product-image-wrapper {
+    border-radius: 5px;
+    .single-products {
+      .productinfo {
+        p{
+          font-weight: 400;
+          margin-top: 5px;
+        }
+        .index_item {
+          border-radius: 5px;
+        }
+      }
+
+    }
+  }
+}
