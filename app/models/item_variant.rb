@@ -2,6 +2,7 @@ class ItemVariant < ApplicationRecord
 
   # ===================== Associations ====================== #
   belongs_to :item, inverse_of: :item_variants, required: true
+  has_one :category, through: :item
 
   belongs_to :color, class_name: 'Property::Color', optional: true
   belongs_to :brand, class_name: 'Property::Brand', optional: true
