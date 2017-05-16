@@ -16,66 +16,44 @@
             </div>
           </div>
           <div class="col-sm-7">
-            <div class="product-information"><!--/product-information-->
-              <h2><%= @item.name %></h2>
+            <%= form_for @cart, url: user_cart_path, method: :post, remote: true do |f| %>
+                <div class="product-information"><!--/product-information-->
+                  <h2><%= @item.name %></h2>
 
-              <p><%= @item.description %></p>
+                  <p><%= @item.description %></p>
 
-              <div class="item_variant_container">
-                <%= select_tag 'item_variant', options_for_select([[1, 2], [1, 2], [1, 2], [1, 2]]), class: 'item_variant_selection' %>
-              </div>
-              <div class="item_actions_container">
-              <span>
-                <input type="text" value="3"/>
-                <%= link_to cart_path, class: "btn btn-fefault cart" do %>
-                        <i class="fa fa-shopping-cart"></i>
-                        Add to cart
-                  <% end %>
-                <%= link_to cart_path, class: "btn btn-fefault cart" do %>
-                        <i class="fa fa-shopping-cart"></i>
-                        Go to cart
-                  <% end %>
-                </span>
-              </div>
-              <p><b>Availability:</b> In Stock</p>
+                  <div class="item_variant_container">
+                    <%= f.select :item_variant_id, options_for_select(@item.item_variants.collect { |x| [x.properties_string, x.id] }),
+                                 class: 'item_variant_selection' %>
+                  </div>
+                  <div class="item_actions_container">
+                    <span>
+                      <%= f.number_field :quantity, value: 1 %>
+                      <%= button_tag(class: "btn btn-fefault cart") do %>
+                            <i class="fa fa-shopping-cart"></i>Add to cart
+                      <% end %>
+                      <%= link_to show_user_cart_path, class: "btn btn-fefault cart" do %>
+                          <i class="fa fa-shopping-cart"></i>
+                              Go to cart
+                      <% end %>
+                    </span>
+                  </div>
+                  <p><b>Availability:</b> In Stock</p>
 
-              <p><b>Condition:</b> New</p>
+                  <p><b>Condition:</b> New</p>
 
-              <p><b>Brand:</b> Demo Application</p>
-            </div>
-            <!--/product-information-->
+                  <p><b>Brand:</b> Demo Application</p>
+                </div>
+            <% end %>
           </div>
         </div>
-        <!--/product-details-->
-
-
-        <!--/category-tab-->
-
       </div>
     </div>
   </div>
 </section>
 
-<script>
-    $(function () {
-        function ItemVariantSelector(options) {
-            this.options = {
-                item_variants: null
-            };
-            $.extend(this.options, options);
-        }
-
-        ItemVariantSelector.prototype = {};
-
-        var variant_selector = new ItemVariantSelector({
-            item_variants: <%== @item.item_variants %>
-        });
-
-    })
-</script>
-
 <style>
-  .item_variant_container{
-      margin-top: 15px;
-  }
+    .item_variant_container {
+        margin-top: 15px;
+    }
 </style>

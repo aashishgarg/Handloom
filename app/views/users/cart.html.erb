@@ -1,0 +1,93 @@
+<%= form_for @order, url: order_path do |f| %>
+    <section id="cart_items">
+      <div class="container">
+        <div class="table-responsive cart_info">
+          <table class="table table-condensed">
+            <thead>
+            <tr class="cart_menu">
+              <td class="image">Image</td>
+              <td class="description">Item</td>
+              <td class="color">Color</td>
+              <td class="size">Size</td>
+              <td class="material">Material</td>
+              <td class="quantity">Quantity</td>
+              <td></td>
+            </tr>
+            </thead>
+            <tbody>
+            <% @cart_items.each do |cart_item| %>
+                <% @item_variant = cart_item_variant(cart_item.item_variant_id) %>
+                <%= f.fields_for :order_details, @order_details do |ff| %>
+                    <%= ff.hidden_field :item_variant_id, value: cart_item.item_variant_id %>
+                    <tr id="<%= cart_item.id %>">
+                      <td class="cart_product">
+                        <%= link_to item_path(@item_variant) do %>
+                            <%= image_tag @item_variant.item_image, class: 'cart_item_image' %>
+                        <% end %>
+                      </td>
+                      <td class="cart_description">
+                        <p><strong><%= @item_variant.name %></strong></p>
+
+                        <p><%= @item_variant.description %></p>
+                      </td>
+                      <td class="cart_description">
+                        <p><%= @item_variant.color.name.capitalize %></p>
+                      </td>
+                      <td class="cart_description">
+                        <p><%= @item_variant.size.name.capitalize %></p>
+                      </td>
+                      <td class="cart_description">
+                        <p><%= @item_variant.material.name.capitalize if @item_variant.material %></p>
+                      </td>
+                      <td class="cart_quantity">
+                        <div class="cart_quantity_button">
+                          <!--<a class="cart_quantity_up" href="javascript:void(0);"> + </a>-->
+                          <%= ff.number_field :quantity, value: cart_item.quantity, class: 'cart_quantity_input', size: 2, autocomplete: 'off' %>
+                          <!--<a class="cart_quantity_down" href="javascript:void(0);"> - </a>-->
+                        </div>
+                      </td>
+                      <td class="cart_delete">
+                        <%= link_to remove_cart_item_path(cart_item), method: :delete, remote: true, class: "cart_quantity_delete" do %>
+                            <i class="fa fa-times"></i>
+                        <% end %>
+                      </td>
+                    </tr>
+                <% end %>
+            <% end %>
+
+            <!--================= Cart Item End ======================== -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section> <!--/#cart_items-->
+
+    <section id="do_action">
+      <div class="container">
+        <div class="heading">
+          <h3>Heading for order level information?</h3>
+
+          <p>Information required to show regarding the order to be placed.</p>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+          </div>
+          <div class="col-sm-6">
+            <div class="total_area">
+              <ul>
+                <li>Total Items<span><%= Cart.total_items %></span></li>
+              </ul>
+              <%= f.submit 'Check Out', class: 'btn btn-default check_out' %>
+              <!--<a class="btn btn-default check_out" href="">Check Out</a>-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+<% end %>
+
+<script>
+    $(function () {
+        if (<%= !current_user.cart_items.present? %>) $('.check_out').hide();
+    });
+</script>

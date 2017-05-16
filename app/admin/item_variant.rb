@@ -4,7 +4,7 @@ ActiveAdmin.register ItemVariant do
   end
 
   # =========== Permitted parameters =============================== #
-  permit_params :item_id, :image, :price, :special_price
+  permit_params :item_id, :image, :price, :special_price, :color_id,:brand_id,:size_id,:material_id
 
   # =========== Filters ============================================ #
   # filter ''

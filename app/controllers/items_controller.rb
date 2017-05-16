@@ -12,5 +12,6 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.where(id: params[:id]).take
+    @cart = Cart.new
   end
 end
