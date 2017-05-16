@@ -8,7 +8,12 @@ class Order::Header < ApplicationRecord
 
   # ====================== Callbacks ======================= #
   after_create :clean_out_bucket
+  after_create :notify_order_info
 
+
+  def notify_order_info
+    OrderNotifierMailer.notify_order_info(self).deliver_now
+  end
 
   private
   def clean_out_bucket

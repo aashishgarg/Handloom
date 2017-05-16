@@ -71,6 +71,36 @@ Rails.application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
+  config.action_mailer.default_url_options = {:host => 'https://127.0.0.1'}
+  config.middleware.delete Rack::Lock
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      :authentication => :plain,
+      :address => 'smtp.gmail.com',
+      :port => 587,
+      :domain => 'kappor.hossery.com',
+      :user_name => 'kapoor.hossery',
+      :password => "kapoor@123",
+      :enable_starttls_auto => true
+  }
+
+  config.middleware.use ExceptionNotification::Rack,
+                        email: {
+                            email_prefix: "[Kapoor] [#{Rails.env}] ",
+                            :sender_address => %{"Exception Notifier" <no-reply@kapoorexports.com>},
+                            :exception_recipients => %w{01ashishgarg@gmail.com},
+                            delivery_method: :smtp,
+                            smtp_settings: {
+                                address: 'smtp.gmail.com',
+                                port: 587,
+                                domain: 'kappor.hossery.com',
+                                user_name: 'kapoor.hossery',
+                                password: 'kapoor@123',
+                                authentication: :plain,
+                                enable_starttls_auto: true
+                            }
+                        }
+
   # Use a different logger for distributed setups.
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
