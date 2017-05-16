@@ -22,5 +22,8 @@
 //= require custom_admin
 //= require html5shiv
 //= require price-range
+//= require pnotify
+//= require unobtrusive_flash
+//= require flashes.js
 //= require main
 //= require_tree .

@@ -19,6 +19,7 @@
  *= require price-range
  *= require responsive
  *= require main
+ *= require pnotify
  *= require_tree .
  *= stub "active_admin"
  *= require_self

@@ -1,4 +1,7 @@
 ActiveAdmin.register Order::Header do
+  before_filter :only => :index do
+    @skip_sidebar = true
+  end
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
