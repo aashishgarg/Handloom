@@ -1,0 +1,14 @@
+.sub_category_label{
+    color: #000000;
+}
+
+.root_category_label{
+    color: #FF4518;
+    font-weight: 700;
+}
+
+.item_image{
+    height: 50px;
+    width: 50px;
+    border-radius: 3px;
+}

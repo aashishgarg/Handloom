@@ -30,8 +30,21 @@ ActiveAdmin.register Category do
   index do
     selectable_column
     id_column
-    column :name
+    column :name do |category|
+      if category.sub_category?
+        label category.name.capitalize+' ('+category.root_category.name.capitalize+')', class: 'sub_category_label'
+      else
+        label category.name.capitalize, class: 'root_category_label'
+      end
+    end
     column :root_category
+    column :total_items, sortable: true do |category|
+      if category.sub_category?
+        label category.items.count
+      else
+        label category.sub_categories.collect{|x| x.items.count}.inject(&:+)
+      end
+    end
     actions
   end
 end

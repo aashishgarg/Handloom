@@ -8,8 +8,10 @@ ActiveAdmin.register Order::Detail do
   # =========== Custom Index page ================================== #
   index do
     # selectable_column
-    # id_column
-    column :header_id
+    id_column
+    column 'Bill No', sortable: true do |order|
+      link_to order.header_id, admin_order_header_path(order.header_id)
+    end
     column :item_variant
     column :quantity
   end

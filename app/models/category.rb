@@ -24,4 +24,8 @@ class Category < ApplicationRecord
   def self.grouped
     Category.sub_categories.order(updated_at: :desc).group_by { |category| category.root_category if category.parent_id }
   end
+
+  def sub_category?
+    not parent_id.nil?
+  end
 end

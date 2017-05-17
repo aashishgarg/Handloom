@@ -9,7 +9,14 @@ ActiveAdmin.register Order::Header do
   index do
     selectable_column
     id_column
-    column :user
+    column :user do |order|
+      label order.user.name
+      br
+      label '('+order.user.email+')'
+    end
+    column :total_items do |order|
+      label order.order_details.count
+    end
     column :created_at
   end
 
