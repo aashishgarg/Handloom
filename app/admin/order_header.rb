@@ -5,6 +5,9 @@ ActiveAdmin.register Order::Header do
 
   actions :all, :except => [:new]
 
+  # =========== Custom Filters ===================================== #
+  filter :bill_no
+
   # =========== Custom Index page ================================== #
   index do
     selectable_column
@@ -17,6 +20,9 @@ ActiveAdmin.register Order::Header do
     end
     column :total_items do |order|
       label order.order_details.count
+    end
+    column :total_quantity do |order|
+      label order.order_details.collect(&:quantity).inject(&:+)
     end
     column :created_at
   end

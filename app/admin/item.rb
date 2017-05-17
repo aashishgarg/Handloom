@@ -13,7 +13,7 @@ ActiveAdmin.register Item do
   # =========== Custom Form for Item(Edit/New) ===================== #
   form do |f|
     f.inputs 'Item Form' do
-      f.input :category, as: :select, collection: Category.sub_categories.collect { |x| [x.name, x.id] }
+      f.input :category, as: :select, collection: Category.sub_categories.collect { |x| [x.root_category.name+' ('+x.name+')', x.id] }
       f.input :name
       f.input :old_style_no
       f.input :new_style_no
@@ -23,6 +23,21 @@ ActiveAdmin.register Item do
       f.input :delivery_time
       f.input :meta_keywords
       f.input :meta_description
+
+      # f.inputs "Item variants colors" do
+      f.object.item_variants.build
+
+      # f.fields_for :item_variants do |m|
+      #   m.inputs do
+      #     m.input :color_id, as: :text
+      #   end
+      # end
+      #
+      # f.fields_for :item_variants do |m|
+      #   m.inputs do
+      #     m.input :size_id, as: :select, collection: Property::Size.all.collect { |x| [x.name, x.id] }, multiple: true
+      #   end
+      # end
     end
     f.actions
   end
@@ -31,19 +46,25 @@ ActiveAdmin.register Item do
   index do
     selectable_column
     id_column
-    column :category
     column :name
     column :total_variants do |item|
       label item.item_variants.count
     end
     column :old_style_no
     column :new_style_no
-    # column :description
-    # column :short_description
     column :sku
     column :delivery_time
-    # column :meta_keywords
-    # column :meta_description
+    column :category
     actions
   end
+
+  # =========== Controller ========================================= #
+
+  # controller do
+  #
+  #   def create
+  #
+  #   end
+  # end
+
 end

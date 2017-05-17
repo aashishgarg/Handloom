@@ -35,8 +35,8 @@ ActiveAdmin.register ItemVariant do
       label item_variant.item.name
       link_to '('+item_variant.item.sku+') ', admin_item_path(item_variant.item)
     end
-    column :price
-    column :special_price
+    column :price, sortable: true
+    column :special_price, sortable: true
     column :color
     column :size
     column :brand

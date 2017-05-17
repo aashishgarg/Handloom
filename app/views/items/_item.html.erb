@@ -4,9 +4,20 @@
       <div class="productinfo text-center">
         <%= link_to item_path(item) do %>
             <%= image_tag item.item_variants.present? ? item.item_variants.first.item_image : 'sample_item.jpeg', class: 'index_item' %>
-            <p><%= item.name %></p>
+            <h2><%= item.name %></h2>
+
+            <!--<p><%#= item.category.name %></p>-->
         <% end %>
-        <!--<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add item</a>-->
+      </div>
+      <div class="product-overlay">
+        <div class="overlay-content">
+          <h2><%= item.name %></h2>
+
+          <p><%= item.category.name %></p>
+          <%= link_to item_path(item), class: 'btn btn-default add-to-cart' do %>
+              <i class="fa fa-shopping-cart"></i>View Details
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

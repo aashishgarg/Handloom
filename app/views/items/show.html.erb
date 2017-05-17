@@ -44,11 +44,11 @@
                       <% end %>
                     </span>
                   </div>
-                  <p><b>Availability:</b> In Stock</p>
+                  <p class="item_variant_material"><b>Material:</b> <%= @item.item_variants.first.material.name.capitalize if @item.item_variants.first.material %></p>
 
-                  <p><b>Condition:</b> New</p>
+                  <p class="item_variant_brand"><b>Brand:</b> <%= @item.item_variants.first.brand.name.capitalize if @item.item_variants.first.brand %></p>
 
-                  <p><b>Brand:</b> Demo Application</p>
+                  <p><b>*</b> Item can be prepared and provided for the custom sizes requested.</p>
                 </div>
             <% end %>
           </div>
@@ -59,9 +59,7 @@
 </section>
 
 <style>
-    .item_variant_container {
-        margin-top: 15px;
-    }
+
 </style>
 <script>
     $('.selections').on('change', function () {

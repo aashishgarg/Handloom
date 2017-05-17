@@ -23,12 +23,4 @@ class ItemVariant < ApplicationRecord
   def item_image
     image? ? image_path.gsub(Rails.root.to_s, '') : 'sample_item.jpeg'
   end
-
-  def properties
-    [color, size, brand, material].compact.collect { |property| "#{property.class.name.demodulize.capitalize} - #{property.name.capitalize}" }
-  end
-
-  def properties_string
-    properties.join('   |   ')
-  end
 end

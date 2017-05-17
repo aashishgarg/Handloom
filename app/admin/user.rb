@@ -28,6 +28,12 @@ ActiveAdmin.register User do
     column :email
     column :phone
     column :address
+    column 'Total orders' do |user|
+      label user.order_headers.count
+    end
+    column 'Last order' do |user|
+      label user.order_headers.last.created_at if user.order_headers.present?
+    end
     actions
   end
 

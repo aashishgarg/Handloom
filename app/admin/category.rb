@@ -9,8 +9,8 @@ ActiveAdmin.register Category do
   # =========== Scope for index page =============================== #
   scope :all_categories
   scope :root_categories
-  scope :sub_categories
-  # scope :sub_categories, default: true    #=> Default selected scope in index page
+  # scope :sub_categories
+  scope :sub_categories, default: true    #=> Default selected scope in index page
 
   # =========== Custom Filters ===================================== #
   # filter :name
@@ -32,7 +32,7 @@ ActiveAdmin.register Category do
     id_column
     column :name do |category|
       if category.sub_category?
-        label category.name.capitalize+' ('+category.root_category.name.capitalize+')', class: 'sub_category_label'
+        label category.name.capitalize, class: 'sub_category_label'
       else
         label category.name.capitalize, class: 'root_category_label'
       end
@@ -42,9 +42,11 @@ ActiveAdmin.register Category do
       if category.sub_category?
         label category.items.count
       else
-        label category.sub_categories.collect{|x| x.items.count}.inject(&:+)
+        label category.sub_categories.collect { |x| x.items.count }.inject(&:+)
       end
     end
+    column :created_at
+    column :updated_at
     actions
   end
 end

@@ -2,4 +2,5 @@ $('.size_selection').replaceWith($('<%=j render partial: 'items/size_selection',
                                                 locals: {options: @available_variants.collect{|x| [x.size.name, x.size.id]}} %>'));
 
 
-//$('.view-product').html($('<img/>').attr({src: '<%#= @available_variants.first.item_image %>'}));
+$('p.item_variant_material').html('<b>Material:</b> <%= @available_variants.first.material.name.capitalize if @available_variants.first.material %>');
+$('p.item_variant_brand').html('<b>Brand:</b> <%= @available_variants.first.brand.name.capitalize if @available_variants.first.brand %>')

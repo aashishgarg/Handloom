@@ -5,6 +5,16 @@ ActiveAdmin.register Property::Material do
 
   permit_params :name
 
+  index do
+    selectable_column
+    id_column
+    column :name
+    column 'Total Items' do |property|
+      label ItemVariant.where(material: property).count
+    end
+    column :created_at
+  end
+
   controller do
     def create
       all_values = []
