@@ -9,6 +9,6 @@ class Cart < ApplicationRecord
   end
 
   def self.total_quantity
-    Cart.all.collect(&:quantity).inject(&:+)
+    Cart.all.collect(&:quantity).inject(&:+) || 0
   end
 end

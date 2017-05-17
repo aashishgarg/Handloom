@@ -3,7 +3,12 @@ $(document).ready(function() {
         new PNotify({
             //title: params.type,
             text: params.message,
-            type: params.type
+            addclass: 'flash_notices',
+            icon: 'fa fa-bell-o',
+            type: params.type,
+            nonblock: {
+                nonblock: true
+            }
         });
     });
 });

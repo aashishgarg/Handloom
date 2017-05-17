@@ -5,12 +5,12 @@
           <table class="table table-condensed">
             <thead>
             <tr class="cart_menu">
-              <td class="image">Image</td>
-              <td class="description">Item</td>
-              <td class="color">Color</td>
-              <td class="size">Size</td>
-              <td class="material">Material</td>
-              <td class="quantity">Quantity</td>
+              <td class="image_header">Image</td>
+              <td class="description_header">Item</td>
+              <td class="color_header">Color</td>
+              <td class="size_header">Size</td>
+              <td class="material_header">Material</td>
+              <td class="quantity_header">Quantity</td>
               <td></td>
             </tr>
             </thead>
@@ -30,19 +30,19 @@
 
                         <p><%= @item_variant.description %></p>
                       </td>
-                      <td class="cart_description">
+                      <td class="cart_color">
                         <p><%= @item_variant.color.name.capitalize %></p>
                       </td>
-                      <td class="cart_description">
+                      <td class="cart_size">
                         <p><%= @item_variant.size.name.capitalize %></p>
                       </td>
-                      <td class="cart_description">
+                      <td class="cart_material">
                         <p><%= @item_variant.material.name.capitalize if @item_variant.material %></p>
                       </td>
                       <td class="cart_quantity">
                         <div class="cart_quantity_button">
                           <!--<a class="cart_quantity_up" href="javascript:void(0);"> + </a>-->
-                          <%= ff.number_field :quantity, value: cart_item.quantity, class: 'cart_quantity_input', size: 2, autocomplete: 'off' %>
+                          <%= ff.number_field :quantity, value: cart_item.quantity, class: 'cart_quantity_input', autocomplete: 'off' %>
                           <!--<a class="cart_quantity_down" href="javascript:void(0);"> - </a>-->
                         </div>
                       </td>
@@ -66,16 +66,17 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-6">
-            <div class="heading">
-              <h3>Heading for order level information?</h3>
+              <div class="heading cart_info">
+                <h3>Heading for order level information?</h3>
 
-              <p>Information required to show regarding the order to be placed.</p>
-            </div>
+                <p>Information required to show regarding the order to be placed.</p>
+              </div>
           </div>
           <div class="col-sm-6">
             <div class="total_area">
               <ul>
-                <li>Total Items<span><%= Cart.total_items %></span></li>
+                <li>Total items<span class="total_cart_items"><%= Cart.total_items %></span></li>
+                <li>Total item quantities<span class="total_cart_quantity"><%= Cart.total_quantity %></span></li>
               </ul>
               <%= f.submit 'Check Out', class: 'btn btn-default check_out' %>
               <!--<a class="btn btn-default check_out" href="">Check Out</a>-->
@@ -91,3 +92,9 @@
         if (<%= !current_user.cart_items.present? %>) $('.check_out').hide();
     });
 </script>
+
+<style>
+    /*.cart_delete{*/
+    /*width: 20px;*/
+    /*}*/
+</style>

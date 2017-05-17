@@ -1,1 +1,5 @@
 $("tr#<%= @cart_item.id %>").remove();
+
+$('#cart_item_count').html('<%= Cart.count %>');
+$('span.total_cart_items').html('<%= Cart.total_items %>');
+$('span.total_cart_quantity').html('<%= Cart.total_quantity %>');

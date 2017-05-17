@@ -2,9 +2,7 @@
 *******Typography******
 **************************/
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,400italic,500,700,100);
-
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,600,700);
-
 @import url(http://fonts.googleapis.com/css?family=Abel);
 
 body {
@@ -320,12 +318,9 @@ ul.sub-menu {
   }
 }
 
-
 /*************************
 *******Footer CSS******
 **************************/
-
-
 
 /*************************
 ******* Home ******
@@ -521,6 +516,10 @@ h2.title:before {
     font-size: 12px;
     text-transform: uppercase;
   }
+  a:hover {
+    font-weight: 700;
+    color: #000000;
+  }
 }
 
 .brands-name {
@@ -627,8 +626,8 @@ h2.title {
 .productinfo h2 {
   color: #FE980F;
   font-family: 'Roboto', sans-serif;
-  font-size: 24px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 300;
 }
 
 .product-overlay h2 {
@@ -654,7 +653,7 @@ h2.title {
 
 .product-overlay {
   //background: #FE980F;
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0, 0, 0, 0.4);
   top: 0;
   height: 0;
   position: absolute;
@@ -825,7 +824,8 @@ h2.title {
   }
 }
 
-.recommended_items h2 {}
+.recommended_items h2 {
+}
 
 .our_partners {
   overflow: hidden;
@@ -1166,7 +1166,8 @@ h2.title {
   overflow: hidden;
 }
 
-.login-form, .signup-form {}
+.login-form, .signup-form {
+}
 
 .login-form h2, .signup-form h2 {
   color: #696763;
@@ -1287,13 +1288,17 @@ h2.title {
   .cart_menu {
     background: #FE980F;
     color: #fff;
-    font-size: 16px;
+    font-size: 13px;
     font-family: 'Roboto', sans-serif;
     font-weight: normal;
   }
   .table.table-condensed {
     thead tr {
-      height: 51px;
+      height: 40px;
+    }
+
+    tbody tr{
+      font-size: 13px;
     }
     tr {
       border-bottom: 1px solid #F7F7F0;
@@ -1339,7 +1344,8 @@ h2.title {
 
 .cart_product {
   display: block;
-  margin: 0px -70px 0px 25px;
+  margin: 0px -70px 0px 5px;
+  //width: 70px;
 }
 
 .cart_quantity_button a {
@@ -1360,11 +1366,13 @@ h2.title {
   font-size: 16px;
   text-align: center;
   font-family: 'Roboto', sans-serif;
+  width: 50px;
+  font-size: 13px;
 }
 
 .cart_delete {
   display: block;
-  margin-right: -12px;
+  //margin-right: -12px;
   overflow: hidden;
   a {
     background: #F0F0E9;
@@ -1394,6 +1402,14 @@ h2.title {
     font-size: 16px;
     font-weight: 300;
   }
+}
+
+.heading.cart_info{
+  border: 1px solid #E6E4DF;
+  color: #696763;
+  padding: 11px 25px 11px 40px;
+  margin-bottom: 80px;
+  height: 196px;
 }
 
 #do_action {
@@ -1451,7 +1467,8 @@ h2.title {
   > li {
     float: left;
     margin-right: 10px;
-    > span {}
+    > span {
+    }
   }
   input {
     background: #F0F0E9;
@@ -1693,7 +1710,8 @@ select, textarea {
   margin-bottom: 17px;
 }
 
-.single-blog-post > a {}
+.single-blog-post > a {
+}
 
 .blog-post-area {
   .single-blog-post {
@@ -2161,4 +2179,9 @@ select, textarea {
   &:hover {
     color: #FE980F;
   }
+}
+
+//===========================================================================//
+.flash_notices {
+  background-color: #d3d3d3;
 }
