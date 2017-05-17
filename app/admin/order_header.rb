@@ -9,7 +9,9 @@ ActiveAdmin.register Order::Header do
   index do
     selectable_column
     id_column
-    column :bill_no
+    column :bill_no do |order|
+      link_to order.bill_no, admin_order_header_path(order)
+    end
     column :user do |order|
       label order.user.name.capitalize + ' ('+order.user.email+')'
     end
@@ -18,5 +20,9 @@ ActiveAdmin.register Order::Header do
     end
     column :created_at
   end
+
+  # show do
+  #   render 'show'
+  # end
 
 end
