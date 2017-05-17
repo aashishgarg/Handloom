@@ -17,4 +17,7 @@ Rails.application.routes.draw do
   delete '/cart/:id', to: 'users#remove_cart_item', as: 'remove_cart_item'
 
   post '/order', to: 'users#order', as: 'order'
+
+
+  post '/item/:id/item_variant', to: 'items#item_variant', as: 'item_variant_selection'
 end

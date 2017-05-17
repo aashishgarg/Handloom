@@ -17,6 +17,9 @@ class ItemVariant < ApplicationRecord
            :meta_description,
            to: :item
 
+  # ===================== Validations ====================== #
+  validates_uniqueness_of :color, scope: [:item,:size]
+
   def item_image
     image? ? image_path.gsub(Rails.root.to_s, '') : 'sample_item.jpeg'
   end
@@ -26,6 +29,6 @@ class ItemVariant < ApplicationRecord
   end
 
   def properties_string
-    properties.join(' | ')
+    properties.join('   |   ')
   end
 end

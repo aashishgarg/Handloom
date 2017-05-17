@@ -2,17 +2,39 @@ ActiveAdmin.register Property::Size do
   before_filter :only => :index do
     @skip_sidebar = true
   end
-# See permitted parameters documentation:
-# https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-#
+
   permit_params :name
-#
-# or
-#
-# permit_params do
-#   permitted = [:permitted, :attributes]
-#   permitted << :other if params[:action] == 'create' && current_user.admin?
-#   permitted
-# end
+
+  controller do
+    def create
+      all_values = []
+      all_values = params[:property_size][:name].split(',') if params[:property_size][:name]
+      all_values.map!(&:strip)
+      if all_values.present?
+        all_values.each do |value|
+          unless Property::Size.where(name: value).take
+            Property::Size.create(name: value)
+          end
+        end
+      end
+
+      redirect_to admin_property_sizes_path
+    end
+
+    def update
+      all_values = []
+      all_values = params[:property_size][:name].split(',') if params[:property_size][:name]
+      all_values.map!(&:strip)
+      if all_values.present?
+        all_values.each do |value|
+          unless Property::Size.where(name: value).take
+            Property::Size.create(name: value)
+          end
+        end
+      end
+
+      redirect_to admin_property_sizes_path
+    end
+  end
 
 end

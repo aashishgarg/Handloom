@@ -33,14 +33,17 @@ ActiveAdmin.register Item do
     id_column
     column :category
     column :name
+    column :total_variants do |item|
+      label item.item_variants.count
+    end
     column :old_style_no
     column :new_style_no
-    column :description
-    column :short_description
+    # column :description
+    # column :short_description
     column :sku
     column :delivery_time
-    column :meta_keywords
-    column :meta_description
+    # column :meta_keywords
+    # column :meta_description
     actions
   end
 end

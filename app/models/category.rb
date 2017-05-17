@@ -1,7 +1,7 @@
 class Category < ApplicationRecord
 
   # =================== Associations ===================== #
-  has_many :sub_categories, class_name: 'Category', foreign_key: 'parent_id'
+  has_many :sub_categories, class_name: 'Category', foreign_key: 'parent_id', dependent: :destroy
   belongs_to :root_category, class_name: 'Category', foreign_key: 'parent_id', optional: true
 
   has_many :items, inverse_of: :category, dependent: :destroy

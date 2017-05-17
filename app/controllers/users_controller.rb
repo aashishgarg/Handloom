@@ -1,16 +1,21 @@
 class UsersController < ApplicationController
-
+  before_action :set_item, only: [:cart]
 
   def cart
     # ----------- For adding item to cart for user ---------------- #
     if request.post?
-      @cart_item = Cart.where(item_variant_id: params[:cart][:item_variant_id]).take
-      if @cart_item
-        @cart_item.update(quantity: (@cart_item.quantity.to_i + params[:cart][:quantity].to_i))
+      if @item_variant
+        @cart_item = Cart.where(item_variant_id: @item_variant.id).take
+        if @cart_item
+          @cart_item.update(quantity: (@cart_item.quantity.to_i + params[:cart][:quantity].to_i))
+        else
+          Cart.create(item_variant_id: @item_variant.id, quantity: params[:cart][:quantity], user_id: current_user.id)
+          flash[:notice] = 'Item successfully added to the cart.'
+        end
       else
-        Cart.create(item_variant_id: params[:cart][:item_variant_id], quantity: params[:cart][:quantity], user_id: current_user.id)
-        flash[:notice] = 'Item successfully added to the cart.'
+        flash[:error] = 'Color and Size selection is mandatory for adding an item to cart.'
       end
+
       # ----------- For showing user cart ---------------- #
     else
       @cart_items = Cart.all
@@ -35,5 +40,12 @@ class UsersController < ApplicationController
   private
   def order_params
     params.require(:order_header).permit(:id, order_details_attributes: [:item_variant_id, :quantity])
+  end
+
+  def set_item
+    if request.post?
+      @item = Item.where(id: params[:item_id]).take
+      @item_variant = @item.item_variants.where(color_id: params[:color].to_i, size_id: params[:size].to_i).take
+    end
   end
 end

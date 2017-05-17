@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+
+  before_action :set_item, only: [:item_variant]
   before_action :authenticate_user!
 
   def index
@@ -13,5 +15,14 @@ class ItemsController < ApplicationController
   def show
     @item = Item.where(id: params[:id]).take
     @cart = Cart.new
+  end
+
+  def item_variant
+    @available_variants = @item.item_variants.select{|variant| variant.color.id.to_s == params[:color]}
+  end
+
+  private
+  def set_item
+    @item = Item.where(id: params[:id]).take
   end
 end

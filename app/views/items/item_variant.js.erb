@@ -1,0 +1,5 @@
+$('.size_selection').replaceWith($('<%=j render partial: 'items/size_selection',
+                                                locals: {options: @available_variants.collect{|x| [x.size.name, x.size.id]}} %>'));
+
+
+//$('.view-product').html($('<img/>').attr({src: '<%#= @available_variants.first.item_image %>'}));
