@@ -32,7 +32,10 @@ ActiveAdmin.register User do
       label user.order_headers.count
     end
     column 'Last order' do |user|
-      label user.order_headers.last.created_at if user.order_headers.present?
+      label time_ago_in_words(user.order_headers.last.created_at) + ' ago' if user.order_headers.present?
+    end
+    column 'Last sign in' do |user|
+      label time_ago_in_words(user.last_sign_in_at) + ' ago'
     end
     actions
   end

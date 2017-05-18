@@ -12,7 +12,9 @@ ActiveAdmin.register Property::Color do
     column 'Total Items' do |property|
       label ItemVariant.where(color: property).count
     end
-    column :created_at
+    column :created_at do |property|
+      time_ago_in_words(property.created_at) + ' ago'
+    end
   end
 
   controller do

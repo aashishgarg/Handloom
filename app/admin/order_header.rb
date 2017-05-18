@@ -24,7 +24,9 @@ ActiveAdmin.register Order::Header do
     column :total_quantity do |order|
       label order.order_details.collect(&:quantity).inject(&:+)
     end
-    column :created_at
+    column :created_at do |order|
+      time_ago_in_words(order.created_at) + ' ago'
+    end
   end
 
   # show do

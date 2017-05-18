@@ -23,7 +23,9 @@ ActiveAdmin.register Order::Detail do
     column :image do |order|
       image_tag order.item_variant.item_image, class: 'item_image'
     end
-    column :created_at
+    column :created_at do |order|
+      time_ago_in_words(order.created_at) + ' ago'
+    end
   end
 
 end

@@ -60,11 +60,11 @@ ActiveAdmin.register Item do
 
   # =========== Controller ========================================= #
 
-  # controller do
-  #
-  #   def create
-  #
-  #   end
-  # end
+  controller do
+
+    def create
+      super
+    end
+  end
 
 end

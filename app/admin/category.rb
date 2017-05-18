@@ -45,8 +45,12 @@ ActiveAdmin.register Category do
         label category.sub_categories.collect { |x| x.items.count }.inject(&:+)
       end
     end
-    column :created_at
-    column :updated_at
+    column :created_at do |category|
+      time_ago_in_words(category.created_at) + ' ago'
+    end
+    column :updated_at do |category|
+      time_ago_in_words(category.updated_at) + ' ago'
+    end
     actions
   end
 end
