@@ -27,17 +27,17 @@ ActiveAdmin.register Item do
       # f.inputs "Item variants colors" do
       f.object.item_variants.build
 
-      # f.fields_for :item_variants do |m|
-      #   m.inputs do
-      #     m.input :color_id, as: :text
-      #   end
-      # end
+      f.fields_for :item_variants do |m|
+        m.inputs do
+          m.input :color_id, as: :check_boxes, collection: Property::Color.all.collect{|x| [x.name, x.id]}
+        end
+      end
       #
-      # f.fields_for :item_variants do |m|
-      #   m.inputs do
-      #     m.input :size_id, as: :select, collection: Property::Size.all.collect { |x| [x.name, x.id] }, multiple: true
-      #   end
-      # end
+      f.fields_for :item_variants do |m|
+        m.inputs do
+          m.input :size_id, as: :check_boxes, collection: Property::Size.all.collect{|x| [x.name, x.id]}
+        end
+      end
     end
     f.actions
   end

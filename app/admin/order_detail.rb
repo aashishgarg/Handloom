@@ -1,9 +1,13 @@
 ActiveAdmin.register Order::Detail do
-  before_filter :only => :index do
-    @skip_sidebar = true
-  end
+
+
+  config.filters = false
 
   actions :all, :except => [:new, :destroy]
+
+  # =========== Custom Filters ===================================== #
+  # filter :bill_no
+  # filter :user
 
   # =========== Custom Index page ================================== #
   index do

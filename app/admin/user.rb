@@ -5,8 +5,6 @@ ActiveAdmin.register User do
 
   permit_params :email, :name, :phone, :address, :password, :password_confirmation
 
-
-
   # =========== Custom Form for Item(Edit/New) ===================== #
   form do |f|
     f.inputs 'User Form' do

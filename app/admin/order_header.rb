@@ -7,6 +7,7 @@ ActiveAdmin.register Order::Header do
 
   # =========== Custom Filters ===================================== #
   filter :bill_no
+  filter :user
 
   # =========== Custom Index page ================================== #
   index do
