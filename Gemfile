@@ -65,5 +65,7 @@ gem 'geocoder'
 gem 'pnotify-rails'
 gem 'unobtrusive_flash', '>=3'
 gem 'exception_notification'
+gem 'select2-rails'
+gem 'activeadmin-select2', github: 'mfairburn/activeadmin-select2'
 
 gem 'mina'

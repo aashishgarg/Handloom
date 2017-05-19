@@ -5,7 +5,8 @@ ActiveAdmin.register Item do
 
   # =========== Permitted parameters =============================== #
   permit_params :name, :category_id, :old_style_no, :new_style_no, :description,
-                :short_description, :sku, :delivery_time, :meta_keywords, :meta_description
+                :short_description, :sku, :delivery_time, :meta_keywords, :meta_description, color_ids: [],
+                size_ids: []
 
   # =========== Filters ============================================ #
   # filter ''
@@ -23,21 +24,8 @@ ActiveAdmin.register Item do
       f.input :delivery_time
       f.input :meta_keywords
       f.input :meta_description
-
-      # f.inputs "Item variants colors" do
-      f.object.item_variants.build
-
-      f.fields_for :item_variants do |m|
-        m.inputs do
-          m.input :color_id, as: :check_boxes, collection: Property::Color.all.collect{|x| [x.name, x.id]}
-        end
-      end
-      #
-      f.fields_for :item_variants do |m|
-        m.inputs do
-          m.input :size_id, as: :check_boxes, collection: Property::Size.all.collect{|x| [x.name, x.id]}
-        end
-      end
+      f.input :colors, as: :select2_multiple, collection: Property::Color.all.collect { |x| [x.name, x.id] }, multiple: true
+      f.input :sizes, as: :select2_multiple, collection: Property::Size.all.collect { |x| [x.name, x.id] }, multiple: true
     end
     f.actions
   end
@@ -59,12 +47,9 @@ ActiveAdmin.register Item do
   end
 
   # =========== Controller ========================================= #
-
   controller do
-
     def create
-      super
+
     end
   end
-
 end

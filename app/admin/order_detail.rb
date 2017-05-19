@@ -1,7 +1,7 @@
 ActiveAdmin.register Order::Detail do
-
-
-  config.filters = false
+  before_filter :only => :index do
+    @skip_sidebar = true
+  end
 
   actions :all, :except => [:new, :destroy]
 

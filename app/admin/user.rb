@@ -3,6 +3,8 @@ ActiveAdmin.register User do
     @skip_sidebar = true
   end
 
+  actions :all, :except => [:new, :destroy]
+
   permit_params :email, :name, :phone, :address, :password, :password_confirmation
 
   # =========== Custom Form for Item(Edit/New) ===================== #
@@ -20,7 +22,7 @@ ActiveAdmin.register User do
 
   # =========== Custom Index page ================================== #
   index do
-    selectable_column
+    # selectable_column
     id_column
     column :name
     column :email
@@ -33,7 +35,10 @@ ActiveAdmin.register User do
       label time_ago_in_words(user.order_headers.last.created_at) + ' ago' if user.order_headers.present?
     end
     column 'Last sign in' do |user|
-      label time_ago_in_words(user.last_sign_in_at) + ' ago'
+      label user.current_sign_in_at ? time_ago_in_words(user.current_sign_in_at) + ' ago' : ''
+    end
+    column 'sign in count' do |user|
+      label user.sign_in_count
     end
     actions
   end

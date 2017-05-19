@@ -1,9 +1,9 @@
 ActiveAdmin.register Order::Header do
-  before_filter :only => :index do
-    @skip_sidebar = true
-  end
+  # before_filter :only => :index do
+  #   @skip_sidebar = true
+  # end
 
-  actions :all, :except => [:new]
+  actions :all, :except => [:new,:destroy]
 
   # =========== Custom Filters ===================================== #
   filter :bill_no
@@ -11,7 +11,7 @@ ActiveAdmin.register Order::Header do
 
   # =========== Custom Index page ================================== #
   index do
-    selectable_column
+    # selectable_column
     id_column
     column :bill_no do |order|
       link_to order.bill_no, admin_order_header_path(order)
