@@ -12,6 +12,10 @@ body {
   padding-bottom: 70px;
 }
 
+body{
+  background: image_url('background.jpg') center no-repeat;
+}
+
 html {
   height: 100%;
 }
@@ -68,7 +72,8 @@ a#scrollUp {
 **************************/
 
 .header_top {
-  background: none repeat scroll 0 0 #F0F0E9;
+  //background: none repeat scroll 0 0 #F0F0E9;
+  padding-top: 15px;
 }
 
 .contactinfo ul li {
@@ -416,7 +421,7 @@ ul.sub-menu {
   border: 1px solid #F7F7F0;
   margin-bottom: 35px;
   padding-bottom: 20px;
-  padding-top: 15px;
+  //padding-top: 15px;
 }
 
 .left-sidebar h2, .brands_products h2 {
