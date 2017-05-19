@@ -12,7 +12,7 @@ class Order::Header < ApplicationRecord
   after_create :notify_order_info
 
   def notify_order_info
-    OrderNotifierMailer.notify_order_info(self).deliver_now
+    OrderNotifierMailer.notify_order_info(self).deliver_later
   end
 
   def bill_no
