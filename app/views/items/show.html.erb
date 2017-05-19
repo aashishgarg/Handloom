@@ -25,7 +25,7 @@
                   <div class="item_variant_container">
                     <div class="item_variant_container color_container">
                       <%= render partial: 'items/color_selection',
-                                 locals: {options: @item.item_variants.collect { |x| [x.color.name.capitalize, x.color.id] }} %>
+                                 locals: {options: @item.item_variants.collect { |x| [x.color.name.capitalize, x.color.id] }.uniq} %>
                     </div>
                     <div class="item_variant_container size_container">
                       <%= render partial: 'items/size_selection',

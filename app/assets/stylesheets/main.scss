@@ -75,6 +75,17 @@ a#scrollUp {
   //background: none repeat scroll 0 0 #F0F0E9;
   padding-top: 15px;
   padding-bottom: 25px;
+
+  span#cart_item_count{
+    height: 16px;
+    width: 14px;
+    background-color: red;
+    border-radius: 7px;
+    font-size: 12px;
+    padding: 0px 0px 0px 3px;
+    color: #fff;
+    font-weight: 700;
+  }
 }
 
 .contactinfo ul li {

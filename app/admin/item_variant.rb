@@ -12,14 +12,14 @@ ActiveAdmin.register ItemVariant do
   # =========== Custom Form for Item(Edit/New) ===================== #
   form do |f|
     f.inputs 'Item variant Form' do
-      f.input :item, as: :select, collection: Item.all.collect { |item| [item.name, item.id] }
+      f.input :item, as: :select2, collection: Item.all.collect { |item| [item.name, item.id] }
       f.input :price
       f.input :special_price
       f.input :image, as: :file
-      f.input :color
-      f.input :size
-      f.input :brand
-      f.input :material
+      f.input :color, as: :select2
+      f.input :size, as: :select2
+      f.input :brand, as: :select2
+      f.input :material, as: :select2
     end
     f.actions
   end

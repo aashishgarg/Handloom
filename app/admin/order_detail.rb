@@ -1,13 +1,14 @@
 ActiveAdmin.register Order::Detail do
-  before_filter :only => :index do
-    @skip_sidebar = true
-  end
+  # belongs_to :order_header, class: 'Order::Header'
+  # before_filter :only => :index do
+  #   @skip_sidebar = true
+  # end
 
   actions :all, :except => [:new, :destroy]
 
   # =========== Custom Filters ===================================== #
-  # filter :bill_no
-  # filter :user
+  filter :order_header_bill_no
+  # filter :user_name
 
   # =========== Custom Index page ================================== #
   index do
@@ -19,13 +20,13 @@ ActiveAdmin.register Order::Detail do
     column :item_variant
     column :quantity
     column :color do |order|
-      label order.item_variant.color.name
+      label order.item_variant.color.name if order.item_variant
     end
     column :size do |order|
-      label order.item_variant.size.name
+      label order.item_variant.size.name if order.item_variant
     end
     column :image do |order|
-      image_tag order.item_variant.item_image, class: 'item_image'
+      image_tag order.item_variant.item_image, class: 'item_image' if order.item_variant
     end
     column :created_at do |order|
       time_ago_in_words(order.created_at) + ' ago'

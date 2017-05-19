@@ -21,7 +21,7 @@
                     <%= ff.hidden_field :item_variant_id, value: cart_item.item_variant_id %>
                     <tr id="<%= cart_item.id %>">
                       <td class="cart_product">
-                        <%= link_to item_path(@item_variant) do %>
+                        <%= link_to item_path(@item_variant.item) do %>
                             <%= image_tag @item_variant.item_image, class: 'cart_item_image' %>
                         <% end %>
                       </td>
@@ -42,7 +42,7 @@
                       <td class="cart_quantity">
                         <div class="cart_quantity_button">
                           <!--<a class="cart_quantity_up" href="javascript:void(0);"> + </a>-->
-                          <%= ff.number_field :quantity, value: cart_item.quantity, class: 'cart_quantity_input', autocomplete: 'off' %>
+                          <%= ff.number_field :quantity, value: cart_item.quantity, class: 'cart_quantity_input',min: 1, autocomplete: 'off' %>
                           <!--<a class="cart_quantity_down" href="javascript:void(0);"> - </a>-->
                         </div>
                       </td>
@@ -66,11 +66,11 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-6">
-              <div class="heading cart_info">
-                <h3>Heading for order level information?</h3>
+            <div class="heading cart_info">
+              <h3>Heading for order level information?</h3>
 
-                <p>Information required to show regarding the order to be placed.</p>
-              </div>
+              <p>Information required to show regarding the order to be placed.</p>
+            </div>
           </div>
           <div class="col-sm-6">
             <div class="total_area">
@@ -90,6 +90,15 @@
 <script>
     $(function () {
         if (<%= !current_user.cart_items.present? %>) $('.check_out').hide();
+
+        $('input.cart_quantity_input, a.cart_quantity_delete').on('change', function () {
+            var total_qty = 0;
+            var _this = this;
+            $.each($('input.cart_quantity_input'), function (index, item) {
+                total_qty += parseInt($(item).val());
+            });
+            $('span.total_cart_quantity').html(total_qty);
+        });
     });
 </script>
 

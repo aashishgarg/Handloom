@@ -7,7 +7,7 @@ ActiveAdmin.register Category do
   permit_params :name, :parent_id
 
   # =========== Scope for index page =============================== #
-  scope :all_categories
+  # scope :all_categories
   scope :root_categories
   # scope :sub_categories
   scope :sub_categories, default: true    #=> Default selected scope in index page
@@ -19,7 +19,7 @@ ActiveAdmin.register Category do
   form do |f|
     f.inputs 'Categories and sub categories form' do
       f.semantic_errors
-      f.input :parent_id, :label => 'Root category', as: :select,
+      f.input :parent_id, :label => 'Root category', as: :select2,
               collection: Category.root_categories.collect { |category| [category.name, category.id] }
       f.input :name
     end
