@@ -36,4 +36,18 @@ ActiveAdmin.register Order::Detail do
     end
   end
 
+  # =========== Customized CSV Format ============================== #
+  csv do
+    column :id
+    column(:item){|order| order.item_variant.item.name}
+    column(:color){|order| order.item_variant.color.name}
+    column(:size){|order| order.item_variant.size.name}
+    column(:material){|order| order.item_variant.material.name if order.item_variant.material}
+    column(:brand){|order| order.item_variant.brand.name if order.item_variant.brand}
+    column :quantity
+    column(:bill_no){|order| order.order_header.bill_no}
+    column(:customer_name) {|order| order.order_header.user.name.capitalize}
+    column(:customer_email) {|order| order.order_header.user.email}
+    column(:created_at) {|order| order.created_at}
+  end
 end

@@ -1,7 +1,7 @@
 ActiveAdmin.register Category do
-  before_filter :only => :index do
-    @skip_sidebar = true
-  end
+  # before_filter :only => :index do
+  #   @skip_sidebar = true
+  # end
 
   # =========== Permitted parameters =============================== #
   permit_params :name, :parent_id
@@ -13,7 +13,7 @@ ActiveAdmin.register Category do
   scope :sub_categories, default: true    #=> Default selected scope in index page
 
   # =========== Custom Filters ===================================== #
-  # filter :name
+  filter :category_name_cont
 
   # =========== Custom Form for categories(Edit/New) =============== #
   form do |f|

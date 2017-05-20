@@ -29,9 +29,14 @@ ActiveAdmin.register Order::Header do
       time_ago_in_words(order.created_at) + ' ago'
     end
   end
-
-  # show do
-  #   render 'show'
-  # end
-
+  # =========== Customized CSV Format ============================== #
+  csv do
+    column :id
+    column :bill_no
+    column(:customer_name) {|order| order.user.name.capitalize}
+    column(:customer_email) {|order| order.user.email}
+    column(:total_items) {|order| order.order_details.count}
+    column(:total_quantity) {|order| order.order_details.collect(&:quantity).inject(&:+)}
+    column(:created_at) {|order| order.created_at}
+  end
 end

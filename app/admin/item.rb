@@ -1,14 +1,14 @@
 ActiveAdmin.register Item do
-  before_filter :only => :index do
-    @skip_sidebar = true
-  end
+  # before_filter :only => :index do
+  #   @skip_sidebar = true
+  # end
 
   # =========== Permitted parameters =============================== #
   permit_params :name, :category_id, :old_style_no, :new_style_no, :description,
                 :short_description, :sku, :delivery_time, :meta_keywords, :meta_description
 
-  # =========== Filters ============================================ #
-  # filter ''
+  # =========== Custom Filters ===================================== #
+  filter :category_name_cont
 
   # =========== Pagination ========================================= #
   config.per_page = 10
@@ -52,7 +52,6 @@ ActiveAdmin.register Item do
 
   # =========== Controller ========================================= #
   controller do
-
     def create
       item = Item.new(
           name: params[:item][:name],
@@ -74,9 +73,6 @@ ActiveAdmin.register Item do
         end
       end
       item.save
-      puts '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&'
-      puts item.errors.full_messages
-      puts '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&'
       redirect_to admin_items_path
     end
   end
