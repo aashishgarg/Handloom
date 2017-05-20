@@ -1,5 +1,8 @@
 class Item < ApplicationRecord
 
+  # =================== Constants ======================== #
+  ITEM_STATUS = %w(open closed)
+
   # =================== Associations ===================== #
   belongs_to :category
   has_many :item_variants, inverse_of: :item, dependent: :destroy
@@ -14,6 +17,7 @@ class Item < ApplicationRecord
   validates :description, presence: true, length: {minimum: 2}
   validates :sku, presence: true, length: {minimum: 2, maximum: 50}
   validates :new_style_no, presence: true, length: {minimum: 2, maximum: 50}
+  validates :status, inclusion: {in: ITEM_STATUS}
 
   # =================== Pagination ======================= #
   # paginates_per 3

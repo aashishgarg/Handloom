@@ -11,6 +11,7 @@ class CreateItems < ActiveRecord::Migration[5.0]
       t.string :delivery_time
       t.text :meta_keywords
       t.text :meta_description
+      t.status :status, default: 'open'
 
       t.timestamps
     end
