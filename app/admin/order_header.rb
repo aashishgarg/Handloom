@@ -12,6 +12,7 @@ ActiveAdmin.register Order::Header do
   scope :week
   scope :month
   scope :year
+  scope :all
 
   # =========== Custom Filters ===================================== #
   filter :bill_no_cont

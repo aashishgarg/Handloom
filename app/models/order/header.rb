@@ -12,7 +12,7 @@ class Order::Header < ApplicationRecord
   after_create :notify_order_info
 
   # ====================== Scopes ========================== #
-  scope :today, -> { where(created_at: Date.today) }
+  scope :today, -> { where('Date(created_at) = (?)', Date.today) }
   scope :week, -> { where('created_at >= (?)', (Date.today - 1.week)) }
   scope :month, -> { where('created_at >= (?)', (Date.today - 1.month)) }
   scope :year, -> { where('created_at >= (?)', (Date.today - 1.year)) }

@@ -7,10 +7,11 @@ ActiveAdmin.register Order::Detail do
 
   # =========== Scopes ============================================= #
   scope('Filtered', default: true) { |scope| params[:bill_id] ? scope.where(header_id: params[:bill_id]) : scope.today }
-  scope -> { Date.today.strftime '%A' }, :today
+  scope(Date.today.strftime '%A'){|scope| scope.where('Date(created_at) = (?)', Date.today)}
   scope :week
   scope :month
   scope :year
+  scope :all
 
   # =========== Custom Filters ===================================== #
   filter :order_header_bill_no_cont
