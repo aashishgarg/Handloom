@@ -10,6 +10,7 @@
 @import "active_admin/mixins";
 @import "active_admin/base";
 @import "active_admin/select2/base";
+@import "font-awesome";
 
 // Overriding any non-variable SASS must be done after the fact.
 // For example, to change the default status-tag color:
@@ -43,5 +44,36 @@ form#session_new{
   fieldset {
     width: 100%;
     margin: auto;
+  }
+}
+.header {
+  .header-item.tabs {
+    li > a {
+      font-weight: 700;
+      color: #fff;
+    }
+  }
+}
+
+.title_bar{
+  padding: 0px 30px !important;
+}
+
+//=============================================== //
+.new.admin_categories{
+  .select2.select2-container.select2-container--default{
+    width: 560px !important;
+  }
+}
+
+.new.admin_items{
+  .select2.select2-container.select2-container--default{
+    width: 560px !important;
+  }
+}
+
+.new.admin_item_variants{
+  .select2.select2-container.select2-container--default{
+    width: 560px !important;
   }
 }

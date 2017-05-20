@@ -5,7 +5,7 @@ ActiveAdmin.setup do |config|
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
-  config.site_title = 'Demo Application'
+  config.site_title = 'Kapoor Exports'
 
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
@@ -40,9 +40,9 @@ ActiveAdmin.setup do |config|
   # a namespace block. For example, to change the site title
   # within a namespace:
   #
-  config.namespace :admin do |admin|
-    admin.site_title = 'Demo Application'
-  end
+  # config.namespace :admin do |admin|
+  #   admin.site_title = ''
+  # end
   #
   # This will ONLY change the title for the admin section. Other
   # namespaces will continue to use the main "site_title" configuration.
@@ -113,7 +113,7 @@ ActiveAdmin.setup do |config|
   # roots for each namespace.
   #
   # Default:
-  config.root_to = 'items#index'
+  config.root_to = 'order_headers#index'
 
   # == Admin Comments
   #
@@ -178,7 +178,7 @@ ActiveAdmin.setup do |config|
   # Breadcrumbs are enabled by default. You can customize them for individual
   # resources or you can disable them globally from here.
   #
-  # config.breadcrumb = false
+  config.breadcrumb = false
 
   # == Create Another Checkbox
   #
@@ -194,13 +194,13 @@ ActiveAdmin.setup do |config|
   # and feel.
   #
   # To load a stylesheet:
-    config.register_stylesheet 'custom_admin.css'
+  config.register_stylesheet 'custom_admin.css'
   #
   # You can provide an options hash for more control, which is passed along to stylesheet_link_tag():
   #   config.register_stylesheet 'my_print_stylesheet.css', media: :print
   #
   # To load a javascript file:
-    config.register_javascript 'custom_admin.js'
+  config.register_javascript 'custom_admin.js'
 
   # == CSV options
   #
@@ -216,20 +216,20 @@ ActiveAdmin.setup do |config|
   #
   # To change the default utility navigation to show a link to your website & a logout btn
   #
-  #   config.namespace :admin do |admin|
-  #     admin.build_menu :utility_navigation do |menu|
-  #       menu.add label: "My Great Website", url: "http://www.mygreatwebsite.com", html_options: { target: :blank }
-  #       admin.add_logout_button_to_menu menu
-  #     end
-  #   end
+    config.namespace :admin do |admin|
+      admin.build_menu :utility_navigation do |menu|
+        menu.add label: 'My Website', url: "http://www.google.com", html_options: { target: :blank }
+        admin.add_logout_button_to_menu menu
+      end
+    end
   #
   # If you wanted to add a static menu item to the default menu provided:
   #
-  #   config.namespace :admin do |admin|
-  #     admin.build_menu :default do |menu|
-  #       menu.add label: "My Great Website", url: "http://www.mygreatwebsite.com", html_options: { target: :blank }
-  #     end
-  #   end
+    # config.namespace :admin do |admin|
+    #   admin.build_menu :default do |menu|
+    #     menu.add label: 'My website', url: 'http://www.mygreatwebsite.com', html_options: { target: :blank }
+    #   end
+    # end
 
   # == Download Links
   #

@@ -1,4 +1,6 @@
 ActiveAdmin.register User do
+  menu priority: 1
+
   before_filter :only => :index do
     @skip_sidebar = true
   end

@@ -1,9 +1,17 @@
 ActiveAdmin.register Order::Header do
+  menu priority: 9, parent: 'Orders'
+
   # before_filter :only => :index do
   #   @skip_sidebar = true
   # end
 
-  actions :all, :except => [:new,:destroy]
+  actions :all, :except => [:new, :destroy]
+
+  # =========== Scopes ============================================= #
+  scope -> { Date.today.strftime '%A' }, :today, default: true
+  scope :week
+  scope :month
+  scope :year
 
   # =========== Custom Filters ===================================== #
   filter :bill_no_cont
@@ -14,7 +22,7 @@ ActiveAdmin.register Order::Header do
     # selectable_column
     id_column
     column :bill_no do |order|
-      link_to order.bill_no, admin_order_header_path(order)
+      link_to order.bill_no, admin_order_details_path(bill_id: order.id)
     end
     column :user do |order|
       label order.user.name.capitalize + ' ('+order.user.email+')'
@@ -33,10 +41,10 @@ ActiveAdmin.register Order::Header do
   csv do
     column :id
     column :bill_no
-    column(:customer_name) {|order| order.user.name.capitalize}
-    column(:customer_email) {|order| order.user.email}
-    column(:total_items) {|order| order.order_details.count}
-    column(:total_quantity) {|order| order.order_details.collect(&:quantity).inject(&:+)}
-    column(:created_at) {|order| order.created_at}
+    column(:customer_name) { |order| order.user.name.capitalize }
+    column(:customer_email) { |order| order.user.email }
+    column(:total_items) { |order| order.order_details.count }
+    column(:total_quantity) { |order| order.order_details.collect(&:quantity).inject(&:+) }
+    column(:created_at) { |order| order.created_at }
   end
 end

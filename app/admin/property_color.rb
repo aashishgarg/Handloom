@@ -1,4 +1,6 @@
 ActiveAdmin.register Property::Color do
+  menu label: 'Colors', priority: 3, parent: 'Item Attributes'
+
   before_filter :only => :index do
     @skip_sidebar = true
   end

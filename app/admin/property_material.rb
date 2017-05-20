@@ -1,4 +1,6 @@
 ActiveAdmin.register Property::Material do
+  menu label: 'Materials', priority: 5, parent: 'Item Attributes'
+
   before_filter :only => :index do
     @skip_sidebar = true
   end

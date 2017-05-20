@@ -1,4 +1,6 @@
 ActiveAdmin.register Property::Brand do
+  menu label: 'Brands', priority: 6, parent: 'Item Attributes'
+
   before_filter :only => :index do
     @skip_sidebar = true
   end

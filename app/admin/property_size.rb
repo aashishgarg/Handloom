@@ -1,4 +1,6 @@
 ActiveAdmin.register Property::Size do
+  menu label: 'Sizes',priority: 4, parent: 'Item Attributes'
+
   before_filter :only => :index do
     @skip_sidebar = true
   end
