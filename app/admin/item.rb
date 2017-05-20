@@ -10,6 +10,9 @@ ActiveAdmin.register Item do
   # =========== Filters ============================================ #
   # filter ''
 
+  # =========== Pagination ========================================= #
+  config.per_page = 10
+
   # =========== Custom Form for Item(Edit/New) ===================== #
   form do |f|
     f.inputs 'Item Form' do
@@ -25,7 +28,8 @@ ActiveAdmin.register Item do
       f.input :meta_description
       f.input :colors, as: :select2_multiple, collection: Property::Color.all.collect { |x| [x.name, x.id] }, multiple: true
       f.input :sizes, as: :select2_multiple, collection: Property::Size.all.collect { |x| [x.name, x.id] }, multiple: true
-      # f.input :materials
+      f.input :materials, as: :select2, collection: Property::Material.all.collect { |x| [x.name, x.id] }
+      f.input :brands, as: :select2, collection: Property::Brand.all.collect { |x| [x.name, x.id] }
     end
     f.actions
   end
@@ -65,10 +69,14 @@ ActiveAdmin.register Item do
 
       params[:item][:color_ids].each do |color_id|
         params[:item][:size_ids].each do |size_id|
-          item.item_variants.build(color_id: color_id, size_id: size_id) unless (color_id=='' || size_id=='')
+          item.item_variants.build(color_id: color_id, size_id: size_id, material_id: params[:item][:material_ids],
+                                   brand_id: params[:item][:brand_ids]) unless (color_id=='' || size_id=='')
         end
       end
       item.save
+      puts '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&'
+      puts item.errors.full_messages
+      puts '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&'
       redirect_to admin_items_path
     end
   end

@@ -6,8 +6,8 @@ ActiveAdmin.register Order::Header do
   actions :all, :except => [:new,:destroy]
 
   # =========== Custom Filters ===================================== #
-  filter :bill_no
-  filter :user
+  filter :bill_no_cont
+  filter :user_name_cont
 
   # =========== Custom Index page ================================== #
   index do

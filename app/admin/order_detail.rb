@@ -7,8 +7,11 @@ ActiveAdmin.register Order::Detail do
   actions :all, :except => [:new, :destroy]
 
   # =========== Custom Filters ===================================== #
-  filter :order_header_bill_no
-  # filter :user_name
+  filter :order_header_bill_no_cont
+  filter :order_header_user_name_cont
+
+  # =========== Pagination ========================================= #
+  config.per_page = 10
 
   # =========== Custom Index page ================================== #
   index do

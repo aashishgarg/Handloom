@@ -1,13 +1,16 @@
 ActiveAdmin.register ItemVariant do
-  before_filter :only => :index do
-    @skip_sidebar = true
-  end
+  # before_filter :only => :index do
+  #   @skip_sidebar = true
+  # end
 
   # =========== Permitted parameters =============================== #
   permit_params :item_id, :image, :price, :special_price, :color_id,:brand_id,:size_id,:material_id
 
   # =========== Filters ============================================ #
-  # filter ''
+  filter :item_sku_cont
+
+  # =========== Pagination ========================================= #
+  config.per_page = 10
 
   # =========== Custom Form for Item(Edit/New) ===================== #
   form do |f|
