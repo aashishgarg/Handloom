@@ -6,6 +6,9 @@ ActiveAdmin.register Category do
   # =========== Permitted parameters =============================== #
   permit_params :name, :parent_id
 
+  # =========== Pagination ========================================= #
+  config.per_page = 10
+
   # =========== Scope for index page =============================== #
   # scope :all_categories
   scope :root_categories
@@ -13,7 +16,7 @@ ActiveAdmin.register Category do
   scope :sub_categories, default: true    #=> Default selected scope in index page
 
   # =========== Custom Filters ===================================== #
-  filter :category_name_cont
+  filter :name
 
   # =========== Custom Form for categories(Edit/New) =============== #
   form do |f|

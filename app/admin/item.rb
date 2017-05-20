@@ -3,9 +3,26 @@ ActiveAdmin.register Item do
   #   @skip_sidebar = true
   # end
 
+  # active_admin_import validate: true,
+  #                     before_batch_import: proc { |import|
+  #                       # import.file #current file used
+  #                       # import.resource #ActiveRecord class to import to
+  #                       # import.options # options
+  #                       # import.result # result before bulk iteration
+  #                       # import.headers # CSV headers
+  #                       # import.csv_lines #lines to import
+  #                       # import.model #template_object instance
+  #                     },
+  #                     after_batch_import: proc { |import|
+  #                       #the same
+  #                     }
+
   # =========== Permitted parameters =============================== #
   permit_params :name, :category_id, :old_style_no, :new_style_no, :description,
                 :short_description, :sku, :delivery_time, :meta_keywords, :meta_description
+
+  # =========== Header Level actions =============================== #
+  actions :all, :except => [:destroy]
 
   # =========== Custom Filters ===================================== #
   filter :category_name_cont
@@ -36,7 +53,7 @@ ActiveAdmin.register Item do
 
   # =========== Custom Index page ================================== #
   index do
-    selectable_column
+    # selectable_column
     id_column
     column :name
     column :total_variants do |item|

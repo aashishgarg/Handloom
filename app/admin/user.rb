@@ -3,8 +3,10 @@ ActiveAdmin.register User do
     @skip_sidebar = true
   end
 
-  actions :all, :except => [:new, :destroy]
+  # =========== Header Level actions =============================== #
+  actions :all, :except => [:destroy]
 
+  # =========== Permitted Parameters =============================== #
   permit_params :email, :name, :phone, :address, :password, :password_confirmation
 
   # =========== Custom Form for Item(Edit/New) ===================== #

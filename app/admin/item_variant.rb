@@ -6,6 +6,9 @@ ActiveAdmin.register ItemVariant do
   # =========== Permitted parameters =============================== #
   permit_params :item_id, :image, :price, :special_price, :color_id,:brand_id,:size_id,:material_id
 
+  # =========== Header Level actions =============================== #
+  actions :all, :except => [:destroy]
+
   # =========== Filters ============================================ #
   filter :item_sku_cont
 
@@ -29,7 +32,7 @@ ActiveAdmin.register ItemVariant do
 
   # =========== Custom Index page ================================== #
   index do
-    selectable_column
+    # selectable_column
     id_column
     column :image do |item_variant|
       image_tag item_variant.item_image, class: 'item_image'
