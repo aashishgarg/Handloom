@@ -42,7 +42,7 @@ task :environment do
 end
 
 # 22222222222222222222222222222222222222222222222222222222222222222222222222 #
-task :setup_prerequesties  do
+task setup_prerequesties: :environment  do
 
   comment %["#{ENV['on']}"]
   set :rails_env, ENV['on'].to_sym unless ENV['on'].nil?

@@ -81,7 +81,7 @@ ActiveAdmin.register Item do
       csv_data = CSV.read(params[:active_admin_import_model][:file].path)
       csv_data.each_with_index do |data, index|
 
-        if index > 0
+        if index > 0 #--> For leaving the headers
           category = Category.where(name: data[0].strip).take
 
           @item = Item.new(category_id: !!category ? category.id : nil,

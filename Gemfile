@@ -55,7 +55,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # =================== Additional Gems ================================ #
 gem 'letter_opener'
 gem 'devise'
+
 gem 'activeadmin', github: 'activeadmin'
+gem 'activeadmin-select2', github: 'mfairburn/activeadmin-select2'
+gem "active_admin_import" , '3.0.0'
+
 gem 'photofy'
 gem 'bootstrap-toggle-rails'
 gem 'bootstrap-sass', '~> 3.1.1'
@@ -66,7 +70,6 @@ gem 'pnotify-rails'
 gem 'unobtrusive_flash', '>=3'
 gem 'exception_notification'
 gem 'select2-rails'
-gem 'activeadmin-select2', github: 'mfairburn/activeadmin-select2'
-gem "active_admin_import" , '3.0.0'
 gem 'kaminari'
+
 gem 'mina'
