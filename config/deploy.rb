@@ -82,12 +82,12 @@ task setup_prerequesties: :environment  do
   end
 
   comment "-----> Installing Ruby Version Manager"
-  command %[command curl -sSL https://rvm.io/mpapis.asc | gpg --import]
-  command %[curl -sSL https://get.rvm.io | bash -s stable --ruby]
-
-  command %[source "#{fetch(:rvm_path)}"]
-  command %[rvm requirements]
-  command %[rvm install "#{fetch(:ruby_version)}"]
+  # command %[command curl -sSL https://rvm.io/mpapis.asc | gpg --import]
+  # command %[curl -sSL https://get.rvm.io | bash -s stable --ruby]
+  #
+  # command %[source "#{fetch(:rvm_path)}"]
+  # command %[rvm requirements]
+  # command %[rvm install "#{fetch(:ruby_version)}"]
   command %[gem install bundler]
 
   command %[mkdir "#{fetch(:deploy_to)}"]

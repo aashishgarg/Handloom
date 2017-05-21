@@ -14,9 +14,9 @@ ActiveAdmin.register Order::Detail do
   scope :all
 
   # =========== Custom Filters ===================================== #
-  filter :order_header_bill_no_cont
-  filter :order_header_bill_no_eq, as: :select, collection: Order::Header.all.collect(&:bill_no)
-  filter :order_header_user_name_eq, as: :select, collection: User.all.collect(&:name)
+  # filter :order_header_bill_no_cont
+  # filter :order_header_bill_no_eq, as: :select, collection: Order::Header.all.collect(&:bill_no)
+  # filter :order_header_user_name_eq, as: :select, collection: User.all.collect(&:name)
 
   # =========== Pagination ========================================= #
   config.per_page = 10
