@@ -73,8 +73,8 @@ a#scrollUp {
 
 .header_top {
   //background: none repeat scroll 0 0 #F0F0E9;
-  padding-top: 15px;
-  padding-bottom: 25px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 
   span#cart_item_count {
     height: 16px;
@@ -344,6 +344,7 @@ ul.sub-menu {
 **************************/
 
 #slider {
+  margin-top: 10px;
   //padding-top: 20px;
   /*padding-bottom: 45px;*/
 }
@@ -1301,6 +1302,7 @@ h2.title {
 
 #cart_items .cart_info {
   border: 1px solid #E6E4DF;
+  margin-top: 30px;
   margin-bottom: 50px;
   .cart_menu {
     background: #FE980F;
