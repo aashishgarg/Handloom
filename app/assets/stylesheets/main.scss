@@ -12,8 +12,8 @@ body {
   padding-bottom: 70px;
 }
 
-body{
-  background: image_url('background.jpg') center no-repeat;
+body {
+  background: image_url('background.jpg') center;
 }
 
 html {
@@ -76,7 +76,7 @@ a#scrollUp {
   padding-top: 15px;
   padding-bottom: 25px;
 
-  span#cart_item_count{
+  span#cart_item_count {
     height: 16px;
     width: 14px;
     background-color: red;
@@ -1314,7 +1314,7 @@ h2.title {
       height: 40px;
     }
 
-    tbody tr{
+    tbody tr {
       font-size: 13px;
     }
     tr {
@@ -1421,7 +1421,7 @@ h2.title {
   }
 }
 
-.heading.cart_info{
+.heading.cart_info {
   border: 1px solid #E6E4DF;
   color: #696763;
   padding: 11px 25px 11px 40px;
@@ -2203,7 +2203,6 @@ select, textarea {
   background-color: #d3d3d3;
 }
 
-
-div.login_handloom{
+div.login_handloom {
   padding-left: 60px;
 }
