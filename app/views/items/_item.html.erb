@@ -4,7 +4,7 @@
       <div class="productinfo text-center">
         <%= link_to item_path(item) do %>
             <%= image_tag item.item_variants.present? ? item.item_variants.first.item_image : 'sample_item.jpg', class: 'index_item' %>
-            <h2><%= item.name %></h2>
+            <!--<h2><%#= item.name %></h2>-->
 
             <!--<p><%#= item.category.name %></p>-->
         <% end %>
@@ -14,6 +14,15 @@
           <h2><%= item.name %></h2>
 
           <p><%= item.category.name %></p>
+
+          <p>
+            <span class="item_index_variants_count" title="<%= item.sizes.uniq.count %> sizes">
+                <i class="fa fa-hashtag" aria-hidden="true"></i><%= item.sizes.uniq.count %>
+            </span>
+            <span class="item_index_variants_count" title="<%= item.colors.uniq.count %> colors">
+                <i class="fa fa-clone" aria-hidden="true"></i><%= item.colors.uniq.count %>
+            </span>
+          </p>
           <%= link_to item_path(item), class: 'btn btn-default add-to-cart' do %>
               <i class="fa fa-shopping-cart"></i>View Details
           <% end %>

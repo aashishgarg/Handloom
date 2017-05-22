@@ -10,7 +10,7 @@
       </div>
       <div class="col-sm-9 padding-right">
         <div class="features_items"><!--features_items-->
-          <% @sub_category.items.each_with_index do |item, index| %>
+          <% items.each_with_index do |item, index| %>
               <%= render partial: 'items/item', locals: {item: item, sub_category: @sub_category} %>
           <% end %>
         </div>

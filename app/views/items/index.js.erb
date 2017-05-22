@@ -1,6 +1,8 @@
 var items_container = $('div.features_items');
 $(items_container).html('');
 
-<% @sub_category.items.each_with_index do |item, index| %>
+<% @items.each_with_index do |item, index| %>
     $(items_container).append($('<%=j render partial: 'items/item', locals: {item: item, sub_category: @sub_category} %>'));
 <% end %>
+
+$('div.pagination_container').html('<%=j paginate @items %>');

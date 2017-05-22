@@ -20,5 +20,6 @@ class Item < ApplicationRecord
   validates :status, inclusion: {in: ITEM_STATUS}
 
   # =================== Pagination ======================= #
-  # paginates_per 3
+  paginates_per 6
+
 end

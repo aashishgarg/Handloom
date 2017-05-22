@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
                       Category.first.sub_categories.first
                     end
     @category = @sub_category.root_category
+    @items = @sub_category.items.page(params[:page])
   end
 
   def show
@@ -18,7 +19,7 @@ class ItemsController < ApplicationController
   end
 
   def item_variant
-    @available_variants = @item.item_variants.select{|variant| variant.color.id.to_s == params[:color]}
+    @available_variants = @item.item_variants.select { |variant| variant.color.id.to_s == params[:color] }
   end
 
   private
