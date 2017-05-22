@@ -21,6 +21,6 @@ class ItemVariant < ApplicationRecord
   validates_uniqueness_of :color, scope: [:item,:size]
 
   def item_image
-    image? ? image_path.gsub(Rails.root.to_s, '') : 'sample_item.jpeg'
+    image? ? image_path.gsub(Rails.root.to_s, '') : 'sample_item.jpg'
   end
 end

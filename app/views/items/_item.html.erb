@@ -3,7 +3,7 @@
     <div class="single-products">
       <div class="productinfo text-center">
         <%= link_to item_path(item) do %>
-            <%= image_tag item.item_variants.present? ? item.item_variants.first.item_image : 'sample_item.jpeg', class: 'index_item' %>
+            <%= image_tag item.item_variants.present? ? item.item_variants.first.item_image : 'sample_item.jpg', class: 'index_item' %>
             <h2><%= item.name %></h2>
 
             <!--<p><%#= item.category.name %></p>-->
