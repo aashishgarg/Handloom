@@ -20,7 +20,7 @@
                 <div class="product-information"><!--/product-information-->
                   <h2><%= @item.name %></h2>
 
-                  <p><%= @item.description %></p>
+                  <p><%= @item.short_description %></p>
 
                   <div class="item_variant_container">
                     <div class="item_variant_container color_container">
@@ -36,7 +36,7 @@
                     <span>
                       <%= f.number_field :quantity, value: 1 %>
                       <%= button_tag(class: "btn btn-fefault cart") do %>
-                            <i class="fa fa-shopping-cart"></i>Add to cart
+                            <i class="fa fa-plus" aria-hidden="true"></i>Add to cart
                       <% end %>
                       <%= link_to show_user_cart_path, class: "btn btn-fefault cart" do %>
                           <i class="fa fa-shopping-cart"></i>
@@ -45,8 +45,10 @@
                     </span>
                   </div>
                   <p class="item_variant_material"><b>Material:</b> <%= @item.item_variants.first.material.name.capitalize if @item.item_variants.first.material %></p>
-
                   <p class="item_variant_brand"><b>Brand:</b> <%= @item.item_variants.first.brand.name.capitalize if @item.item_variants.first.brand %></p>
+                  <p><b>Delivery Time:</b><%= @item.delivery_time %></p>
+                  <p><b>Category:</b><%= @item.category.name %>(<%= @item.category.root_category.name %>)</p>
+                  <p><%= @item.short_description %></p>
 
                   <p><b>*</b> Item can be prepared and provided for the custom sizes requested.</p>
                 </div>
