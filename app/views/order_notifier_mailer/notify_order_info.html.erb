@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title> DrawingView </title>
+  <title> Kapoor Handlooms </title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <meta name="description" content=""/>
 </head>
@@ -40,8 +40,8 @@
         </tr>
         <tr>
           <td style="font-size:0; text-align:center">
-            <%= link_to root_url, title: 'DrawingView' do %>
-                <img src="<%= File.join(ActionMailer::Base.default_url_options[:host], 'sign_up_mail', 'newsletter_logo.png') %>" border="0" alt="Logo"/>
+            <%= link_to root_url, title: 'Kapoor Handlooms' do %>
+                <img src="<%= File.join(ActionMailer::Base.default_url_options[:host], 'sign_up_mail', 'logo.png') %>" border="0" alt="Logo"/>
             <% end %>
           </td>
         </tr>
@@ -62,7 +62,8 @@
         </tr>
         <tr>
           <td style="text-align:center; font-size:0px;">
-            <span style="color:#686868;font-size:15px; line-height:24px; font-family:Arial, Helvetica, sans-serif"> Your Order number is <%= @order.bill_no %>  <br/> Order details are as below  </span>
+            <span style="color:#686868;font-size:15px; line-height:24px; font-family:Arial, Helvetica, sans-serif"> Your Order number is <%= @order.bill_no %>
+              <br/> Order details are as below  </span>
           </td>
         </tr>
         <tr>
@@ -70,7 +71,28 @@
             <!-- Empty w3c validated -->
           </td>
         </tr>
-
+        <tr>
+          <td style="text-align:center">
+            <table cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;">
+              <tr style="height: 25px">
+                <th style="font-size:14px; text-align:center">Item</th>
+                <th style="font-size:14px; text-align:center">Category</th>
+                <th style="font-size:14px; text-align:center">Color</th>
+                <th style="font-size:14px; text-align:center">Size</th>
+                <th style="font-size:14px; text-align:center">Units</th>
+              </tr>
+              <% @order.order_details.each do |order_detail| %>
+                  <tr>
+                    <td height="20" style="font-size:12px; text-align:center"><%= order_detail.item_variant.item.name.capitalize %></td>
+                    <td height="20" style="font-size:12px; text-align:center"><%= order_detail.item_variant.category.name.capitalize %></td>
+                    <td height="20" style="font-size:12px; text-align:center"><%= order_detail.item_variant.color.name.capitalize %></td>
+                    <td height="20" style="font-size:12px; text-align:center"><%= order_detail.item_variant.size.name %></td>
+                    <td height="20" style="font-size:12px; text-align:center"><%= order_detail.quantity %></td>
+                  </tr>
+              <% end %>
+            </table>
+          </td>
+        </tr>
         <tr>
           <td height="32px" style="font-size:0px;">
             <!-- Empty w3c validated -->
@@ -88,8 +110,8 @@
         </tr>
         <tr>
           <td style="text-align:center">
-								<span style="color:#686868;font-size:15px; line-height:24px; font-family:Arial, Helvetica, sans-serif"> To get you started, here's how to get the
-								most out of <br/> DrawingView in 3 simple steps:  </span>
+								<span style="color:#686868;font-size:15px; line-height:24px; font-family:Arial, Helvetica, sans-serif"> In case of any issues, please feel free contact at
+								<br/> kapoorhandlooms@gmail.com  </span>
           </td>
         </tr>
 
@@ -114,7 +136,7 @@
 
             <a href="http://www.kapoorhandlooms.com/" style="color:#8d8d8d; font-size:14px; text-decoration:none;">
               Home </a> &nbsp;&nbsp;
-            <a href="https://www.kapoorhandlooms.com/about-us/" style="color:#8d8d8d; font-size:14px; text-decoration:none;">
+            <a href="https://www.kapoorhandlooms.com/about_us/" style="color:#8d8d8d; font-size:14px; text-decoration:none;">
               About </a>&nbsp;&nbsp;
             <br/>
             <span style="color:#d4d4d4;font-size:12px; line-height:24px; font-family:Arial, Helvetica, sans-serif"> Copyright © 2017 KapoorHandlooms  </span>

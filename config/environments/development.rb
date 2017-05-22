@@ -45,9 +45,9 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
-  config.action_mailer.default_url_options = {host: 'http://localhost:3000'}
+  config.action_mailer.default_url_options = {host: 'http://127.0.0.1:3000'}
   config.middleware.delete Rack::Lock
-  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.smtp_settings = {
       :authentication => :plain,
       :address => 'smtp.gmail.com',
