@@ -1,1 +1,171 @@
-<div>Order has been successfully placed</div>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title> DrawingView </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="description" content=""/>
+</head>
+<body style="margin:0px; padding:0px;
+        font-family:Arial, sans-serif; line-height:normal !important;">
+<!-- Outer starts -->
+<table cellpadding="0" cellspacing="0" width="100%" bgcolor="#e5eaf1" style="height:100%; table-layout: fixed;">
+  <tr>
+    <td align="center">
+      <!-- Header starts -->
+      <table cellpadding="0" cellspacing="0" width="600px">
+        <tr>
+          <td height="50px" style="font-size:0px;"></td>
+        </tr>
+        <tr>
+          <td style="font-size:0px">
+            <img src="<%= File.join(ActionMailer::Base.default_url_options[:host], 'sign_up_mail', 'top_border.png') %>" border="0" alt="Top Border"/>
+          </td>
+        </tr>
+      </table>
+      <!-- Header ends -->
+    </td>
+  </tr>
+</table>
+<!-- Outer ends -->
+
+<!-- section 1 starts -->
+<table cellpadding="0" cellspacing="0" width="100%" bgcolor="#e5eaf1" style="table-layout: fixed;">
+  <tr>
+    <td align="center">
+      <table cellpadding="0" cellspacing="0" width="600" bgcolor="#ffffff">
+        <tr>
+          <td height="37px" style="font-size:0px;">
+            <!-- Empty w3c validated -->
+          </td>
+        </tr>
+        <tr>
+          <td style="font-size:0; text-align:center">
+            <%= link_to root_url, title: 'DrawingView' do %>
+                <img src="<%= File.join(ActionMailer::Base.default_url_options[:host], 'sign_up_mail', 'newsletter_logo.png') %>" border="0" alt="Logo"/>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td height="24px" style="font-size:0px;">
+            <!-- Empty w3c validated -->
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align:center; font-size:0px;">
+            <span style="color:#3a8ec3;font-size:24px;font-family:Arial, Helvetica, sans-serif"> Order Placed Successfully! </span>
+          </td>
+        </tr>
+        <tr>
+          <td height="22px" style="font-size:0px;">
+            <!-- Empty w3c validated -->
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align:center; font-size:0px;">
+            <span style="color:#686868;font-size:15px; line-height:24px; font-family:Arial, Helvetica, sans-serif"> Your Order number is <%= @order.bill_no %>  <br/> Order details are as below  </span>
+          </td>
+        </tr>
+        <tr>
+          <td height="30px" style="font-size:0px;">
+            <!-- Empty w3c validated -->
+          </td>
+        </tr>
+
+        <tr>
+          <td height="32px" style="font-size:0px;">
+            <!-- Empty w3c validated -->
+          </td>
+        </tr>
+        <tr>
+          <td style="font-size:0; text-align:center">
+            <img src="<%= File.join(ActionMailer::Base.default_url_options[:host], 'sign_up_mail', 'newsletter_light_border.png') %>" border="0" alt="Border"/>
+          </td>
+        </tr>
+        <tr>
+          <td height="42px" style="font-size:0px;">
+            <!-- Empty w3c validated -->
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align:center">
+								<span style="color:#686868;font-size:15px; line-height:24px; font-family:Arial, Helvetica, sans-serif"> To get you started, here's how to get the
+								most out of <br/> DrawingView in 3 simple steps:  </span>
+          </td>
+        </tr>
+
+        <tr>
+          <td height="52px" style="font-size:0px;">
+            <!-- Empty w3c validated -->
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+
+<table cellpadding="0" cellspacing="0" width="100%" bgcolor="#e5eaf1" style="table-layout: fixed;">
+  <tr>
+    <td align="center">
+      <table cellpadding="0" cellspacing="0" width="600" bgcolor="#ffffff">
+
+        <tr>
+          <td widht="460px" style="padding-left:20px; vertical-align: top;">
+
+            <a href="http://www.kapoorhandlooms.com/" style="color:#8d8d8d; font-size:14px; text-decoration:none;">
+              Home </a> &nbsp;&nbsp;
+            <a href="https://www.kapoorhandlooms.com/about-us/" style="color:#8d8d8d; font-size:14px; text-decoration:none;">
+              About </a>&nbsp;&nbsp;
+            <br/>
+            <span style="color:#d4d4d4;font-size:12px; line-height:24px; font-family:Arial, Helvetica, sans-serif"> Copyright © 2017 KapoorHandlooms  </span>
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- Outer ends -->
+<!-- section 5 ends -->
+<!-- section 6 starts -->
+<table cellpadding="0" cellspacing="0" width="100%" bgcolor="#e5eaf1" style="table-layout: fixed;">
+  <tr>
+    <td align="center">
+      <table cellpadding="0" cellspacing="0" width="600" bgcolor="#ffffff">
+
+        <tr>
+          <td height="30px" style="font-size:0px;">
+            <!-- Empty w3c validated -->
+          </td>
+        </tr>
+        <tr>
+          <td style="font-size:0px;">
+            <img src="<%= File.join(ActionMailer::Base.default_url_options[:host], 'sign_up_mail', 'border_bottom.png') %>" border="0" alt="Border Bottom"/>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- Outer ends -->
+<!-- section 6 ends -->
+<!-- section 7 starts -->
+<table cellpadding="0" cellspacing="0" width="100%" bgcolor="#e5eaf1" style="table-layout: fixed;">
+  <tr>
+    <td align="center">
+      <table cellpadding="0" cellspacing="0" width="600" bgcolor="#e5eaf1">
+        <tr>
+          <td height="50px" style="font-size:0px;">
+            <!-- Empty w3c validated -->
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- Outer ends -->
+<!-- section 7 ends -->
+
+</body>
+</html>
