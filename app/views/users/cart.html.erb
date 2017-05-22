@@ -28,7 +28,7 @@
                       <td class="cart_description">
                         <p><strong><%= @item_variant.name %></strong></p>
 
-                        <p><%= @item_variant.description %></p>
+                        <p title="<%= @item_variant.description %>"><%= truncate(@item_variant.description, length: 80) %></p>
                       </td>
                       <td class="cart_color">
                         <p><%= @item_variant.color.name.capitalize %></p>
@@ -42,7 +42,7 @@
                       <td class="cart_quantity">
                         <div class="cart_quantity_button">
                           <!--<a class="cart_quantity_up" href="javascript:void(0);"> + </a>-->
-                          <%= ff.number_field :quantity, value: cart_item.quantity, class: 'cart_quantity_input',min: 1, autocomplete: 'off' %>
+                          <%= ff.number_field :quantity, value: cart_item.quantity, class: 'cart_quantity_input', min: 1, autocomplete: 'off' %>
                           <!--<a class="cart_quantity_down" href="javascript:void(0);"> - </a>-->
                         </div>
                       </td>

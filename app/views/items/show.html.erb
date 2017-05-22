@@ -48,7 +48,7 @@
                   <p class="item_variant_brand"><b>Brand:</b> <%= @item.item_variants.first.brand.name.capitalize if @item.item_variants.first.brand %></p>
                   <p><b>Delivery Time:</b><%= @item.delivery_time %></p>
                   <p><b>Category:</b><%= @item.category.name %>(<%= @item.category.root_category.name %>)</p>
-                  <p><%= @item.short_description %></p>
+                  <p><%= @item.description %></p>
 
                   <p><b>*</b> Item can be prepared and provided for the custom sizes requested.</p>
                 </div>
