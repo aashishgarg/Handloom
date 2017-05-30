@@ -71,23 +71,56 @@ select.soflow-color {
 }
 
 .pagination_container {
-  margin-right: 25px;
-  position: absolute;
-  bottom: 30px;
-  right: 30px;
-
   .pagination {
-    span {
-      border: 1px solid #FE980F;
-      padding: 2px 2px 2px 3px;
-      margin: 2px 2px 2px 2px;
-      border-radius: 3px;
-      background-color: #FE980F;
+    span.first {
+      display: none;
+    }
+    span.last {
+      display: none;
+    }
+    span.page {
+      display: none;
+    }
 
-      a {
-        color: #fff;
-        font-weight: 500;
+    span.next {
+      position: absolute;
+      top: 40%;
+      font-size: 60px;
+      right: 0;
+      display: inline;
+      z-index: 100;
+      i {
+        color: #FE980F;
       }
     }
+
+    span.prev {
+      position: absolute;
+      top: 40%;
+      font-size: 60px;
+      left: 0;
+      display: inline;
+      z-index: 100;
+      i {
+        color: #FE980F;
+      }
+    }
+
+    span {
+      //  border: 1px solid #FE980F;
+      //  padding: 2px 2px 2px 3px;
+      //  margin: 2px 2px 2px 2px;
+      //  border-radius: 3px;
+      //  background-color: #FE980F;
+      //
+      //  a {
+      //    color: #fff;
+      //    font-weight: 500;
+      //  }
+    }
   }
+}
+
+.features_items {
+  position: relative;
 }

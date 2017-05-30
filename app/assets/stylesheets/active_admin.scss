@@ -9,6 +9,7 @@
 // Active Admin's got SASS!
 @import "active_admin/mixins";
 @import "active_admin/base";
+@import "wigu/active_admin_theme";
 @import "active_admin/select2/base";
 @import "font-awesome";
 
@@ -55,6 +56,11 @@ form#session_new{
   }
 }
 
+#page_title{
+  font-size: 14px !important;
+  font-weight: 700 !important;
+}
+
 .title_bar{
   padding: 0px 30px !important;
 }
@@ -77,3 +83,4 @@ form#session_new{
     width: 560px !important;
   }
 }
+

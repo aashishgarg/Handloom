@@ -94,7 +94,7 @@ a#scrollUp {
   }
   a {
     font-size: 12px;
-    color: #696763;
+    color: #fff;
     font-family: 'Roboto', sans-serif;
     &:hover {
       background: inherit;
@@ -946,6 +946,10 @@ h2.title {
     height: 380px;
     width: 100%;
   }
+  &:hover {
+    width: 110%;
+  }
+
   h3 {
     background: #FE980F;
     bottom: 0;
@@ -1188,7 +1192,7 @@ h2.title {
 }
 
 .login-form h2, .signup-form h2 {
-  color: #696763;
+  color: #FE980F;
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
   font-weight: 300;

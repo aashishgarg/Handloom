@@ -13,6 +13,9 @@
           <% items.each_with_index do |item, index| %>
               <%= render partial: 'items/item', locals: {item: item, sub_category: @sub_category} %>
           <% end %>
+          <div class="pagination_container">
+            <%= paginate @items %>
+          </div>
         </div>
       </div>
     </div>

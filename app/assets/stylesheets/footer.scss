@@ -1,4 +1,4 @@
-span.about_us{
+span.about_us {
   color: #FE980F;
   font-style: italic;
   text-decoration: underline;
@@ -7,10 +7,18 @@ span.about_us{
 
 #footer {
   //background: #F0F0E9;
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(47, 79, 79, 0.7);
   position: absolute;
   bottom: 0;
   width: 100%;
+  i {
+    color: #fff;
+  }
+  .designed_by {
+    p {
+      color: #fff;
+    }
+  }
 }
 
 .footer-top .container {
