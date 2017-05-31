@@ -218,7 +218,7 @@ ActiveAdmin.setup do |config|
   #
     config.namespace :admin do |admin|
       admin.build_menu :utility_navigation do |menu|
-        menu.add label: 'My Website', url: "http://www.google.com", html_options: { target: :blank }
+        menu.add label: 'My Website', url: "http://www.kapoorhandlooms.com", html_options: { target: :blank }
         admin.add_logout_button_to_menu menu
       end
     end

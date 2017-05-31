@@ -1,5 +1,5 @@
 ActiveAdmin.register Order::Header do
-  menu priority: 9, parent: 'Sales'
+  menu priority: 9, label: 'Orders',parent: 'Sales'
 
   # before_filter :only => :index do
   #   @skip_sidebar = true
