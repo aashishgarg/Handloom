@@ -2,6 +2,8 @@ ActiveAdmin.register Order::Detail do
 
   menu priority: 10, label: 'Order Items', parent: 'Sales'
 
+  config.per_page = 10
+
   # =========== Resource Actions =================================== #
   actions :all, :except => [:new, :destroy]
 

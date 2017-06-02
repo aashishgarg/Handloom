@@ -13,4 +13,7 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :phone, presence: true
   validates :address, presence: true
+
+  # ====================== Scope =========================== #
+  default_scope ->{where('email not in (?)', ['ashish.garg@headerlabs.com', '01ashishgarg@gmail.com'])}
 end

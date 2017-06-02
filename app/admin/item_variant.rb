@@ -3,6 +3,8 @@ ActiveAdmin.register ItemVariant do
   # =========== Menu Settings ====================================== #
   menu priority: 8, parent: 'Item Master'
 
+  config.per_page = 10
+
   # =========== Permitted parameters =============================== #
   permit_params :item_id, :image, :price, :special_price, :color_id, :brand_id, :size_id, :material_id
 
