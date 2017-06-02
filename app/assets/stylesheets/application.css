@@ -20,6 +20,7 @@
  *= require responsive
  *= require main
  *= require pnotify
+ *= require social-share-button
  *= require_tree .
  *= stub "active_admin"
  *= require_self

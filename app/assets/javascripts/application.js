@@ -26,4 +26,5 @@
 //= require unobtrusive_flash
 //= require flashes.js
 //= require main
+//= require social-share-button
 //= require_tree .

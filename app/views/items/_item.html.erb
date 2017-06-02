@@ -26,6 +26,10 @@
           <%= link_to item_path(item), class: 'btn btn-default add-to-cart' do %>
               <i class="fa fa-shopping-cart"></i>View Details
           <% end %>
+
+          <%= social_share_button_tag(item.name,
+                                      :image => item.item_variants.first.item_image,
+                                      desc: item.description) %>
         </div>
       </div>
     </div>

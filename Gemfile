@@ -28,6 +28,7 @@ gem 'puma', '~> 3.0'
 gem 'rails', '~> 5.0.3'
 gem 'sass-rails', '~> 5.0'
 gem 'select2-rails'
+gem 'social-share-button'
 gem 'turbolinks', '~> 5'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier', '>= 1.3.0'

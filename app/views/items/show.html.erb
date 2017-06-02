@@ -53,6 +53,9 @@
                   <p><b>*</b> Item can be prepared and provided for the custom sizes requested.</p>
                 </div>
             <% end %>
+            <%= social_share_button_tag(@item.name,
+                                        :image => @item.item_variants.first.item_image,
+                                        desc: @item.description) %>
           </div>
         </div>
       </div>
