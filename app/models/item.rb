@@ -22,4 +22,10 @@ class Item < ApplicationRecord
   # =================== Pagination ======================= #
   paginates_per 6
 
+  def self.get_item_variants(item, color_name = nil, size_name = nil)
+    color = Property::Color.where(name: color_name).take
+    size = Property::Color.where(name: color_name).take
+
+    item.item_variants.where(color: color, size: size)
+  end
 end

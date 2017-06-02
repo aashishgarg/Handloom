@@ -84,7 +84,7 @@ ActiveAdmin.register Item do
         if index > 0 #--> For leaving the headers
           category = Category.where(name: data[0].strip).take
 
-          @item = Item.new(category_id: !!category ? category.id : nil,
+          @item = Item.new(category_id: (!!category ? category.id : nil),
                            name: data[1].strip,
                            new_style_no: data[2].strip,
                            description: data[3].strip,
@@ -108,17 +108,20 @@ ActiveAdmin.register Item do
                   end
 
 
-          data[9].split(';').each do |color|
+          data[9].split('_').each do |color|
             Property::Color.create(name: color.strip) unless Property::Color.where(name: color.strip).take
             color_id = Property::Color.where(name: color.strip).take.id
-            data[10].split(';').each do |size|
+            data[10].split('_').each do |size|
               Property::Size.create(name: size.strip) unless Property::Size.where(name: size.strip).take
 
               size_id = Property::Size.where(name: size.strip).take.id
               unless color_id=='' || size_id=='' || brand =='' || material ==''
-                @item.item_variants.build(color_id: color_id, size_id: size_id,
-                                          material_id: material.id,
-                                          brand_id: brand.id)
+                @item.item_variants.build(
+                    color_id: color_id,
+                    size_id: size_id,
+                    material_id: material.id,
+                    brand_id: brand.id
+                )
               end
             end
           end
