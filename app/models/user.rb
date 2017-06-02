@@ -1,5 +1,8 @@
 class User < ApplicationRecord
 
+  # ====================== Constants ======================= #
+  ADMIN_EMAILS = ['ashish.garg@headerlabs.com', '01ashishgarg@gmail.com']
+
   # ====================== Devise ========================== #
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
 
@@ -15,5 +18,5 @@ class User < ApplicationRecord
   validates :address, presence: true
 
   # ====================== Scope =========================== #
-  default_scope ->{where('email not in (?)', ['ashish.garg@headerlabs.com', '01ashishgarg@gmail.com'])}
+  default_scope -> { where('email not in (?)', ADMIN_EMAILS) }
 end
