@@ -39,7 +39,7 @@ ActiveAdmin.register Order::Detail do
       label order.item_variant.size.name if order.item_variant
     end
     column :image do |order|
-      image_tag order.item_variant.item_image, class: 'item_image' if order.item_variant
+      image_tag order.item.item_variants.first.item_image, class: 'item_image' if order.item_variant
     end
     column :created_at do |order|
       time_ago_in_words(order.created_at) + ' ago'

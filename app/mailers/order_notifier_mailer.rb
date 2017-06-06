@@ -4,6 +4,6 @@ class OrderNotifierMailer < ApplicationMailer
 
   def notify_order_info(order)
     @order = order
-    mail to: order.user.email, subject: 'KapoorExports: Order places successfully.'
+    mail to: order.user.email, subject: 'Kapoor Handlooms: Order placed successfully.', from: 'Kapoor Handlooms'
   end
 end
