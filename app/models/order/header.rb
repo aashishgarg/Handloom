@@ -17,6 +17,10 @@ class Order::Header < ApplicationRecord
   scope :month, -> { where('created_at >= (?)', (Date.today - 1.month)) }
   scope :year, -> { where('created_at >= (?)', (Date.today - 1.year)) }
 
+  # ====================== Validations ===================== #
+  validates :user_id, presence: true
+
+
   def notify_order_info
     OrderNotifierMailer.notify_order_info(self).deliver_later
   end
