@@ -13,10 +13,10 @@ class Item < ApplicationRecord
   has_many :materials, class_name: 'Property::Material', through: :item_variants
 
   # =================== Validations ====================== #
-  validates :name, presence: true, length: {minimum: 2, maximum: 50}
-  validates :description, presence: true, length: {minimum: 2}
-  validates :sku, presence: true, length: {minimum: 2, maximum: 50}
-  validates :new_style_no, presence: true, length: {minimum: 2, maximum: 50}
+  validates :name, presence: true, length: {minimum: 2}
+  validates :description, length: {minimum: 2}
+  validates :sku, presence: true, length: {minimum: 2}
+  validates :new_style_no, length: {minimum: 2}
   validates :status, inclusion: {in: ITEM_STATUS}
 
   # =================== Pagination ======================= #

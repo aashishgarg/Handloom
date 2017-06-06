@@ -12,7 +12,7 @@
         <div class="product-details"><!--product-details-->
           <div class="col-sm-5">
             <div class="view-product">
-              <%= image_tag 'sample_item.jpg' %>
+              <%= image_tag @item.item_variants.first.item_image %>
             </div>
           </div>
           <div class="col-sm-7">
@@ -53,7 +53,7 @@
                   <p><b>*</b> Item can be prepared and provided for the custom sizes requested.</p>
                 </div>
             <% end %>
-            <%= social_share_button_tag(@item.name,
+            <%#= social_share_button_tag(@item.name,
                                         :image => @item.item_variants.first.item_image,
                                         desc: @item.description) %>
           </div>

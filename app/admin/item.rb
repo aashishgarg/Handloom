@@ -78,56 +78,86 @@ ActiveAdmin.register Item do
     end
 
     def do_import
+      problematic_data = []
+
+      # ------------------ Get CSV Data ------------------------------ #
       csv_data = CSV.read(params[:active_admin_import_model][:file].path)
-      csv_data.each_with_index do |data, index|
+      if csv_data.present?
+        # --------- Strip all values ------------------------- #
+        csv_data.each { |row| row.each { |row_item| row_item.strip! if row_item.respond_to? :strip! } }
 
-        if index > 0 #--> For leaving the headers
-          category = Category.where(name: data[0].strip).take
+        # --------- First row is considered to be header ----- #
+        csv_data.delete(csv_data[0])
 
-          @item = Item.new(category_id: (!!category ? category.id : nil),
-                           name: data[1].strip,
-                           new_style_no: data[2].strip,
-                           description: data[3].strip,
-                           short_description: data[4].strip,
-                           sku: data[5].strip,
-                           delivery_time: data[6].strip,
-                           meta_keywords: data[7].strip,
-                           meta_description: data[8].strip
+        csv_data.each_with_index do |data, index|
+          # ------------------ Create Categories ------------------------- #
+          category = Category.where(name: data[0]).take || Category.create(name: data[0])
+
+          # ------------------ Create Sub Categories --------------------- #
+          sub_category = (Category.where('name = (?) and parent_id = (?)', data[1], category.id).take) ||
+              (Category.create(name: data[1], parent_id: category.id))
+
+          @item = Item.new(
+              category_id: sub_category.id,
+              name: data[2],
+              new_style_no: data[3],
+              description: data[4],
+              short_description: data[5],
+              sku: data[6],
+              delivery_time: data[7],
+              meta_keywords: data[8],
+              meta_description: data[9]
           )
 
-          material = if Property::Material.where(name: data[11].strip).take
-                       Property::Material.where(name: data[11].strip).take
-                     else
-                       Property::Material.create(name: data[11].strip)
-                     end
+          # ------------------ Materials --------------------------------- #
+          material = Property::Material.where(name: data[12]).take || Property::Material.create(name: data[12])
 
-          brand = if Property::Brand.where(name: data[12].strip).take
-                    Property::Brand.where(name: data[12].strip).take
-                  else
-                    Property::Brand.create(name: data[12].strip)
-                  end
+          # ------------------ Brands ------------------------------------ #
+          brand = Property::Brand.where(name: data[13]).take || Property::Brand.create(name: data[13])
 
+          # ------------------ Colors ------------------------------------ #
+          colors = data[10] || 'Custom color'
 
-          data[9].split('_').each do |color|
-            Property::Color.create(name: color.strip) unless Property::Color.where(name: color.strip).take
-            color_id = Property::Color.where(name: color.strip).take.id
-            data[10].split('_').each do |size|
-              Property::Size.create(name: size.strip) unless Property::Size.where(name: size.strip).take
-
-              size_id = Property::Size.where(name: size.strip).take.id
-              unless color_id=='' || size_id=='' || brand =='' || material ==''
-                @item.item_variants.build(
-                    color_id: color_id,
-                    size_id: size_id,
-                    material_id: material.id,
-                    brand_id: brand.id
-                )
-              end
+          colors.split('_').each do |_color|
+            color = Property::Color.where(name: _color).take || Property::Color.create(name: _color)
+            # ------------------ Sizes ------------------------------------- #
+            sizes = data[11] || 'Custom size'
+            sizes.split('_').each do |_size|
+              size = Property::Size.where(name: _size).take || Property::Size.create(name: _size)
+              # ------------------ Item Variant ------------------------------ #
+              @item.item_variants.build(
+                  color_id: color.id,
+                  size_id: size.id,
+                  material_id: material.id,
+                  brand_id: brand.id
+              )
             end
           end
-          @item.save
+
+          # ------------------ Product Image ----------------------------- #
+          image_path = File.join('/home/deploy/product_images',data[6]).concat('.jpg')
+          puts '**********************************************************************************'
+          puts image_path
+          puts '**********************************************************************************'
+
+          @item.item_variants.first.image = File.open(image_path) if File.exist?(image_path)
+
+          # ------------------ Item -------------------------------------- #
+          unless @item.save
+            problematic_data << data
+            puts 'ERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERROR'
+            puts  @item.errors.full_messages
+            puts 'ERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERROR'
+          end
         end
       end
+      puts '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&'
+      puts problematic_data.count
+      puts '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&'
+      puts problematic_data
+      puts '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&'
     end
+
+
   end
 end

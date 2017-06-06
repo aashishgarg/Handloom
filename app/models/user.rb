@@ -18,5 +18,5 @@ class User < ApplicationRecord
   validates :address, presence: true
 
   # ====================== Scope =========================== #
-  default_scope -> { where('email not in (?)', ADMIN_EMAILS) }
+  # default_scope -> { where('email not in (?)', ADMIN_EMAILS) }
 end

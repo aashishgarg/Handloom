@@ -11,7 +11,7 @@
       </div>
       <div class="product-overlay">
         <div class="overlay-content">
-          <h2><%= item.name %></h2>
+          <h4><%= item.name %></h4>
 
           <p><%= item.category.name %></p>
 
@@ -27,7 +27,7 @@
               <i class="fa fa-shopping-cart"></i>View Details
           <% end %>
 
-          <%= social_share_button_tag(item.name,
+          <%#= social_share_button_tag(item.name,
                                       :image => item.item_variants.first.item_image,
                                       desc: item.description) %>
         </div>

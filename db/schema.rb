@@ -72,12 +72,12 @@ ActiveRecord::Schema.define(version: 20170515124746) do
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
     t.integer  "category_id"
-    t.string   "name"
+    t.text     "name",              limit: 65535
     t.string   "old_style_no"
     t.string   "new_style_no"
     t.text     "description",       limit: 65535
     t.text     "short_description", limit: 65535
-    t.string   "sku"
+    t.text     "sku",               limit: 65535
     t.string   "delivery_time"
     t.text     "meta_keywords",     limit: 65535
     t.text     "meta_description",  limit: 65535
