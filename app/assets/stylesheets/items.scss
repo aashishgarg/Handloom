@@ -1,5 +1,10 @@
 .items_section {
   margin-top: 30px;
+  .container{
+    width: 100%;
+    padding-right: 30px;
+    padding-left: 30px;
+  }
 }
 
 .item_show_section {
@@ -19,9 +24,14 @@
         p {
           font-weight: 700;
           margin-top: 5px;
+          color: #FE980F;
         }
         .index_item {
           //border-radius: 5px;
+        }
+        img{
+          box-shadow: 12px 6px 7px #888888;
+          border-radius: 5px;
         }
       }
     }
@@ -128,5 +138,18 @@ select.soflow-color {
 .overlay-content{
   h4{
     color: #fff;
+  }
+}
+
+.left-sidebar{
+  #accordian{
+    .panel-heading{
+      background-color: rgba(47, 79, 79, 0.5);
+    }
+    .panel-title{
+      a{
+        color: #fff;
+      }
+    }
   }
 }

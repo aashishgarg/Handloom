@@ -20,7 +20,7 @@ class Item < ApplicationRecord
   validates :status, inclusion: {in: ITEM_STATUS}
 
   # =================== Pagination ======================= #
-  paginates_per 6
+  paginates_per 8
 
   def self.get_item_variants(item, color_name = nil, size_name = nil)
     color = Property::Color.where(name: color_name).take

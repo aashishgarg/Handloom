@@ -5,4 +5,4 @@ $(items_container).html('');
     $(items_container).append($('<%=j render partial: 'items/item', locals: {item: item, sub_category: @sub_category} %>'));
 <% end %>
 
-$('div.pagination_container').html('<%=j paginate @items %>');
+$('div.pagination_container').html($('<%=j paginate @items %>'));
