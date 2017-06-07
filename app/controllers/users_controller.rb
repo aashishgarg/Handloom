@@ -18,10 +18,10 @@ class UsersController < ApplicationController
 
       # ----------- For showing user cart ---------------- #
     else
-      @cart_items = Cart.all
       @order = Order::Header.new
       @order_details = @order.order_details.build
     end
+    @cart_items = current_user.cart_items
   end
 
   def remove_cart_item

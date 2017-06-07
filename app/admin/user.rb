@@ -5,6 +5,7 @@ ActiveAdmin.register User do
 
   before_filter :only => :index do
     @skip_sidebar = true
+    @users = User.where.not('email in (?)', User::ADMIN_EMAILS).page(params[:page])
   end
 
   # =========== Header Level actions =============================== #

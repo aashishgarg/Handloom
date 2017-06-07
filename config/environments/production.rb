@@ -78,7 +78,7 @@ Rails.application.configure do
       :authentication => :plain,
       :address => 'smtp.gmail.com',
       :port => 587,
-      :domain => 'kappor.hossery.com',
+      :domain => 'kapoorhandlooms.com',
       :user_name => 'kapoor.hossery',
       :password => "kapoor@123",
       :enable_starttls_auto => true

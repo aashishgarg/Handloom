@@ -49,7 +49,7 @@
 </header><!--/header-->
 
 <script>
-    $('#cart_item_count').html('<%= Cart.count %>');
+    $('#cart_item_count').html('<%= current_user.cart_items.count if !!current_user %>');
 </script>
 <style>
     span#cart_item_count {
