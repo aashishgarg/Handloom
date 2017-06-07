@@ -1,5 +1,6 @@
 .items_section {
   margin-top: 30px;
+  margin-bottom: 300px;
   .container{
     width: 100%;
     padding-right: 30px;
@@ -9,6 +10,7 @@
 
 .item_show_section {
   margin-top: 30px;
+  margin-bottom: 250px;
   .container{
     width: 100%;
   }
@@ -25,12 +27,15 @@
     .single-products {
       .productinfo {
         p {
-          font-weight: 700;
+          font-weight: 400;
           margin-top: 5px;
           color: #FE980F;
         }
         .index_item {
           //border-radius: 5px;
+        }
+        h6{
+          font-size: 11px;
         }
         img{
           box-shadow: 6px 4px 8px #888888;
