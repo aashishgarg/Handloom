@@ -5,9 +5,11 @@
     color: #fff;
   }
 
-  .logo{
-    .companyinfo{
-      margin-top: 0;
+  .logo {
+    margin-top: -15px;
+    .companyinfo {
+      display: inline;
+      height: 30px;
     }
   }
 }
@@ -18,4 +20,8 @@
     padding-right: 30px;
     width: 100%;
   }
+}
+
+#form {
+  margin-bottom: 300px;
 }
