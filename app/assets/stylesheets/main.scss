@@ -7,6 +7,7 @@
 
 body {
   font-family: 'Roboto', sans-serif;
+  //font-family: "Monospace", Times, serif;
   position: relative;
   min-height: 100%;
   padding-bottom: 70px;
@@ -151,7 +152,7 @@ a#scrollUp {
   margin-left: 0;
   margin-right: 0;
   padding-bottom: 20px;
-  padding-top: 20px;
+  padding-top: 5px;
   .col-sm-4 {
     padding-left: 0;
   }
@@ -201,13 +202,12 @@ a#scrollUp {
     padding-right: 0;
   }
   a {
-    background: #FFFFFF;
-    color: #696763;
+    background: #FE980F;
+    color: #fff;
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
-    font-weight: 300;
-    padding: 0;
-    padding-right: 0;
+    font-weight: 400;
+    padding: 0 5px 0 5px;
     margin-top: 10px;
     i {
       margin-right: 3px;
@@ -347,6 +347,9 @@ ul.sub-menu {
   margin-top: 10px;
   //padding-top: 20px;
   /*padding-bottom: 45px;*/
+  .container{
+    width: 100%;
+  }
 }
 
 .carousel-indicators li {
@@ -626,7 +629,7 @@ h2.title {
 }
 
 .product-image-wrapper {
-  border: 1px solid #F7F7F5;
+  //border: 1px solid #F7F7F5;
   overflow: hidden;
   margin-bottom: 30px;
 }
@@ -678,6 +681,7 @@ h2.title {
   transition: height 500ms ease 0s;
   width: 100%;
   display: block;
+  border-radius: 5px;
 }
 
 .single-products:hover .product-overlay {
@@ -966,11 +970,12 @@ h2.title {
     right: 0;
   }
 }
+
 .view-product:hover img {
-   -moz-transform: scale(1.1);
-   -webkit-transform: scale(1.1);
-   transform: scale(1.1);
- }
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
 
 #similar-product .carousel-inner .item {
   padding-left: 0px;
@@ -1036,6 +1041,7 @@ h2.title {
     }
     input {
       border: 1px solid #DEDEDC;
+      border-radius: 5px;
       color: #696763;
       font-family: 'Roboto', sans-serif;
       font-size: 20px;
@@ -1061,7 +1067,7 @@ h2.title {
 .cart {
   background: #FE980F;
   border: 0 none;
-  border-radius: 0;
+  border-radius: 5px;
   color: #FFFFFF;
   font-family: 'Roboto', sans-serif;
   font-size: 15px;
@@ -1190,6 +1196,9 @@ h2.title {
 **************************/
 
 #form {
+  .container{
+    width: 100%;
+  }
   display: block;
   margin-bottom: 0px;
   margin-top: 20px;
@@ -1282,6 +1291,9 @@ h2.title {
 
 #do_action {
   margin-bottom: 50px;
+  .container{
+    width: 100%;
+  }
 }
 
 .breadcrumbs {
@@ -1309,6 +1321,12 @@ h2.title {
     > li + li:before {
       content: " ";
     }
+  }
+}
+
+#cart_items{
+  .container{
+    width: 100%;
   }
 }
 
@@ -1402,18 +1420,18 @@ h2.title {
 }
 
 .cart_delete {
-  display: block;
-  //margin-right: -12px;
-  overflow: hidden;
-  a {
-    background: #F0F0E9;
-    color: #FFFFFF;
-    padding: 5px 7px;
-    font-size: 16px;
-    &:hover {
-      background: #FE980F;
-    }
-  }
+  //display: block;
+  ////margin-right: -12px;
+  //overflow: hidden;
+  //a {
+  //  background: #F0F0E9;
+  //  color: #FFFFFF;
+  //  padding: 5px 7px;
+  //  font-size: 16px;
+  //  &:hover {
+  //    background: #FE980F;
+  //  }
+  //}
 }
 
 .bg h2.title {
@@ -2133,6 +2151,7 @@ select, textarea {
 }
 
 #contact-page {
+  width: 100%;
   .form-control {
     &::-moz-placeholder {
       color: #8D8D8D;

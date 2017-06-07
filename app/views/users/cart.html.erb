@@ -46,7 +46,7 @@
                           <!--<a class="cart_quantity_down" href="javascript:void(0);"> - </a>-->
                         </div>
                       </td>
-                      <td class="cart_delete">
+                      <td class="cart_quantity cart_delete">
                         <%= link_to remove_cart_item_path(cart_item), method: :delete, remote: true, class: "cart_quantity_delete" do %>
                             <i class="fa fa-times"></i>
                         <% end %>
@@ -101,9 +101,3 @@
         });
     });
 </script>
-
-<style>
-    /*.cart_delete{*/
-    /*width: 20px;*/
-    /*}*/
-</style>

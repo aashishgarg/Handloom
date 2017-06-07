@@ -9,6 +9,9 @@
 
 .item_show_section {
   margin-top: 30px;
+  .container{
+    width: 100%;
+  }
 }
 
 .index_page_image_item {
@@ -30,7 +33,7 @@
           //border-radius: 5px;
         }
         img{
-          box-shadow: 12px 6px 7px #888888;
+          box-shadow: 6px 4px 8px #888888;
           border-radius: 5px;
         }
       }
@@ -94,7 +97,7 @@ select.soflow-color {
 
     span.next {
       position: absolute;
-      top: 40%;
+      top: 35%;
       font-size: 60px;
       right: 0;
       display: inline;
@@ -144,7 +147,7 @@ select.soflow-color {
 .left-sidebar{
   #accordian{
     .panel-heading{
-      background-color: rgba(47, 79, 79, 0.5);
+      background-color: rgba(0,0,0,0.6);
     }
     .panel-title{
       a{
