@@ -12,7 +12,7 @@
         <div class="panel-body">
           <ul>
             <% category.sub_categories.each do |sub_category| %>
-                <li><%= link_to sub_category.name, items_path(sub_category: sub_category.id), remote: true %></li>
+                <li><%= link_to sub_category.name, items_path(sub_category: sub_category.id) %></li>
             <% end %>
           </ul>
         </div>
