@@ -6,7 +6,7 @@ ActiveAdmin.register Category do
   # end
 
   # =========== Permitted parameters =============================== #
-  permit_params :name, :parent_id
+  permit_params :name, :parent_id, :best_seller, :latest
 
   # =========== Pagination ========================================= #
   config.per_page = 10
@@ -15,7 +15,7 @@ ActiveAdmin.register Category do
   # scope :all_categories
   scope :root_categories
   # scope :sub_categories
-  scope :sub_categories, default: true    #=> Default selected scope in index page
+  scope :sub_categories, default: true #=> Default selected scope in index page
 
   # =========== Custom Filters ===================================== #
   filter :name
@@ -27,6 +27,12 @@ ActiveAdmin.register Category do
       f.input :parent_id, :label => 'Root category', as: :select2,
               collection: Category.root_categories.collect { |category| [category.name, category.id] }
       f.input :name
+      # ---- Only Sub categories can be added in latest and best sellers ---- #
+      # for the purpose showing these items in header and footer
+      if f.object.sub_category?
+        f.input :latest, as: :boolean
+        f.input :best_seller, as: :boolean
+      end
     end
     f.actions
   end

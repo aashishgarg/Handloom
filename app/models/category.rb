@@ -15,7 +15,9 @@ class Category < ApplicationRecord
   # =================== Scopes =========================== #
   scope :root_categories, -> { where(parent_id: nil) }
   scope :sub_categories, -> { where.not(parent_id: nil) }
-  scope :all_categories, -> { }
+  scope :all_categories, -> {}
+  scope :best_sellers, -> {where(best_seller: true)}
+  scope :latest, -> {where(latest: true)}
 
   # =================== Validations ====================== #
   validates :name, presence: true, length: {minimum: 2, maximum: 150}
@@ -23,6 +25,10 @@ class Category < ApplicationRecord
   # =================== Class methods ==================== #
   def self.grouped
     Category.sub_categories.order(updated_at: :desc).group_by { |category| category.root_category if category.parent_id }
+  end
+
+  def self.default
+    Category.first.sub_categories.first
   end
 
   def sub_category?

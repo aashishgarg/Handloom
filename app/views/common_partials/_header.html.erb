@@ -9,10 +9,10 @@
               <%= image_tag 'header/site_logo.jpg', class: 'logo_icon' %>
           <% end %>
           <%#= link_to items_path, class: 'header_item_list' do %>
-              <!--<i class="fa fa-bars" aria-hidden="true"></i>-->
+          <!--<i class="fa fa-bars" aria-hidden="true"></i>-->
           <%# end %>
           <%#= link_to items_path do %>
-              <!--<span class="site_name">Kapoor Handlooms</span>-->
+          <!--<span class="site_name">Kapoor Handlooms</span>-->
           <%# end %>
         </div>
         <div class="col-sm-6">
@@ -44,7 +44,7 @@
               <li><a href="https://twitter.com/kapoorhandlooms"><i class="fa fa-twitter"></i></a></li>
               <li><a href="https://www.linkedin.com/in/naresh-kapoor-b8941440"><i class="fa fa-linkedin"></i></a></li>
               <!--<li><a href="#"><i class="fa fa-dribbble"></i></a></li>-->
-              <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+              <li><a href="javascript:void(0);"><i class="fa fa-google-plus"></i></a></li>
             </ul>
           </div>
         </div>
@@ -67,23 +67,29 @@
               <div class="btn-group pull-right">
                 <div class="btn-group">
                   <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-                    USA
+                    Best Sellers
                     <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu">
-                    <li><a href="">Canada</a></li>
-                    <li><a href="">UK</a></li>
+                    <% Category.best_sellers.each do |sub_category| %>
+                        <li><%= link_to sub_category.name, items_path(sub_category: sub_category.id) %></li>
+                    <% end %>
+                    <!--<li><a href="">Canada</a></li>-->
+                    <!--<li><a href="">UK</a></li>-->
                   </ul>
                 </div>
 
                 <div class="btn-group">
                   <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-                    DOLLAR
+                    Latest
                     <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu">
-                    <li><a href="">Canadian Dollar</a></li>
-                    <li><a href="">Pound</a></li>
+                    <% Category.latest.each do |sub_category| %>
+                        <li><%= link_to sub_category.name, items_path(sub_category: sub_category.id) %></li>
+                    <% end %>
+                    <!--<li><a href="">Canadian Dollar</a></li>-->
+                    <!--<li><a href="">Pound</a></li>-->
                   </ul>
                 </div>
               </div>
@@ -92,8 +98,10 @@
               <div class="shop-menu pull-right">
                 <ul class="nav navbar-nav">
                   <li><a href="javascript:void(0);"><i class="fa fa-user"></i> Account</a></li>
-                  <li><a href="<%= items_path %>"><i class="fa fa-star"></i> Home</a></li>
-                  <!--<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>-->
+                  <li><%= link_to items_path do %>
+                        <i class="fa fa-star"></i>Home
+                    <% end %>
+                  </li>
                   <li><a href="<%= user_cart_path(current_user) %>"><i class="fa fa-shopping-cart"></i> Cart</a></li>
                   <li>
                     <%= link_to destroy_user_session_path, method: :delete do %>
@@ -136,7 +144,7 @@
         color: #fff;
         font-weight: 700;
         margin-left: 15px;
-        font-size: 20px;
+        font-size: 16px;
     }
 
     .header-middle .container {
