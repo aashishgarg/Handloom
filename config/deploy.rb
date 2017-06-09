@@ -112,9 +112,6 @@ task setup: :environment do
   command %[mkdir -p "#{fetch(:shared_dir)}/log"]
   command %[chmod g+rx,u+rwx "#{fetch(:shared_dir)}/log"]
 
-  command %[mkdir -p "#{fetch(:shared_dir)}/photofy"]
-  command %[chmod g+rx,u+rwx "#{fetch(:shared_dir)}/photofy"]
-
   command %[mkdir -p "#{fetch(:shared_dir)}/config"]
   command %[chmod g+rx,u+rwx "#{fetch(:shared_dir)}/config"]
 
@@ -122,8 +119,17 @@ task setup: :environment do
   command %[chmod g+rx,u+rwx "#{fetch(:shared_dir)}/tmp/pids"]
 
   command %[touch "#{fetch(:shared_dir)}/config/database.yml"]
+
+  command %[mkdir -p "#{fetch(:shared_dir)}/photofy"]
+  command %[chmod g+rx,u+rwx "#{fetch(:shared_dir)}/photofy"]
   invoke :setup_prerequesties
   invoke :setup_yml
+  invoke :photofy_setup
+end
+
+
+task :photofy_setup => :environment do
+  command %[mkdir -p #{fetch(:deploy_to)}/#{fetch(:shared_path)}/photofy ]
 end
 
 # 5555555555555555555555555555555555555555555555555555555555555555555555555555 #
