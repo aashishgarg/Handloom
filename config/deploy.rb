@@ -25,7 +25,8 @@ set :sheet_name, 'Product deployment status'
 set :work_sheet_name, 'my_application'
 set :shared_files, fetch(:shared_file, []).push(
                      'config/database.yml',
-                     'config/secrets.yml'
+                     'config/secrets.yml',
+                     'photofy'
                  )
 set :ruby_version, "#{File.readlines(File.join(__dir__, '..', '.ruby-version')).first.strip}"
 set :gemset, "#{File.readlines(File.join(__dir__, '..', '.ruby-gemset')).first.strip}"
@@ -110,6 +111,9 @@ task setup: :environment do
   invoke :set_sudo_password
   command %[mkdir -p "#{fetch(:shared_dir)}/log"]
   command %[chmod g+rx,u+rwx "#{fetch(:shared_dir)}/log"]
+
+  command %[mkdir -p "#{fetch(:shared_dir)}/photofy"]
+  command %[chmod g+rx,u+rwx "#{fetch(:shared_dir)}/photofy"]
 
   command %[mkdir -p "#{fetch(:shared_dir)}/config"]
   command %[chmod g+rx,u+rwx "#{fetch(:shared_dir)}/config"]
