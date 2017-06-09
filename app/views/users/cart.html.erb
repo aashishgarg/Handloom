@@ -75,8 +75,12 @@
           <div class="col-sm-6">
             <div class="total_area">
               <ul>
-                <li>Total items<span class="total_cart_items"><%= Cart.total_items %></span></li>
-                <li>Total item quantities<span class="total_cart_quantity"><%= Cart.total_quantity %></span></li>
+                <li>Total items<span class="total_cart_items">
+                  <%= current_user.cart_items.present? ? current_user.cart_items.count : 0 %>
+                </span></li>
+                <li>Total item quantities<span class="total_cart_quantity">
+                  <%= current_user.cart_items.present? ? current_user.cart_items.collect(&:quantity).inject(&:+) : 0 %>
+                </span></li>
               </ul>
               <%= f.submit 'Place order', class: 'btn btn-default check_out' %>
               <!--<a class="btn btn-default check_out" href="">Check Out</a>-->
@@ -89,15 +93,23 @@
 
 <script>
     $(function () {
-        if (<%= !current_user.cart_items.present? %>) $('.check_out').hide();
-
-        $('input.cart_quantity_input, a.cart_quantity_delete').on('change', function () {
+        function total_quantity() {
             var total_qty = 0;
             var _this = this;
             $.each($('input.cart_quantity_input'), function (index, item) {
                 total_qty += parseInt($(item).val());
             });
             $('span.total_cart_quantity').html(total_qty);
+        }
+
+        if (<%= !current_user.cart_items.present? %>) $('.check_out').hide();
+
+        $('input.cart_quantity_input, a.cart_quantity_delete').on('change', function () {
+            total_quantity();
+        });
+
+        $('a.cart_quantity_delete').on('click', function () {
+            total_quantity();
         });
     });
 </script>
