@@ -27,4 +27,25 @@
 //= require flashes.js
 //= require main
 //= require social-share-button
+//= require home_page/jquery.dropdown
+//= require home_page/imagezoom
+//= require home_page/fluid_dg.min
+//= require home_page/cbpShop.min
+//= require home_page/jquery.easing.1.3
+//= require home_page/jquery.film_roll
+//= require home_page/jquery.flexslider
+//= require home_page/jquery.formtowizard
+//= require home_page/jquery.magnific-popup
+//= require home_page/jquery.mycart
+//= require home_page/jquery.validate.min
+//= require home_page/minicart
+//= require home_page/modernizr-2.6.2-respond-1.1.0.min
+//= require home_page/moment
+//= require home_page/timer
+//= require home_page/moment-timezone-with-data
+//= require home_page/modernizr.custom
+//= require_tree ./home_page
+
+
+
 //= require_tree .

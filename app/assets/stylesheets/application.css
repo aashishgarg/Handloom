@@ -21,6 +21,9 @@
  *= require main
  *= require pnotify
  *= require social-share-button
+ *= require style
+ *= require fluid_dg
+
  *= require_tree .
  *= stub "active_admin"
  *= require_self
