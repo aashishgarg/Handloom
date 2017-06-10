@@ -25,6 +25,7 @@ ActiveAdmin.register ItemVariant do
   form do |f|
     f.inputs 'Item variant Form' do
       f.input :sku, :as => :string, :input_html => { :readonly => true }
+      f.input :new_style_no, :as => :string, :input_html => { :readonly => true }
       f.input :item, as: :select2, collection: Item.all.collect { |item| [item.name, item.id] }
       f.input :price
       f.input :special_price
@@ -46,6 +47,7 @@ ActiveAdmin.register ItemVariant do
       link_to '('+item_variant.item.sku+') ', admin_item_path(item_variant.item)
     end
     column :sku
+    column :new_style_no
     column :price, sortable: true
     column :special_price, sortable: true
     column :color
