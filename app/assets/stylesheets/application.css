@@ -21,10 +21,10 @@
  *= require main
  *= require pnotify
  *= require social-share-button
- *= require style
- *= require fluid_dg
-
- *= require_tree .
  *= stub "active_admin"
+ *= require_tree .
  *= require_self
+ *= stub 'login_page/flexslider'
+ *= stub 'login_page/fluid_dg'
+ *= stub 'login_page/style'
  */

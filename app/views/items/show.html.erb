@@ -46,11 +46,10 @@
                   </div>
                   <p class="item_variant_material"><b>Material:</b> <%= @item.item_variants.first.material.name.capitalize if @item.item_variants.first.material %></p>
                   <p class="item_variant_brand"><b>Brand:</b> <%= @item.item_variants.first.brand.name.capitalize if @item.item_variants.first.brand %></p>
-                  <p><b>Delivery Time:</b><%= @item.delivery_time %></p>
                   <p><b>Category:</b><%= @item.category.name %>(<%= @item.category.root_category.name %>)</p>
                   <p><%= @item.description %></p>
 
-                  <p><b>*</b> Item can be prepared and provided for the custom sizes requested.</p>
+                  <p class="special_note"><b>* Item can be prepared and provided for the custom sizes requested.</b></p>
                 </div>
             <% end %>
             <%#= social_share_button_tag(@item.name,

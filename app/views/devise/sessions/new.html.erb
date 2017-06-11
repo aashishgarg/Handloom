@@ -12,8 +12,9 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand agileinfo" href="index.html"><span>Kapoor</span> Handlooms</a>
+        <a class="navbar-brand agileinfo" href="index.html"><span>KAPOOR</span> HANDLOOMS</a>
         <ul class="w3header-cart">
+          <li class="wthreecartaits">
           <li class="wthreecartaits">
             <span class="my-cart-icon"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i><span class="badge badge-notify my-cart-badge"></span></span>
           </li>
@@ -25,44 +26,63 @@
         <ul class="nav navbar-nav">
           <li class="dropdown">
             <a href="#" class="dropdown-toggle w3-agile hyper" data-toggle="dropdown"><span> MEN </span></a>
-            <ul class="dropdown-menu aits-w3 multi multi1">
-              <div class="row">
+            <!--<ul class="dropdown-menu aits-w3 multi multi1">-->
+              <!--<div class="row">-->
 
-                <div class="col-sm-3 w3layouts-nav-agile w3layouts-mens-nav-agileits w3layouts-mens-nav-agileits-1">
-                  <ul class="multi-column-dropdown">
-                    <li class="heading">FEATURED</li>
-                    <li><a href="mens.html"><i class="fa fa-angle-right" aria-hidden="true"></i>New Arrivals</a></li>
-                    <li><a href="mens.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Online Only</a></li>
-                    <li><a href="mens.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Brands</a></li>
-                    <li><a href="mens.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Clearance Sale</a></li>
-                    <li><a href="mens.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Discount Store</a></li>
-                    <li><a href="mens.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Editor's Pick</a></li>
-                  </ul>
-                </div>
+                <!--<div class="col-sm-3 w3layouts-nav-agile w3layouts-mens-nav-agileits w3layouts-mens-nav-agileits-1">-->
+                  <!--<ul class="multi-column-dropdown">-->
+                    <!--<li class="heading">FEATURED</li>-->
+                    <!--<li><a href="mens.html"><i class="fa fa-angle-right" aria-hidden="true"></i>New Arrivals</a></li>-->
+                    <!--<li><a href="mens.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Online Only</a></li>-->
+                    <!--<li><a href="mens.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Brands</a></li>-->
+                    <!--<li><a href="mens.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Clearance Sale</a></li>-->
+                    <!--<li><a href="mens.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Discount Store</a></li>-->
+                    <!--<li><a href="mens.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Editor's Pick</a></li>-->
+                  <!--</ul>-->
+                <!--</div>-->
 
-                <div class="col-sm-3 w3layouts-nav-agile w3layouts-mens-nav-agileits w3layouts-mens-nav-agileits-2">
-                  <p>TORSO</p>
-                  <a href="mens.html"><img src="images/men-nav-1.jpg" alt="Groovy Apparel"></a>
-                </div>
+                <!--<div class="col-sm-3 w3layouts-nav-agile w3layouts-mens-nav-agileits w3layouts-mens-nav-agileits-2">-->
+                  <!--<p>TORSO</p>-->
+                  <!--<a href="mens.html"><img src="images/men-nav-1.jpg" alt="Groovy Apparel"></a>-->
+                <!--</div>-->
 
-                <div class="col-sm-3 w3layouts-nav-agile w3layouts-mens-nav-agileits w3layouts-mens-nav-agileits-3">
-                  <p>LEGS</p>
-                  <a href="mens.html"><img src="images/men-nav-2.jpg" alt="Groovy Apparel"></a>
-                </div>
+                <!--<div class="col-sm-3 w3layouts-nav-agile w3layouts-mens-nav-agileits w3layouts-mens-nav-agileits-3">-->
+                  <!--<p>LEGS</p>-->
+                  <!--<a href="mens.html"><img src="images/men-nav-2.jpg" alt="Groovy Apparel"></a>-->
+                <!--</div>-->
 
-                <div class="col-sm-3 w3layouts-nav-agile w3layouts-mens-nav-agileits w3layouts-mens-nav-agileits-4">
-                  <p>ACCESSORIES</p>
-                  <a href="mens_accessories.html"><img src="images/men-nav-3.jpg" alt="Groovy Apparel"></a>
-                </div>
+                <!--<div class="col-sm-3 w3layouts-nav-agile w3layouts-mens-nav-agileits w3layouts-mens-nav-agileits-4">-->
+                  <!--<p>ACCESSORIES</p>-->
+                  <!--<a href="mens_accessories.html"><img src="images/men-nav-3.jpg" alt="Groovy Apparel"></a>-->
+                <!--</div>-->
 
-                <div class="clearfix"></div>
-                <p class="promo">Use Promo Code <span>#CFFGTY56</span> and take 30% off the products.
-                  <a href="#">Details</a></p>
-              </div>
+                <!--<div class="clearfix"></div>-->
+                <!--<p class="promo">Use Promo Code <span>#CFFGTY56</span> and take 30% off the products.-->
+                  <!--<a href="#">Details</a></p>-->
+              <!--</div>-->
 
-            </ul>
+            <!--</ul>-->
+          <!--</li>-->
+          <li><%= link_to 'ABOUT', about_us_path %></li>
+          <li class="wthreesearch">
+
+
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                <%= f.email_field :email, placeholder: 'Email Address' %>
+                <%= f.password_field :password, placeholder: 'Password', autocomplete: "off" %>
+                <button type="submit" class="btn btn-default search" aria-label="Left Align">
+                  <i class="fa fa-sign-in" aria-hidden="true"></i>
+                </button>
+            <% end %>
+
+            <!--<form action="#" method="post">-->
+              <!--<input type="search" name="Search" placeholder="email" required="">-->
+              <!--<input type="search" name="Search" placeholder="password" required="">-->
+              <!--<button type="submit" class="btn btn-default search" aria-label="Left Align">-->
+                <!--<i class="fa fa-sign-in" aria-hidden="true"></i>-->
+              <!--</button>-->
+            <!--</form>-->
           </li>
-          <li><a href="about.html">ABOUT</a></li>
         </ul>
       </div>
 
@@ -72,108 +92,90 @@
 
 
   <!-- Header-Top-Bar-(Hidden) -->
-  <div class="agileheader-topbar">
-    <div class="container">
-      <div class="col-md-6 agileheader-topbar-grid agileheader-topbar-grid1">
-        <p>Free shipping on orders over $150. <a href="payment.html">Details</a></p>
-      </div>
-      <div class="col-md-6 agileheader-topbar-grid agileheader-topbar-grid2">
-        <ul>
-          <li><a href="stores.html">Store Locator</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-          <li><a class="popup-with-zoom-anim" href="#small-dialog1">Login</a></li>
-          <li><a class="popup-with-zoom-anim" href="#small-dialog2">Sign Up</a></li>
-          <li><a href="codes.html">Codes</a></li>
-          <li><a href="icons.html">Icons</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="clearfix"></div>
-    </div>
+  <!--<div class="agileheader-topbar">-->
+    <!--<div class="container">-->
+      <!--<div class="col-md-6 agileheader-topbar-grid agileheader-topbar-grid1">-->
+        <!--<p>Free shipping on orders over $150. <a href="payment.html">Details</a></p>-->
+      <!--</div>-->
+      <!--<div class="col-md-6 agileheader-topbar-grid agileheader-topbar-grid2">-->
+        <!--<ul>-->
+          <!--<li><a href="stores.html">Store Locator</a></li>-->
+          <!--<li><a href="faq.html">FAQ</a></li>-->
+          <!--<li><a class="popup-with-zoom-anim" href="#small-dialog1">Login</a></li>-->
+          <!--<li><a class="popup-with-zoom-anim" href="#small-dialog2">Sign Up</a></li>-->
+          <!--<li><a href="codes.html">Codes</a></li>-->
+          <!--<li><a href="icons.html">Icons</a></li>-->
+          <!--<li><a href="contact.html">Contact</a></li>-->
+        <!--</ul>-->
+      <!--</div>-->
+      <!--<div class="clearfix"></div>-->
+    <!--</div>-->
 
-    <!-- Popup-Box -->
-    <div id="popup1">
-      <div id="small-dialog1" class="mfp-hide agileinfo">
-        <div class="pop_up">
-          <form action="#" method="post">
-            <h3>LOGIN</h3>
-            <input type="text" Name="Userame" placeholder="Username" required="">
-            <input type="password" Name="Password" placeholder="Password" required="">
-            <ul class="tick w3layouts agileinfo">
-              <li>
-                <input type="checkbox" id="brand1" value="">
-                <label for="brand1"><span></span>Remember me</label>
-              </li>
-              <li>
-                <a href="#">Forgot Password?</a>
-              </li>
-            </ul>
-            <div class="send-button wthree agileits">
-              <input type="submit" value="LOGIN">
-            </div>
-          </form>
-        </div>
-      </div>
-      <div id="small-dialog2" class="mfp-hide agileinfo">
-        <div class="pop_up">
-          <form action="#" method="post">
-            <h3>SIGN UP</h3>
-            <input type="text" Name="Name" placeholder="Name" required="">
-            <input type="text" Name="Email" placeholder="Email" required="">
-            <input type="password" Name="Password" placeholder="Password" required="">
-            <input type="text" Name="Phone Number" placeholder="Phone Number" required="">
+    <!--&lt;!&ndash; Popup-Box &ndash;&gt;-->
+    <!--<div id="popup1">-->
+      <!--<div id="small-dialog1" class="mfp-hide agileinfo">-->
+        <!--<div class="pop_up">-->
+          <!--<form action="#" method="post">-->
+            <!--<h3>LOGIN</h3>-->
+            <!--<input type="text" Name="Userame" placeholder="Username" required="">-->
+            <!--<input type="password" Name="Password" placeholder="Password" required="">-->
+            <!--<ul class="tick w3layouts agileinfo">-->
+              <!--<li>-->
+                <!--<input type="checkbox" id="brand1" value="">-->
+                <!--<label for="brand1"><span></span>Remember me</label>-->
+              <!--</li>-->
+              <!--<li>-->
+                <!--<a href="#">Forgot Password?</a>-->
+              <!--</li>-->
+            <!--</ul>-->
+            <!--<div class="send-button wthree agileits">-->
+              <!--<input type="submit" value="LOGIN">-->
+            <!--</div>-->
+          <!--</form>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div id="small-dialog2" class="mfp-hide agileinfo">-->
+        <!--<div class="pop_up">-->
+          <!--<form action="#" method="post">-->
+            <!--<h3>SIGN UP</h3>-->
+            <!--<input type="text" Name="Name" placeholder="Name" required="">-->
+            <!--<input type="text" Name="Email" placeholder="Email" required="">-->
+            <!--<input type="password" Name="Password" placeholder="Password" required="">-->
+            <!--<input type="text" Name="Phone Number" placeholder="Phone Number" required="">-->
 
-            <div class="send-button wthree agileits">
-              <input type="submit" value="SIGN UP">
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-    <!-- //Popup-Box -->
+            <!--<div class="send-button wthree agileits">-->
+              <!--<input type="submit" value="SIGN UP">-->
+            <!--</div>-->
+          <!--</form>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--&lt;!&ndash; //Popup-Box &ndash;&gt;-->
 
-  </div>
+  <!--</div>-->
   <!-- //Header-Top-Bar-(Hidden) -->
 
 
   <!-- Header-Slider -->
   <div class="w3slideraits">
     <div class="fluid_dg_wrap fluid_dg_emboss pattern_1 fluid_dg_white_skin" id="fluid_dg_wrap_4">
-      <div data-thumb="/home/ashish/own/demo_app/app/assets/images/login/image1.JPG" data-src="/home/ashish/own/demo_app/app/assets/images/login/image1.JPG"></div>
-      <div data-thumb="/home/ashish/own/demo_app/app/assets/images/login/image1.JPG" data-src="/home/ashish/own/demo_app/app/assets/images/login/image1.JPG"></div>
-      <div data-thumb="/home/ashish/own/demo_app/app/assets/images/login/image1.JPG" data-src="/home/ashish/own/demo_app/app/assets/images/login/image1.JPG"></div>
-      <div data-thumb="/home/ashish/own/demo_app/app/assets/images/login/image1.JPG" data-src="/home/ashish/own/demo_app/app/assets/images/login/image1.JPG"></div>
-      <div data-thumb="/home/ashish/own/demo_app/app/assets/images/login/image1.JPG" data-src="/home/ashish/own/demo_app/app/assets/images/login/image1.JPG"></div>
-      <!--<div data-thumb="login/image1.JPG" data-src="login/image1.JPG"></div>-->
-      <!--<div data-thumb="login/image1.JPG" data-src="login/image1.JPG"></div>-->
-      <!--<div data-thumb="login/image1.JPG" data-src="login/image1.JPG"></div>-->
-      <!--<div data-thumb="login/image1.JPG" data-src="login/image1.JPG"></div>-->
-
-      <!--<div data-thumb="images/slide-1-small.jpg" data-src="images/slide-1.jpg"></div>-->
-      <!--<div data-thumb="images/slide-2-small.jpg" data-src="images/slide-2.jpg"></div>-->
-      <!--<div data-thumb="images/slide-3-small.jpg" data-src="images/slide-3.jpg"></div>-->
-      <!--<div data-thumb="images/slide-4-small.jpg" data-src="images/slide-4.jpg"></div>-->
-      <!--<div data-thumb="images/slide-5-small.jpg" data-src="images/slide-5.jpg"></div>-->
+      <div data-thumb="<%= image_path('login/image1.JPG') %>" data-src="<%= image_path('login/image1.JPG') %>"></div>
+      <div data-thumb="<%= image_path('login/image1.JPG') %>" data-src="<%= image_path('login/image2.JPG') %>"></div>
+      <div data-thumb="<%= image_path('login/image1.JPG') %>" data-src="<%= image_path('login/image3.JPG') %>"></div>
+      <div data-thumb="<%= image_path('login/image1.JPG') %>" data-src="<%= image_path('login/image4.JPG') %>"></div>
+      <div data-thumb="<%= image_path('login/image1.JPG') %>" data-src="<%= image_path('login/image5.JPG') %>"></div>
+      <div data-thumb="<%= image_path('login/image1.JPG') %>" data-src="<%= image_path('login/image6.JPG') %>"></div>
+      <div data-thumb="<%= image_path('login/image1.JPG') %>" data-src="<%= image_path('login/image7.JPG') %>"></div>
+      <div data-thumb="<%= image_path('login/image1.JPG') %>" data-src="<%= image_path('login/image8.JPG') %>"></div>
     </div>
   </div>
   <!-- //Header-Slider -->
-
 </div>
 <!-- //Header -->
 
-
-
 <!-- Model-Slider -->
-<div class="agilemodel-slider">
-  <div id='film_roll_1'>
-    <div><%= image_tag 'login/image1.JPG', alt: 'Kapoor Handlooms' %></div>
-    <div><%= image_tag 'login/image2.JPG', alt: 'Kapoor Handlooms' %></div>
-    <div><%= image_tag 'login/image3.JPG', alt: 'Kapoor Handlooms' %></div>
-    <div><%= image_tag 'login/image4.JPG', alt: 'Kapoor Handlooms' %></div>
-    <div><%= image_tag 'login/image5.JPG', alt: 'Kapoor Handlooms' %></div>
-    <div><%= image_tag 'login/image6.JPG', alt: 'Kapoor Handlooms' %></div>
-    <div><%= image_tag 'login/image7.JPG', alt: 'Kapoor Handlooms' %></div>
-    <div><%= image_tag 'login/image8.JPG', alt: 'Kapoor Handlooms' %></div>
+<!--<div class="agilemodel-slider">-->
+  <!--<div id='film_roll_1'>-->
     <!--<div><img src="images/model_slide-1.jpg" alt="Groovy Apparel"></div>-->
     <!--<div><img src="images/model_slide-2.jpg" alt="Groovy Apparel"></div>-->
     <!--<div><img src="images/model_slide-3.jpg" alt="Groovy Apparel"></div>-->
@@ -184,8 +186,8 @@
     <!--<div><img src="images/model_slide-8.jpg" alt="Groovy Apparel"></div>-->
     <!--<div><img src="images/model_slide-9.jpg" alt="Groovy Apparel"></div>-->
     <!--<div><img src="images/model_slide-10.jpg" alt="Groovy Apparel"></div>-->
-  </div>
-</div>
+  <!--</div>-->
+<!--</div>-->
 <!-- //Model-Slider -->
 
 
@@ -198,44 +200,44 @@
       <div class="col-md-6 wthreehome-latest-grid wthreehome-latest-grid1">
         <div class="grid">
           <figure class="effect-apollo">
-            <img src="images/home-latest-1.jpg" alt="Groovy Apparel">
+            <img src="<%= image_path('images/home-latest-1.jpg') %>" alt="Groovy Apparel">
             <figcaption></figcaption>
           </figure>
         </div>
-        <h4>DENIM TOPS</h4>
+        <h4>DOOR MATS</h4>
         <h5>Lorem Ipsum Dolor Site Amet</h5>
-        <h6><a href="womens.html">Shop Now</a></h6>
+        <!--<h6><a href="womens.html">Shop Now</a></h6>-->
       </div>
       <div class="col-md-6 wthreehome-latest-grid wthreehome-latest-grid2">
         <div class="grid">
           <figure class="effect-apollo">
-            <img src="images/home-latest-2.jpg" alt="Groovy Apparel">
+            <img src="<%= image_path('images/home-latest-2.jpg') %>" alt="Groovy Apparel">
             <figcaption></figcaption>
           </figure>
         </div>
-        <h4>LEATHER JACKETS</h4>
+        <h4>BLANKETS</h4>
         <h5>Lorem Ipsum Dolor Site Amet</h5>
-        <h6><a href="womens.html">Shop Now</a></h6>
+        <!--<h6><a href="womens.html">Shop Now</a></h6>-->
       </div>
       <div class="col-md-6 wthreehome-latest-grid wthreehome-latest-grid3">
         <div class="grid">
           <figure class="effect-apollo">
-            <img src="images/home-latest-3.jpg" alt="Groovy Apparel">
+            <img src="<%= image_path('images/home-latest-3.jpg') %>" alt="Groovy Apparel">
             <figcaption></figcaption>
           </figure>
         </div>
-        <h4>WATCHES</h4>
+        <h4>BEDSPREADS</h4>
         <h5>Lorem Ipsum Dolor Site Amet</h5>
-        <h6><a href="womens_accessories.html">Shop Now</a></h6>
+        <!--<h6><a href="womens_accessories.html">Shop Now</a></h6>-->
       </div>
       <div class="col-md-6 wthreehome-latest-grid wthreehome-latest-grid4">
         <div class="grid">
           <figure class="effect-apollo">
-            <img src="images/home-latest-4.jpg" alt="Groovy Apparel">
+            <img src="<%= image_path('images/home-latest-4.jpg') %>" alt="Groovy Apparel">
             <figcaption></figcaption>
           </figure>
         </div>
-        <h4>BEACH WEAR</h4>
+        <h4>JUTE MIX</h4>
         <h5>Lorem Ipsum Dolor Site Amet</h5>
         <h6><a href="mens.html">Shop Now</a></h6>
       </div>
@@ -251,14 +253,13 @@
 <!-- Winter-Collection -->
 <div class="wthreewinter-coll">
   <div class="container">
-    <h1>BRACE YOURSELVES! WINTER IS COMING...</h1>
+    <h1>BRACE YOURSELVES! WE OFFER A WIDE RANGE OF HOME HANDLOOM PRODUCTS...</h1>
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-      magna aliqua.</p>
+    <p>We provide world class quality products. Prices are unmatched in the market and the quality is superior.</p>
 
-    <div class="wthreeshop-a">
-      <a href="womens.html">SHOP WINTER COLLECTION</a>
-    </div>
+    <!--<div class="wthreeshop-a">-->
+      <!--<a href="womens.html">SHOP WINTER COLLECTION</a>-->
+    <!--</div>-->
   </div>
 </div>
 <!-- //Winter-Collection -->
@@ -266,48 +267,48 @@
 
 
 <!-- Denim-Collection -->
-<div class="wthreedenim-coll">
-  <div class="style-grids">
-    <div class="col-md-6 style-grid style-grid-1">
-      <img src="images/style-1.jpg" alt="Groovy Apparel">
+<!--<div class="wthreedenim-coll">-->
+  <!--<div class="style-grids">-->
+    <!--<div class="col-md-6 style-grid style-grid-1">-->
+      <!--<img src="<%#= image_path('images/style-1.jpg') %>" alt="Groovy Apparel">-->
 
-      <div class="style-grid-1-text">
-        <h3>DENIM JEANS</h3>
+      <!--<div class="style-grid-1-text">-->
+        <!--<h3>DENIM JEANS</h3>-->
 
-        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin
-          literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney
-          College in Virginia, looked up one of the more obscure Latin words, consectetur.</p>
+        <!--<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin-->
+          <!--literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney-->
+          <!--College in Virginia, looked up one of the more obscure Latin words, consectetur.</p>-->
 
-        <div class="wthreeshop-a">
-          <a href="womens.html">SHOP DENIM COLLECTION</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6 style-grid style-grid-2">
-      <div class="style-image-1">
-        <img src="images/style-2.jpg" alt="Groovy Apparel">
+        <!--<div class="wthreeshop-a">-->
+          <!--<a href="womens.html">SHOP DENIM COLLECTION</a>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="col-md-6 style-grid style-grid-2">-->
+      <!--<div class="style-image-1">-->
+        <!--<img src="<%#= image_path('images/style-2.jpg') %>" alt="Groovy Apparel">-->
 
-        <div class="style-grid-2-text">
-          <h3>WATER REPELLENT</h3>
+        <!--<div class="style-grid-2-text">-->
+          <!--<h3>WATER REPELLENT</h3>-->
 
-          <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical
-            Latin literature from 45 BC.</p>
-        </div>
-      </div>
-      <div class="style-image-2">
-        <img src="images/style-3.jpg" alt="Groovy Apparel">
+          <!--<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical-->
+            <!--Latin literature from 45 BC.</p>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="style-image-2">-->
+        <!--<img src="<%#= image_path('images/style-3.jpg') %>" alt="Groovy Apparel">-->
 
-        <div class="style-grid-2-text">
-          <h3>STITCHED TO PERFECTION</h3>
+        <!--<div class="style-grid-2-text">-->
+          <!--<h3>STITCHED TO PERFECTION</h3>-->
 
-          <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical
-            Latin literature from 45 BC.</p>
-        </div>
-      </div>
-    </div>
-    <div class="clearfix"></div>
-  </div>
-</div>
+          <!--<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical-->
+            <!--Latin literature from 45 BC.</p>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="clearfix"></div>-->
+  <!--</div>-->
+<!--</div>-->
 <!-- //Denim-Collection -->
 
 
@@ -315,14 +316,14 @@
 <!-- Clearance-Sale -->
 <div class="aitsclearance-sales">
   <div class="aitsclearance-sales-text">
-    <h2>ALL CLEARANCE ITEMS</h2>
-    <h4>BUY ONE AND GET ONE FREE</h4>
-    <h5>50% OFF
-      <small>On selected products<sup>*</sup></small>
+    <h2>HAND MADE FURNITURE</h2>
+    <h4>SMELL OF ANCIENT INDIA</h4>
+    <h5>GET THE BEST DEAL
+      <small>On all products<sup>*</sup></small>
     </h5>
-    <div class="wthreeshop-a">
-      <a href="mens.html">SHOP NOW</a>
-    </div>
+    <!--<div class="wthreeshop-a">-->
+      <!--<a href="mens.html">SHOP NOW</a>-->
+    <!--</div>-->
   </div>
 </div>
 <!-- //Clearance-Sale -->
@@ -337,7 +338,7 @@
       <div class="col-md-6 agileshoppinggrid agileshoppinggrid1">
         <div class="grid">
           <figure class="effect-apollo">
-            <img src="images/mens.jpg" alt="Groovy Apparel">
+            <img src="<%= image_path 'images/mens.jpg' %>" alt="Kapoor handlooms">
             <figcaption></figcaption>
           </figure>
         </div>
@@ -345,7 +346,7 @@
       <div class="col-md-6 agileshoppinggrid agileshoppinggrid2">
         <div class="grid">
           <figure class="effect-apollo">
-            <img src="images/womens.jpg" alt="Groovy Apparel">
+            <img src="<%= image_path 'images/womens.jpg' %>" alt="Groovy Apparel">
             <figcaption></figcaption>
           </figure>
         </div>
@@ -359,19 +360,19 @@
       <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin
         literature from 45 BC, making it over 2000 years old. Richard McClintock.</p>
 
-      <div class="agileshoppinggrids-bottom-grids">
-        <div class="col-md-6 agileshoppinggrids-bottom-grid agileshoppinggrids-bottom-grid1">
-          <div class="wthreeshop-a">
-            <a href="mens.html">SHOP MEN</a>
-          </div>
-        </div>
-        <div class="col-md-6 agileshoppinggrids-bottom-grid agileshoppinggrids-bottom-grid2">
-          <div class="wthreeshop-a">
-            <a href="womens.html">SHOP WOMEN</a>
-          </div>
-        </div>
-        <div class="clearfix"></div>
-      </div>
+      <!--<div class="agileshoppinggrids-bottom-grids">-->
+        <!--<div class="col-md-6 agileshoppinggrids-bottom-grid agileshoppinggrids-bottom-grid1">-->
+          <!--<div class="wthreeshop-a">-->
+            <!--<a href="mens.html">SHOP MEN</a>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="col-md-6 agileshoppinggrids-bottom-grid agileshoppinggrids-bottom-grid2">-->
+          <!--<div class="wthreeshop-a">-->
+            <!--<a href="womens.html">SHOP WOMEN</a>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="clearfix"></div>-->
+      <!--</div>-->
     </div>
 
   </div>
@@ -383,27 +384,27 @@
 <!-- Newsletter -->
 <div class="agileinfonewsl">
 
-  <h3>SIGN UP FOR NEWSLETTER</h3>
+  <h3>BOOK YOUR ORDER NOW!</h3>
 
-  <p>Subscribe to us to get highest-level access to our new styles and trends</p>
+  <p>Get associated with us to get the world's finest quality products.</p>
 
-  <div class="wthreeshop-a">
-    <a class="popup-with-zoom-anim" href="#small-dialog3">SUBSCRIBE</a>
-  </div>
+  <!--<div class="wthreeshop-a">-->
+    <!--<a class="popup-with-zoom-anim" href="#small-dialog3">SUBSCRIBE</a>-->
+  <!--</div>-->
 
   <!-- Popup-Box -->
-  <div id="popup2">
-    <div id="small-dialog3" class="mfp-hide agileinfo">
-      <div class="pop_up">
-        <h4>SUBSCRIBE</h4>
+  <!--<div id="popup2">-->
+    <!--<div id="small-dialog3" class="mfp-hide agileinfo">-->
+      <!--<div class="pop_up">-->
+        <!--<h4>SUBSCRIBE</h4>-->
 
-        <form action="#" method="post">
-          <input class="email aitsw3ls" type="email" placeholder="Email" required="">
-          <input type="submit" class="submit" value="SUBSCRIBE">
-        </form>
-      </div>
-    </div>
-  </div>
+        <!--<form action="#" method="post">-->
+          <!--<input class="email aitsw3ls" type="email" placeholder="Email" required="">-->
+          <!--<input type="submit" class="submit" value="SUBSCRIBE">-->
+        <!--</form>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
   <!-- //Popup-Box -->
 
 </div>
@@ -444,15 +445,15 @@
 <script>jQuery(document).ready(function () {
     jQuery(function () {
         jQuery('#fluid_dg_wrap_4').fluid_dg({
-            height: 'auto',
+            height: '500px',
             loader: 'bar',
             pagination: false,
             thumbnails: true,
             hover: false,
             opacityOnGrid: false,
             imagePath: '',
-            time: 4000,
-            transPeriod: 2000
+            time: 1000,
+            transPeriod: 1000
         });
     });
 })
