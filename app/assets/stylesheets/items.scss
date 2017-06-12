@@ -75,7 +75,7 @@ select.soflow, select.soflow-color {
   padding: 5px 10px;
   text-overflow: ellipsis;
   white-space: nowrap;
-  width: 320px;
+  width: 375px;
 }
 
 select.soflow-color {
@@ -159,5 +159,17 @@ select.soflow-color {
         color: #fff;
       }
     }
+  }
+}
+
+.product-information{
+  .item_variant_brand{
+    span{
+      text-transform: uppercase;
+    }
+  }
+  p{
+    text-align: justify;
+    padding-right: 50px;
   }
 }

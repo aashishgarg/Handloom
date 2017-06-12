@@ -105,7 +105,7 @@ a:focus, a:hover {
 		display: none;
 	}
 	.navbar-default .navbar-brand span {
-		color: #c41228;
+		color: #FE980F;
 	}
 
 	.row {
@@ -210,7 +210,7 @@ a:focus, a:hover {
 		color: #000;
 		border-color: #000;
 		border-radius: 0;
-		padding: 5px 10px;
+		padding: 4px 10px;
 	}
 
 	li.wthreesearch .btn-default:hover {
@@ -586,17 +586,17 @@ a:focus, a:hover {
 			color: #000;
 		}
 
-		input[type="text"], input[type="password"], input.email.aitsw3ls, textarea.text {
-			padding: 15px;
-			width: 100%;
-			border: none;
-			font-family: 'Montserrat', sans-serif;
-			font-size: 11px;
-			color: #FFF;
-			outline: none;
-			margin-bottom: 20px;
-			background-color: #000;
-		}
+		/*input[type="text"], input[type="password"], input.email.aitsw3ls, textarea.text {*/
+			/*padding: 15px;*/
+			/*width: 100%;*/
+			/*border: none;*/
+			/*font-family: 'Montserrat', sans-serif;*/
+			/*font-size: 11px;*/
+			/*color: #FFF;*/
+			/*outline: none;*/
+			/*margin-bottom: 20px;*/
+			/*background-color: #000;*/
+		/*}*/
 
 		ul.tick {
 			list-style: none;
@@ -3211,19 +3211,23 @@ p.single-price-text {
 /*-- Placeholder-Color --*/
 
 	::-webkit-input-placeholder {
-		color: #FFF;
+		color: #000;
+        padding-left: 5px;
 	}
 
 	::-moz-placeholder {
-		color: #FFF;
+		color: #000;
+        padding-left: 5px;
 	}
 
 	::-moz-placeholder {
-		color: #FFF;
+		color: #000;
+        padding-left: 5px;
 	}
 
 	::-ms-input-placeholder {
-		color: #FFF;
+		color: #000;
+        padding-left: 5px;
 	}
 
 /*-- //Placeholder-Color --*/
@@ -3416,7 +3420,7 @@ p.single-price-text {
 
 @media screen and (max-width: 1366px) {
 	li.wthreesearch {
-		right: 14%;
+		right: 3%;
 	}
 	li.wthreecartaits {
 		right: 8%;
@@ -4197,10 +4201,10 @@ p.single-price-text {
 		height: 300px;
 	}
 	.email-form input.email {
-		padding: 13px 10px; 
+		padding: 13px 10px;
 	}
-	.email-form input.submit { 
-		padding: 13px 0; 
+	.email-form input.submit {
+		padding: 13px 0;
 	}
 	.w3aitsfaq h1, .w3aitscontactagile h1, .w3aitscodes h1.w3lsmainheading, h1.agileits-icons-title, h2.agileits-icons-title {
 		font-size: 30px;
@@ -4647,7 +4651,7 @@ p.single-price-text {
 	.email-form input.email {
 		padding: 11px 10px;
 	}
-	.email-form input.submit { 
+	.email-form input.submit {
 		font-size: 12px;
 		width: 26%;
 	}
@@ -5206,8 +5210,8 @@ p.single-price-text {
 	.panel-body {
 		font-size: 12px;
 	}
-	input[type="text"], input[type="password"], input.email.aitsw3ls, textarea.text { 
-		margin-bottom: 15px; 
+	input[type="text"], input[type="password"], input.email.aitsw3ls, textarea.text {
+		margin-bottom: 15px;
 		padding: 10px;
 	}
 	ul.tick li { 
@@ -5228,11 +5232,11 @@ p.single-price-text {
 	}
 }
 @media screen and (max-width: 375px) {
-	.email-form input.email { 
+	.email-form input.email {
 		width: 68%;
-		font-size: 12px; 
+		font-size: 12px;
 	}
-	.email-form input.submit {  
+	.email-form input.submit {
 		width: 28%;
 	}
 	.w3lsnewsletter-grid-2 {

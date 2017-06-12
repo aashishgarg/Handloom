@@ -34,6 +34,7 @@
                   </div>
                   <div class="item_actions_container">
                     <span>
+                      <%= f.label :quantity %>
                       <%= f.number_field :quantity, value: 1 %>
                       <%= button_tag(class: "btn btn-fefault cart") do %>
                             <i class="fa fa-plus" aria-hidden="true"></i>Add to cart
@@ -45,7 +46,7 @@
                     </span>
                   </div>
                   <p class="item_variant_material"><b>Material:</b> <%= @item.item_variants.first.material.name.capitalize if @item.item_variants.first.material %></p>
-                  <p class="item_variant_brand"><b>Brand:</b> <%= @item.item_variants.first.brand.name.capitalize if @item.item_variants.first.brand %></p>
+                  <p class="item_variant_brand"><b>Brand:</b> <span><%= @item.item_variants.first.brand.name.capitalize if @item.item_variants.first.brand %></span></p>
                   <p><b>Category:</b><%= @item.category.name %>(<%= @item.category.root_category.name %>)</p>
                   <p><%= @item.description %></p>
 

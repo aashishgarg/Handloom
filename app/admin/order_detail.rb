@@ -31,6 +31,12 @@ ActiveAdmin.register Order::Detail do
       link_to order.order_header.bill_no, admin_order_header_path(order.header_id)
     end
     column :item_variant
+    column :sku do |order|
+      label order.item_variant.sku if order.item_variant
+    end
+    column :sku, label: 'Style no' do |order|
+      label order.item_variant.new_style_no if order.item_variant
+    end
     column :quantity
     column :color do |order|
       label order.item_variant.color.name if order.item_variant
@@ -50,6 +56,8 @@ ActiveAdmin.register Order::Detail do
   csv do
     column :id
     column(:item) { |order| order.item_variant.item.name }
+    column(:sku) { |order| order.item_variant.sku }
+    column(:style_no) { |order| order.item_variant.new_style_no }
     column(:color) { |order| order.item_variant.color.name }
     column(:size) { |order| order.item_variant.size.name }
     column(:material) { |order| order.item_variant.material.name if order.item_variant.material }

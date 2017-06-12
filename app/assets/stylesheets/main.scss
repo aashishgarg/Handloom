@@ -197,12 +197,13 @@ a#scrollUp {
 .shop-menu ul li {
   display: inline-block;
   padding-left: 15px;
-  padding-right: 15px;
+  //padding-right: 15px;
   &:last-child {
     padding-right: 0;
   }
   a {
     background: #FE980F;
+    padding: 1px 6px 2px 5px;
     color: #fff;
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
@@ -1062,6 +1063,7 @@ h2.title {
   p.special_note{
     margin-top: 20px;
     color: #ff0000;
+    font-size: 14px;
   }
 }
 
@@ -1072,7 +1074,7 @@ h2.title {
 .cart {
   background: #FE980F;
   border: 0 none;
-  border-radius: 5px;
+  //border-radius: 5px;
   color: #FFFFFF;
   font-family: 'Roboto', sans-serif;
   font-size: 15px;
@@ -2183,6 +2185,7 @@ select, textarea {
 }
 
 #contact-page {
+  margin-bottom: 250px !important;
   .form-control {
     &:focus, &:hover {
       box-shadow: inherit;
