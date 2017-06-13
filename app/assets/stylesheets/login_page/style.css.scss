@@ -641,7 +641,7 @@ a:focus, a:hover {
 
 		ul.tick li input[type="checkbox"]:checked+label span:first-child:before {
 			content: "";
-			background: url("../images/tick.png") no-repeat;
+			background: image-url("images/tick.png") no-repeat;
 			position: absolute;
 			left: 3px;
 			/*-- w3layouts --*/
@@ -1005,7 +1005,7 @@ figure.effect-apollo:hover figcaption::before {
 /*-- Winter-Collection --*/
 
 .wthreewinter-coll {
-	background-image: url("../images/winter.jpg");
+	background-image: image-url("images/winter.jpg");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
@@ -1103,7 +1103,7 @@ figure.effect-apollo:hover figcaption::before {
 /*-- Clearance-Sale --*/
 
 .aitsclearance-sales {
-	background-image: url("../images/clearance.jpg");
+	background-image: image-url("images/clearance.jpg");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
@@ -1193,7 +1193,7 @@ figure.effect-apollo:hover figcaption::before {
 /*-- Newsletter --*/
 
 .agileinfonewsl {
-	background-image: url("../images/newsletter.jpg");
+    background: image-url('images/newsletter.jpg');
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
@@ -1375,7 +1375,7 @@ figure.effect-apollo:hover figcaption::before {
 /*-- Be-Yourself --*/
 
 .aitsyourself-grid1 {
-	background-image: url("../images/be-1.jpg");
+	background-image: image-url("images/be-1.jpg");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
@@ -1398,7 +1398,7 @@ figure.effect-apollo:hover figcaption::before {
 }
 
 .aitsyourself-grid3 {
-	background-image: url("../images/be-2.jpg");
+	background-image: image-url("images/be-2.jpg");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
@@ -1499,7 +1499,7 @@ div#small-dialog4 {
 /*-- Shoes --*/
 
 .w3lsshoesaits {
-	background-image: url("../images/shoes.jpg");
+	background-image: image-url("images/shoes.jpg");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
@@ -1528,7 +1528,7 @@ div#small-dialog4 {
 /*-- Countdown-Timer --*/
 
 .agilenwew3lsfashions {
-	background-image: url("../images/countdown.jpg");
+	background-image: image-url("images/countdown.jpg");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
@@ -1906,7 +1906,7 @@ h1.w3wthreeheadingaits {
 .cbp-pgoptsize .cbp-pgopttooltip span {
 	display: block;
 	text-indent: 0;
-	background: url(../images/tshirt.svg) no-repeat center center;
+	background: image-url("images/tshirt.svg") no-repeat center center;
 	background-size: 100%;
 	margin: 0 auto 4px;
 	text-align: center;
@@ -2016,7 +2016,7 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
 }
 
 label.css-label {
-	background-image:url("../images/heart.png");
+	background-image:image-url("images/heart.png");
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
@@ -2960,7 +2960,7 @@ textarea.text {
 
 	.starRating:not(old) > label {
 		float: right;
-		background: url("../images/star.png");
+		background: image-url("images/star.png");
 		background-size: contain;
 		margin-right: 2px;
 	}
@@ -2970,7 +2970,7 @@ textarea.text {
 		display: block;
 		width: 18px;
 		height: 18px;
-		background: url("../images/star1.png");
+		background: image-url("images/star1.png");
 		background-size: contain;
 		opacity: 0;
 		transition: opacity 0.2s linear;
@@ -3124,7 +3124,7 @@ p.single-price-text {
 }
 
 .aitsaccordionw3layouts div#collapseThree span {
-	background: url("../images/5stars.png") no-repeat 0px 0px;
+	background: image-url("images/5stars.png") no-repeat 0px 0px;
 	color: #31708f;
 	font-weight: 500;
 	padding-left: 140px;
