@@ -21,8 +21,8 @@
  *= require main
  *= require pnotify
  *= require social-share-button
- *= stub "active_admin"
  *= require_tree .
+ *= stub "active_admin"
  *= require_self
  *= stub 'login_page/flexslider'
  *= stub 'login_page/fluid_dg'

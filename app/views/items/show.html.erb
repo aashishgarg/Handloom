@@ -34,8 +34,9 @@
                   </div>
                   <div class="item_actions_container">
                     <span>
+                      <span>US $ <%= ItemPricing.item_price(@item, current_user) %></span>
                       <%= f.label :quantity %>
-                      <%= f.number_field :quantity, value: 1 %>
+                      <%= f.number_field :quantity, value: 1, min: 1 %>
                       <%= button_tag(class: "btn btn-fefault cart") do %>
                             <i class="fa fa-plus" aria-hidden="true"></i>Add to cart
                       <% end %>

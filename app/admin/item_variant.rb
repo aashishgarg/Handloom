@@ -1,27 +1,28 @@
 ActiveAdmin.register ItemVariant do
 
-  # =========== Menu Settings ====================================== #
+  # --------------- Menu Settings --------------------------------------------- #
   menu priority: 8, parent: 'Item Master'
 
+  # --------------- Pagination ------------------------------------------------ #
   config.per_page = 10
 
-  # =========== Permitted parameters =============================== #
+  # --------------- Permitted parameters -------------------------------------- #
   permit_params :item_id, :image, :price, :special_price, :color_id, :brand_id, :size_id, :material_id
 
-  # =========== Header Level actions =============================== #
+  # --------------- Header Level actions -------------------------------------- #
   actions :all, :except => [:destroy]
 
-  # =========== Scopes ============================================= #
+  # --------------- Scopes ---------------------------------------------------- #
   scope('Filtered', default: true) { |scope| params[:item_id] ? scope.where(item_id: params[:item_id]) : scope }
   scope :all
 
-  # =========== Filters ============================================ #
+  # --------------- Filters --------------------------------------------------- #
   filter :item_sku_cont
 
-  # =========== Pagination ========================================= #
+  # --------------- Pagination ------------------------------------------------ #
   config.per_page = 10
 
-  # =========== Custom Form for Item(Edit/New) ===================== #
+  # --------------- Custom Form for Item(Edit/New) ---------------------------- #
   form do |f|
     f.inputs 'Item variant Form' do
       f.input :item, as: :select2, collection: Item.all.collect { |item| [item.name, item.id] }
@@ -36,7 +37,7 @@ ActiveAdmin.register ItemVariant do
     f.actions
   end
 
-  # =========== Custom Index page ================================== #
+  # --------------- Custom Index page ----------------------------------------- #
   index do
     # selectable_column
     id_column

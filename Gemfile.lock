@@ -18,6 +18,14 @@ GIT
       sprockets (< 4.1)
 
 GIT
+  remote: https://github.com/bernat/best_in_place.git
+  revision: 1b779e60ea912ab9c39d5c999b00c8ac44a8e535
+  specs:
+    best_in_place (3.1.1)
+      actionpack (>= 3.2)
+      railties (>= 3.2)
+
+GIT
   remote: https://github.com/mfairburn/activeadmin-select2.git
   revision: f35b0367cca61266737c94ca9a94cd142c95b763
   specs:
@@ -275,6 +283,7 @@ DEPENDENCIES
   active_admin_theme
   activeadmin!
   activeadmin-select2!
+  best_in_place!
   bootstrap-sass (~> 3.1.1)
   bootstrap-toggle-rails
   byebug

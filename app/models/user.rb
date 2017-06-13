@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_many :cart_items, class_name: 'Cart', inverse_of: :user, dependent: :destroy
   has_many :order_headers, class_name: 'Order::Header', inverse_of: :user
   has_many :order_details, class_name: 'Order::Detail', through: :order_headers
+  has_many :item_pricings
+  has_many :items, through: :item_pricings
 
   # ====================== Validations ===================== #
   validates :name, presence: true, length: {minimum: 2, maximum: 50}
@@ -19,4 +21,14 @@ class User < ApplicationRecord
 
   # ====================== Scope =========================== #
   # default_scope -> { where('email not in (?)', ADMIN_EMAILS) }
+
+  # ====================== Callbacks======================== #
+  after_create :generate_item_pricings
+
+  private
+  def generate_item_pricings
+    Item.all.each do |_item|
+      ItemPricing.create(item: _item, user: self, price: 0)
+    end
+  end
 end

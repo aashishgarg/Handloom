@@ -12,6 +12,9 @@ class Item < ApplicationRecord
   has_many :sizes, class_name: 'Property::Size', through: :item_variants
   has_many :materials, class_name: 'Property::Material', through: :item_variants
 
+  has_many :item_pricings
+  has_many :users, through: :item_pricings
+
   # =================== Validations ====================== #
   validates :name, presence: true, length: {minimum: 2}
   validates :description, length: {minimum: 2}
@@ -27,5 +30,9 @@ class Item < ApplicationRecord
     size = Property::Color.where(name: color_name).take
 
     item.item_variants.where(color: color, size: size)
+  end
+
+  def item_price(user)
+    Item.user_pricings(user)
   end
 end
