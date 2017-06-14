@@ -76,17 +76,19 @@
             <table cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;">
               <tr style="height: 25px">
                 <th style="font-size:14px; text-align:center">Item</th>
-                <th style="font-size:14px; text-align:center">Category</th>
-                <th style="font-size:14px; text-align:center">Color</th>
+                <th style="font-size:14px; text-align:center">SKU</th>
+                <th style="font-size:14px; text-align:center">Style No</th>
                 <th style="font-size:14px; text-align:center">Size</th>
+                <th style="font-size:14px; text-align:center">Color</th>
                 <th style="font-size:14px; text-align:center">Units</th>
               </tr>
               <% @order.order_details.each do |order_detail| %>
                   <tr>
                     <td height="20" style="font-size:12px; text-align:center"><%= order_detail.item_variant.item.name.capitalize %></td>
-                    <td height="20" style="font-size:12px; text-align:center"><%= order_detail.item_variant.category.name.capitalize %></td>
-                    <td height="20" style="font-size:12px; text-align:center"><%= order_detail.item_variant.color.name.capitalize %></td>
+                    <td height="20" style="font-size:12px; text-align:center"><%= order_detail.sku %></td>
+                    <td height="20" style="font-size:12px; text-align:center"><%= order_detail.item_variant.new_style_no %></td>
                     <td height="20" style="font-size:12px; text-align:center"><%= order_detail.item_variant.size.name %></td>
+                    <td height="20" style="font-size:12px; text-align:center"><%= order_detail.item_variant.color.name %></td>
                     <td height="20" style="font-size:12px; text-align:center"><%= order_detail.quantity %></td>
                   </tr>
               <% end %>
