@@ -23,6 +23,7 @@ gem 'jquery-ui-rails'
 gem 'kaminari'
 gem 'mina'
 gem 'mysql2'
+gem "paperclip", "~> 5.0.0"
 gem 'photofy'
 gem 'pnotify-rails'
 gem 'puma', '~> 3.0'

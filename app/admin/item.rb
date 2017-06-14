@@ -12,7 +12,8 @@ ActiveAdmin.register Item do
 
   # =========== Permitted parameters =============================== #
   permit_params :name, :category_id, :old_style_no, :new_style_no, :description,
-                :short_description, :sku, :delivery_time, :meta_keywords, :meta_description, :price
+                :short_description, :sku, :delivery_time, :meta_keywords, :meta_description, :price,
+                :images_attributes => [:avatar, :id, :_destroy]
 
   # =========== Header Level actions =============================== #
   actions :all, :except => [:destroy]
@@ -27,8 +28,11 @@ ActiveAdmin.register Item do
   form do |f|
     f.inputs 'Item Form' do
       f.input :category, as: :select2, collection: Category.sub_categories.collect { |x| [x.root_category.name+' ('+x.name+')', x.id] }
+      f.has_many :images do |p|
+          p.input :_destroy, :as => :boolean, :label => "Destroy?" unless p.object.new_record?
+          p.input :avatar,input_html: { multiple: true}, :hint => p.object.new_record? ? "" : f.template.image_tag(p.object.avatar.url(:thumb))
+      end
       f.input :name
-      # f.input :old_style_no
       f.input :new_style_no
       f.input :description
       f.input :short_description
@@ -61,9 +65,36 @@ ActiveAdmin.register Item do
     column :price, label: 'Default Price' do |item|
       best_in_place item, :price, as: :input, url: [:admin, item]
     end
-    # column :delivery_time
+    column :images, label: 'Total Images' do |item|
+      label item.images.count
+    end
     column :category
     actions
+  end
+
+
+  show do |ad|
+    attributes_table do
+      row :name
+      # Loop on every existing images and display them in a list
+      row :images do
+        ul do
+          ad.images.each_with_index do |img,index|
+            li do
+              label index + 1
+            end
+            li do
+              image_tag(img.avatar.url(:thumb))
+            end
+          end
+        end
+      end
+
+      row :new_style_no
+      row :sku
+      row :price
+      row :category
+    end
   end
 
   # =========== Controller ========================================= #
@@ -111,7 +142,7 @@ ActiveAdmin.register Item do
               delivery_time: data[7],
               meta_keywords: data[8],
               meta_description: data[9],
-              price: data[10]
+              price: data[10] || 0
           )
 
           # ------------------ Materials --------------------------------- #
@@ -140,19 +171,23 @@ ActiveAdmin.register Item do
           end
 
           # ------------------ Product Image ----------------------------- #
-          image_path = File.join('/home/deploy/product_images',data[6]).concat('.jpg')
-          puts '**********************************************************************************'
-          puts image_path
-          puts '**********************************************************************************'
+          _images = data[6].split(',')
 
-          @item.item_variants.first.image = File.open(image_path) if File.exist?(image_path)
+          _images.each do |_image|
+            image_path = File.join('//home/ashish/product_images', _image).concat('.jpg')
+            puts '**********************************************************************************'
+            puts image_path
+            puts '**********************************************************************************'
 
-          # ------------------ Item -------------------------------------- #
-          unless @item.save
-            problematic_data << data
-            puts 'ERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERROR'
-            puts  @item.errors.full_messages
-            puts 'ERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERROR'
+            @item.images.build(avatar: File.new(image_path, 'r')) if File.exist?(image_path)
+
+            # ------------------ Item -------------------------------------- #
+            unless @item.save
+              problematic_data << data
+              puts 'ERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERROR'
+              puts @item.errors.full_messages
+              puts 'ERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERROR'
+            end
           end
         end
       end

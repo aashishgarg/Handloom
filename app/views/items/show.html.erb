@@ -12,7 +12,7 @@
         <div class="product-details"><!--product-details-->
           <div class="col-sm-5">
             <div class="view-product">
-              <%= image_tag @item.item_variants.first.item_image %>
+              <%= image_tag @item.images.present? ? @item.images.first.avatar.url : 'sample_item.jpg' %>
             </div>
           </div>
           <div class="col-sm-7">

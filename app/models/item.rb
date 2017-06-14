@@ -15,6 +15,10 @@ class Item < ApplicationRecord
   has_many :item_pricings
   has_many :users, through: :item_pricings
 
+  # =================== Paperclip ======================== #
+  has_many :images, :dependent => :destroy
+  accepts_nested_attributes_for :images, :allow_destroy => true
+
   # =================== Validations ====================== #
   validates :name, presence: true, length: {minimum: 2}
   validates :description, length: {minimum: 2}

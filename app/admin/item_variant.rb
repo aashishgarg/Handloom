@@ -52,9 +52,9 @@ ActiveAdmin.register ItemVariant do
     column :size
     column :brand
     column :material
-    column :image do |item_variant|
-      image_tag item_variant.item_image, class: 'item_image'
-    end
+    # column :image do |item_variant|
+    #   image_tag item_variant.item_image, class: 'item_image'
+    # end
     actions
   end
 end
