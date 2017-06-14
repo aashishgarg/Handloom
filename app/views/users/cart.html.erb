@@ -86,7 +86,7 @@
                 <li>Total item quantities<span class="total_cart_quantity">
                   <%= current_user.cart_items.present? ? current_user.cart_items.collect(&:quantity).inject(&:+) : 0 %>
                 </span></li>
-                <li>Total <span class="total_cart_value">
+                <li>Total value<span class="total_cart_value">
                   <%= current_user.cart_total_value %>
                 </span></li>
               </ul>

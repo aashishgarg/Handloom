@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170613163629) do
+ActiveRecord::Schema.define(version: 20170614075651) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
     t.string   "namespace"
@@ -91,9 +91,10 @@ ActiveRecord::Schema.define(version: 20170613163629) do
     t.string   "delivery_time"
     t.text     "meta_keywords",     limit: 65535
     t.text     "meta_description",  limit: 65535
-    t.string   "status",                          default: "open"
-    t.datetime "created_at",                                       null: false
-    t.datetime "updated_at",                                       null: false
+    t.string   "status",                                         default: "open"
+    t.datetime "created_at",                                                      null: false
+    t.datetime "updated_at",                                                      null: false
+    t.decimal  "price",                           precision: 10
   end
 
   create_table "order_details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|

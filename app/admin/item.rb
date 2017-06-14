@@ -12,7 +12,7 @@ ActiveAdmin.register Item do
 
   # =========== Permitted parameters =============================== #
   permit_params :name, :category_id, :old_style_no, :new_style_no, :description,
-                :short_description, :sku, :delivery_time, :meta_keywords, :meta_description
+                :short_description, :sku, :delivery_time, :meta_keywords, :meta_description, :price
 
   # =========== Header Level actions =============================== #
   actions :all, :except => [:destroy]
@@ -36,6 +36,7 @@ ActiveAdmin.register Item do
       f.input :delivery_time
       f.input :meta_keywords
       f.input :meta_description
+      f.input :price
       if controller.action_name == 'new'
         f.input :colors, as: :select2_multiple, collection: Property::Color.all.collect { |x| [x.name, x.id] }, multiple: true
         f.input :sizes, as: :select2_multiple, collection: Property::Size.all.collect { |x| [x.name, x.id] }, multiple: true
@@ -57,6 +58,9 @@ ActiveAdmin.register Item do
     # column :old_style_no
     column :new_style_no
     column :sku
+    column :price, label: 'Default Price' do |item|
+      best_in_place item, :price, as: :input, url: [:admin, item]
+    end
     # column :delivery_time
     column :category
     actions
@@ -106,22 +110,23 @@ ActiveAdmin.register Item do
               sku: data[6],
               delivery_time: data[7],
               meta_keywords: data[8],
-              meta_description: data[9]
+              meta_description: data[9],
+              price: data[10]
           )
 
           # ------------------ Materials --------------------------------- #
-          material = Property::Material.where(name: data[12]).take || Property::Material.create(name: data[12])
+          material = Property::Material.where(name: data[13]).take || Property::Material.create(name: data[13])
 
           # ------------------ Brands ------------------------------------ #
-          brand = Property::Brand.where(name: data[13]).take || Property::Brand.create(name: data[13])
+          brand = Property::Brand.where(name: data[14]).take || Property::Brand.create(name: data[14])
 
           # ------------------ Colors ------------------------------------ #
-          colors = data[10] || 'Custom color'
+          colors = data[11] || 'Custom color'
 
           colors.split('_').each do |_color|
             color = Property::Color.where(name: _color).take || Property::Color.create(name: _color)
             # ------------------ Sizes ------------------------------------- #
-            sizes = data[11] || 'Custom size'
+            sizes = data[12] || 'Custom size'
             sizes.split('_').each do |_size|
               size = Property::Size.where(name: _size).take || Property::Size.create(name: _size)
               # ------------------ Item Variant ------------------------------ #
