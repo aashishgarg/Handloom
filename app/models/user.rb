@@ -25,6 +25,10 @@ class User < ApplicationRecord
   # ====================== Callbacks======================== #
   after_create :generate_item_pricings
 
+  def cart_total_value
+    cart_items.collect { |x| [x.quantity, ItemPricing.item_price(x.item, self).price].inject(&:*) }.inject(&:+)
+  end
+
   private
   def generate_item_pricings
     Item.all.each do |_item|

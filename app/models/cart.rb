@@ -2,6 +2,8 @@ class Cart < ApplicationRecord
 
   # ======================= Associations ===================== #
   belongs_to :user
+  belongs_to :item_variant
+  has_one :item, through: :item_variant
 
 
   def self.total_items

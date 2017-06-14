@@ -8,6 +8,10 @@ ActiveAdmin.register ItemPricing do
 
   actions :all, :except => [:new, :destroy]
 
+  # =========== Custom Filters ===================================== #
+  filter :user
+  filter :category
+
   # --------------- Custom Form for Item Pricing(Edit/New) --------- #
   form do |f|
     f.inputs 'Item variant Form' do

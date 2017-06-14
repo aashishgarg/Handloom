@@ -18,7 +18,7 @@ ActiveAdmin.register Item do
   actions :all, :except => [:destroy]
 
   # =========== Custom Filters ===================================== #
-  filter :category_name_cont
+  filter :category
 
   # =========== Pagination ========================================= #
   config.per_page = 10
@@ -57,7 +57,7 @@ ActiveAdmin.register Item do
     # column :old_style_no
     column :new_style_no
     column :sku
-    column :delivery_time
+    # column :delivery_time
     column :category
     actions
   end

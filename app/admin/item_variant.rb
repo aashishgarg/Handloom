@@ -17,7 +17,8 @@ ActiveAdmin.register ItemVariant do
   scope :all
 
   # --------------- Filters --------------------------------------------------- #
-  filter :item_sku_cont
+  filter :item_sku_cont, label: 'SKU'
+  filter :item_new_style_no_cont, label: 'STYLE NO'
 
   # --------------- Pagination ------------------------------------------------ #
   config.per_page = 10

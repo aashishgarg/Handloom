@@ -3,3 +3,10 @@ $("tr#<%= @cart_item.id %>").remove();
 $('#cart_item_count').html('<%= current_user.cart_items.present? ? current_user.cart_items.count : 0 %>');
 $('span.total_cart_items').html('<%= current_user.cart_items.present? ? current_user.cart_items.count : 0 %>');
 $('span.total_cart_quantity').html('<%= current_user.cart_items.present? ? current_user.cart_items.collect(&:quantity).inject(&:+) : 0 %>');
+
+
+// ====== Cart total value ============ //
+var _totals = $.map($('td.cart_item_total'), function (obj) {
+    return parseInt($(obj).find('p').text())
+});
+$('span.total_cart_value').html(eval(_totals.join('+')));
