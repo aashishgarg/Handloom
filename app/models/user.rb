@@ -32,7 +32,7 @@ class User < ApplicationRecord
   private
   def generate_item_pricings
     Item.all.each do |_item|
-      ItemPricing.create(item: _item, user: self, price: 0)
+      ItemPricing.create(item: _item, user: self, price: _item.price)
     end
   end
 end

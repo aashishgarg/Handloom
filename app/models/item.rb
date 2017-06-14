@@ -42,7 +42,7 @@ class Item < ApplicationRecord
   private
   def create_default_pricings_data
     User.all.each do |_user|
-      ItemPricing.create(item: self, user: _user, price: 0)
+      ItemPricing.create(item: self, user: _user, price: self.price)
     end
   end
 end
