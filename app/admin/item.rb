@@ -36,7 +36,7 @@ ActiveAdmin.register Item do
       f.input :delivery_time
       f.input :meta_keywords
       f.input :meta_description
-      f.input :price
+      f.input :price, label: 'Default Price'
       if controller.action_name == 'new'
         f.input :colors, as: :select2_multiple, collection: Property::Color.all.collect { |x| [x.name, x.id] }, multiple: true
         f.input :sizes, as: :select2_multiple, collection: Property::Size.all.collect { |x| [x.name, x.id] }, multiple: true

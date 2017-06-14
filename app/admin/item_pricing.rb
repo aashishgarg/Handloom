@@ -11,6 +11,8 @@ ActiveAdmin.register ItemPricing do
   # =========== Custom Filters ===================================== #
   filter :user
   filter :category
+  filter :item_sku_cont, label: 'Item SKU'
+  filter :item_new_style_no_cont, label: 'Item Style No'
 
   # --------------- Custom Form for Item Pricing(Edit/New) --------- #
   form do |f|
