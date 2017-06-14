@@ -26,7 +26,8 @@ set :work_sheet_name, 'my_application'
 set :shared_files, fetch(:shared_file, []).push(
                      'config/database.yml',
                      'config/secrets.yml',
-                     'photofy'
+                     'photofy',
+                     'public/system'
                  )
 set :ruby_version, "#{File.readlines(File.join(__dir__, '..', '.ruby-version')).first.strip}"
 set :gemset, "#{File.readlines(File.join(__dir__, '..', '.ruby-gemset')).first.strip}"
