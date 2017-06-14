@@ -174,7 +174,8 @@ ActiveAdmin.register Item do
           _images = data[6].split(',')
 
           _images.each do |_image|
-            image_path = File.join('//home/ashish/product_images', _image).concat('.jpg')
+            image_path = File.join('/home/deploy/product_images', _image).concat('.jpg')
+            # image_path = File.join('//home/ashish/product_images', _image).concat('.jpg')
             puts '**********************************************************************************'
             puts image_path
             puts '**********************************************************************************'
