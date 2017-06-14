@@ -11,8 +11,15 @@
       <div class="col-sm-12 padding-right">
         <div class="product-details"><!--product-details-->
           <div class="col-sm-5">
-            <div class="view-product">
-              <%= image_tag @item.images.present? ? @item.images.first.avatar.url : 'sample_item.jpg' %>
+            <div class="item_frame">
+              <div class="view-product">
+                <%= image_tag @item.images.present? ? @item.images.first.avatar.url : 'sample_item.jpg' %>
+              </div>
+            </div>
+            <div class="item_showcase">
+              <% @item.images.each do |image| %>
+                  <%= image_tag image.avatar.url(:thumb) %>
+              <% end %>
             </div>
           </div>
           <div class="col-sm-7">
@@ -46,9 +53,16 @@
                       <% end %>
                     </span>
                   </div>
-                  <p class="item_variant_material"><b>Material:</b> <%= @item.item_variants.first.material.name.capitalize if @item.item_variants.first.material %></p>
-                  <p class="item_variant_brand"><b>Brand:</b> <span><%= @item.item_variants.first.brand.name.capitalize if @item.item_variants.first.brand %></span></p>
+                  <p class="item_variant_material">
+                    <b>Material:</b> <%= @item.item_variants.first.material.name.capitalize if @item.item_variants.first.material %>
+                  </p>
+
+                  <p class="item_variant_brand"><b>Brand:</b>
+                    <span><%= @item.item_variants.first.brand.name.capitalize if @item.item_variants.first.brand %></span>
+                  </p>
+
                   <p><b>Category:</b><%= @item.category.name %>(<%= @item.category.root_category.name %>)</p>
+
                   <p><%= @item.description %></p>
 
                   <p class="special_note"><b>* Item can be prepared and provided for the custom sizes requested.</b></p>
@@ -75,4 +89,24 @@
             method: 'POST'
         });
     });
+
+    $('.item_showcase').find('img').on('click', function () {
+        $('.view-product').find('img').attr('src', $(this).attr('src'))
+    });
 </script>
+
+<style>
+    .item_showcase {
+        margin-top: 20px;
+    }
+
+    .item_showcase img {
+        cursor: pointer;
+        margin-left: 10px;
+        border-radius: 5px;
+        border: 1px solid #d3d3d3;
+        height: 50px;
+        width: 50px;
+        display: inline-block;
+    }
+</style>

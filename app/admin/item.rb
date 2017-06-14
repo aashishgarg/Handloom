@@ -20,6 +20,8 @@ ActiveAdmin.register Item do
 
   # =========== Custom Filters ===================================== #
   filter :category
+  filter :sku
+  filter :new_style_no, label: 'Style No'
 
   # =========== Pagination ========================================= #
   config.per_page = 10
