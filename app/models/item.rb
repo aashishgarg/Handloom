@@ -25,6 +25,9 @@ class Item < ApplicationRecord
   # =================== Pagination ======================= #
   paginates_per 8
 
+  # =================== Callbacks ======================== #
+  after_create :create_default_pricings_data
+
   def self.get_item_variants(item, color_name = nil, size_name = nil)
     color = Property::Color.where(name: color_name).take
     size = Property::Color.where(name: color_name).take
@@ -34,5 +37,12 @@ class Item < ApplicationRecord
 
   def item_price(user)
     Item.user_pricings(user)
+  end
+
+  private
+  def create_default_pricings_data
+    User.all.each do |_user|
+      ItemPricing.create(item: self, user: _user, price: 0)
+    end
   end
 end
