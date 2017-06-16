@@ -27,4 +27,5 @@
 //= require flashes.js
 //= require main
 //= require social-share-button
+//= require jquery.elevatezoom
 //= require_tree .

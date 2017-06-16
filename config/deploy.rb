@@ -23,6 +23,8 @@ set :branch, set_branch
 set :rvm_path, '/usr/local/rvm/scripts/rvm'
 set :sheet_name, 'Product deployment status'
 set :work_sheet_name, 'my_application'
+
+set :shared_dirs, fetch(:shared_dirs, []).push('public/system')
 set :shared_files, fetch(:shared_file, []).push(
                      'config/database.yml',
                      'config/secrets.yml',
@@ -110,19 +112,23 @@ end
 # 44444444444444444444444444444444444444444444444444444444444444444444444444 #
 task setup: :environment do
   invoke :set_sudo_password
-  command %[mkdir -p "#{fetch(:shared_dir)}/log"]
-  command %[chmod g+rx,u+rwx "#{fetch(:shared_dir)}/log"]
+  command %[mkdir -p "#{fetch(:shared_path)}/log"]
+  command %[chmod g+rx,u+rwx "#{fetch(:shared_path)}/log"]
 
-  command %[mkdir -p "#{fetch(:shared_dir)}/config"]
-  command %[chmod g+rx,u+rwx "#{fetch(:shared_dir)}/config"]
+  command %[mkdir -p "#{fetch(:shared_path)}/config"]
+  command %[chmod g+rx,u+rwx "#{fetch(:shared_path)}/config"]
 
-  command %[mkdir -p "#{fetch(:shared_dir)}/tmp/pids"]
-  command %[chmod g+rx,u+rwx "#{fetch(:shared_dir)}/tmp/pids"]
+  command %[mkdir -p "#{fetch(:shared_path)}/tmp/pids"]
+  command %[chmod g+rx,u+rwx "#{fetch(:shared_path)}/tmp/pids"]
 
-  command %[touch "#{fetch(:shared_dir)}/config/database.yml"]
+  command %[touch "#{fetch(:shared_path)}/config/database.yml"]
 
-  command %[mkdir -p "#{fetch(:shared_dir)}/photofy"]
-  command %[chmod g+rx,u+rwx "#{fetch(:shared_dir)}/photofy"]
+  command %[mkdir -p "#{fetch(:shared_path)}/photofy"]
+  command %[chmod g+rx,u+rwx "#{fetch(:shared_path)}/photofy"]
+
+  command %[mkdir -p "#{fetch(:shared_path)}/public/system"]
+  command %[chmod g+rx,u+rwx "#{fetch(:shared_path)}/public/system"]
+
   invoke :setup_prerequesties
   invoke :setup_yml
   invoke :photofy_setup
@@ -168,4 +174,11 @@ task :restart => :environment do
   command %[mkdir -p #{File.join(fetch(:current_path), 'tmp')}]
   command %[touch #{File.join(fetch(:current_path), 'tmp', 'restart.txt')}]
   # invoke :'product_deployment_sheet:update'
+end
+
+
+task :test1 do
+    comment '******************************************8'
+    comment "#{fetch(:shared_path)}"
+    comment '******************************************8'
 end

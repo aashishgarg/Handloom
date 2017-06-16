@@ -13,12 +13,12 @@
           <div class="col-sm-5">
             <div class="item_frame">
               <div class="view-product">
-                <%= image_tag @item.images.present? ? @item.images.first.avatar.url : 'sample_item.jpg' %>
+                <%= image_tag @item.images.present? ? @item.images.first.avatar.url : 'sample_item.jpg', id: 'item_show' %>
               </div>
             </div>
             <div class="item_showcase">
               <% @item.images.each do |image| %>
-                  <%= image_tag image.avatar.url(:thumb) %>
+                  <%= image_tag image.avatar.url(:original) %>
               <% end %>
             </div>
           </div>
@@ -82,6 +82,7 @@
 
 </style>
 <script>
+    $('#item_show').elevateZoom({tint: true, tintColour: '#F90', tintOpacity: 0.5});
     $('.selections').on('change', function () {
         $.ajax({
             url: '<%= item_variant_selection_path(@item) %>?color=' + $('.color_selection').val(),
@@ -91,7 +92,8 @@
     });
 
     $('.item_showcase').find('img').on('click', function () {
-        $('.view-product').find('img').attr('src', $(this).attr('src'))
+        $('.view-product').find('img').attr('src', $(this).attr('src'));
+        $('#item_show').elevateZoom({tint: true, tintColour: '#F90', tintOpacity: 0.5});
     });
 </script>
 
@@ -99,7 +101,6 @@
     .item_showcase {
         margin-top: 20px;
         max-width: 400px;
-        overflow-x: scroll;
     }
 
     .item_showcase img {

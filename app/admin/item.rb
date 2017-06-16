@@ -157,11 +157,11 @@ ActiveAdmin.register Item do
           colors = data[11] || 'Custom color'
 
           colors.split('_').each do |_color|
-            color = Property::Color.where(name: _color).take || Property::Color.create(name: _color)
+            color = (Property::Color.where(name: _color).take || Property::Color.create(name: _color))
             # ------------------ Sizes ------------------------------------- #
             sizes = data[12] || 'Custom size'
             sizes.split('_').each do |_size|
-              size = Property::Size.where(name: _size).take || Property::Size.create(name: _size)
+              size = (Property::Size.where(name: _size).take || Property::Size.create(name: _size))
               # ------------------ Item Variant ------------------------------ #
               @item.item_variants.build(
                   color_id: color.id,
@@ -178,27 +178,15 @@ ActiveAdmin.register Item do
           _images.each do |_image|
             image_path = File.join('/home/deploy/product_images', _image).concat('.jpg')
             # image_path = File.join('//home/ashish/product_images', _image).concat('.jpg')
-            puts '**********************************************************************************'
-            puts image_path
-            puts '**********************************************************************************'
-
             @item.images.build(avatar: File.new(image_path, 'r')) if File.exist?(image_path)
 
             # ------------------ Item -------------------------------------- #
             unless @item.save
               problematic_data << data
-              puts 'ERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERROR'
-              puts @item.errors.full_messages
-              puts 'ERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERROR'
             end
           end
         end
       end
-      puts '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&'
-      puts problematic_data.count
-      puts '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&'
-      puts problematic_data
-      puts '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&'
     end
 
 
