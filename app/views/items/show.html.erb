@@ -82,7 +82,10 @@
 
 </style>
 <script>
-    $('#item_show').elevateZoom({tint: true, tintColour: '#F90', tintOpacity: 0.5});
+    $(function () {
+        $('#item_show').elevateZoom({tint: true, tintColour: '#F90', tintOpacity: 0.5});
+    });
+
     $('.selections').on('change', function () {
         $.ajax({
             url: '<%= item_variant_selection_path(@item) %>?color=' + $('.color_selection').val(),
