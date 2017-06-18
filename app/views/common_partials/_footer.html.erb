@@ -95,11 +95,28 @@
           <!--<p class="pull-right">Copyright © 2017 Kapoor Exports. All rights reserved.</p>-->
           <!--<span class="pull-left about_us"><%#= link_to 'About Us', '#' %></span>-->
         </div>
-        <div class="col-sm-6 designed_by">
 
-          <p class="pull-right">Developed by <span><a target="_blank" href="javascript:void(0);">G & G</a></span></p>
-
+        <div class="social-icons pull-right designed_by">
+          <ul class="nav navbar-nav">
+            <li>
+              <%= link_to about_us_path do %>
+                  <i class="fa fa-address-book-o"></i>
+              <% end %>
+            </li>
+            <li><a href="https://www.facebook.com/Indianrugkapoorhandlooms"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="https://twitter.com/kapoorhandlooms"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/naresh-kapoor-b8941440"><i class="fa fa-linkedin"></i></a></li>
+            <!--<li><a href="#"><i class="fa fa-dribbble"></i></a></li>-->
+            <li><a href="javascript:void(0);"><i class="fa fa-google-plus"></i></a></li>
+          </ul>
         </div>
+
+
+        <!--<div class="col-sm-6 designed_by">-->
+
+          <!--<p class="pull-right">Developed by <span><a target="_blank" href="javascript:void(0);">G & G</a></span></p>-->
+
+        <!--</div>-->
       </div>
     </div>
   </div>
