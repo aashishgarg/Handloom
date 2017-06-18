@@ -28,8 +28,7 @@ set :shared_dirs, fetch(:shared_dirs, []).push('public/system')
 set :shared_files, fetch(:shared_file, []).push(
                      'config/database.yml',
                      'config/secrets.yml',
-                     'photofy',
-                     'public/system'
+                     'photofy'
                  )
 set :ruby_version, "#{File.readlines(File.join(__dir__, '..', '.ruby-version')).first.strip}"
 set :gemset, "#{File.readlines(File.join(__dir__, '..', '.ruby-gemset')).first.strip}"
@@ -174,11 +173,4 @@ task :restart => :environment do
   command %[mkdir -p #{File.join(fetch(:current_path), 'tmp')}]
   command %[touch #{File.join(fetch(:current_path), 'tmp', 'restart.txt')}]
   # invoke :'product_deployment_sheet:update'
-end
-
-
-task :test1 do
-    comment '******************************************8'
-    comment "#{fetch(:shared_path)}"
-    comment '******************************************8'
 end
