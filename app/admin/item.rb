@@ -175,7 +175,7 @@ ActiveAdmin.register Item do
           # ------------------ Product Image ----------------------------- #
           _images = data[6].split(',')
           _images.each do |_image|
-            image_path = File.join('/home/deploy/khi', _image).concat('.jpg')
+            image_path = File.join('/home/deploy/khi/KHI_Images', _image).concat('.jpg')
             # image_path = File.join('//home/ashish/product_images', _image).concat('.jpg')
             @item.images.build(avatar: File.new(image_path, 'r')) if File.exist?(image_path)
 
