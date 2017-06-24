@@ -24,7 +24,10 @@ set :rvm_path, '/usr/local/rvm/scripts/rvm'
 set :sheet_name, 'Product deployment status'
 set :work_sheet_name, 'my_application'
 
+# These folders will be created in [shared] folder and referenced through symlinking from current folder.
 set :shared_dirs, fetch(:shared_dirs, []).push('public/system')
+
+# These files will be created in [shared] folder and referenced through symlinking from current folder.
 set :shared_files, fetch(:shared_file, []).push(
                      'config/database.yml',
                      'config/secrets.yml',
@@ -45,7 +48,7 @@ task :environment do
 end
 
 # 22222222222222222222222222222222222222222222222222222222222222222222222222 #
-task setup_prerequesties: :environment  do
+task setup_prerequesties: :environment do
 
   comment %["#{ENV['on']}"]
   set :rails_env, ENV['on'].to_sym unless ENV['on'].nil?
@@ -174,3 +177,4 @@ task :restart => :environment do
   command %[touch #{File.join(fetch(:current_path), 'tmp', 'restart.txt')}]
   # invoke :'product_deployment_sheet:update'
 end
+

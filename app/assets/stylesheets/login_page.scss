@@ -6,6 +6,11 @@
 
 .navbar-fixed-top {
   background-color: rgba(0, 0, 0, 0.7) !important;
+  height: 58px !important;
+  padding-top: 0 !important;
+  .btn.btn-default.search{
+    margin-top: 25px;
+  }
 }
 
 .wthree.nav_2 {
