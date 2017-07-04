@@ -2,6 +2,7 @@ class Item < ApplicationRecord
 
   # =================== Constants ======================== #
   ITEM_STATUS = %w(open closed)
+  DEFAULT_PRICE = 0
 
   # =================== Associations ===================== #
   belongs_to :category

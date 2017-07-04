@@ -31,8 +31,8 @@ ActiveAdmin.register Item do
     f.inputs 'Item Form' do
       f.input :category, as: :select2, collection: Category.sub_categories.collect { |x| [x.root_category.name+' ('+x.name+')', x.id] }
       f.has_many :images do |p|
-          p.input :_destroy, :as => :boolean, :label => "Destroy?" unless p.object.new_record?
-          p.input :avatar,input_html: { multiple: true}, :hint => p.object.new_record? ? "" : f.template.image_tag(p.object.avatar.url(:thumb))
+        p.input :_destroy, :as => :boolean, :label => "Destroy?" unless p.object.new_record?
+        p.input :avatar, :as => :file, :hint => p.object.new_record? ? "" : f.template.image_tag(p.object.avatar.url(:thumb))
       end
       f.input :name
       f.input :new_style_no
@@ -81,7 +81,7 @@ ActiveAdmin.register Item do
       # Loop on every existing images and display them in a list
       row :images do
         ul do
-          ad.images.each_with_index do |img,index|
+          ad.images.each_with_index do |img, index|
             li do
               label index + 1
             end
@@ -176,7 +176,7 @@ ActiveAdmin.register Item do
           _images = data[6].split(',')
           _images.each do |_image|
             image_path = File.join('/home/deploy/khi/KHI_Images', _image).concat('.jpg')
-            # image_path = File.join('//home/ashish/product_images', _image).concat('.jpg')
+            # image_path = File.join('//home/ashish/Pictures/product_images', _image).concat('.jpg')
             @item.images.build(avatar: File.new(image_path, 'r')) if File.exist?(image_path)
 
             # ------------------ Item -------------------------------------- #
