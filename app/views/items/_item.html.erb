@@ -5,7 +5,7 @@
         <%= link_to item_path(item) do %>
             <%#= image_tag item.item_variants.present? ? item.item_variants.first.item_image : 'sample_item.jpg', class: 'index_item' %>
             <%= image_tag item.images.present? ? item.images.first.avatar.url(:thumb) : 'sample_item.jpg', class: 'index_item' %>
-            <h6><%= truncate(item.name, length: 30) %></h6>
+            <h5><%= truncate(item.name, length: 30) %></h5>
 
             <p><%= item.category.name %></p>
         <% end %>
