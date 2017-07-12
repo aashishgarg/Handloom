@@ -1365,7 +1365,8 @@ figure.effect-apollo:hover figcaption::before {
 }
 
 .about-us-text p, .aitscommercial p {
-	line-height: 30px;
+	line-height: 27px;
+    font-size: 16px;
 }
 
 /*-- //About-Us --*/
@@ -1552,6 +1553,9 @@ div#small-dialog4 {
 .agilenwew3lsfashions h4 {
 	font-size: 30px;
 	margin-bottom: 50px;
+    color: #FE980F;
+    font-weight: 700;
+    text-shadow: 2px 2px #FF0000;
 }
 
 .timer {
