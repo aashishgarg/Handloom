@@ -23,6 +23,8 @@ set :branch, set_branch
 set :rvm_path, '/usr/local/rvm/scripts/rvm'
 set :sheet_name, 'Product deployment status'
 set :work_sheet_name, 'my_application'
+set :cert_path, '/etc/letsencrypt/live/www.kapoorhandlooms.com/fullchain.pem'
+set :cert_key_path, '/etc/letsencrypt/live/www.kapoorhandlooms.com/privkey.pem'
 
 # These folders will be created in [shared] folder and referenced through symlinking from current folder.
 set :shared_dirs, fetch(:shared_dirs, []).push('public/system')

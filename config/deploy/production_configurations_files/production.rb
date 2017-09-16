@@ -5,5 +5,5 @@ set :domain, fetch(:host_ip)
 
 #===============Rails Environment =========#
 set :rails_env, 'production'
-set :ssl_enabled, false
+set :ssl_enabled, true
 #==========================================#

@@ -20,6 +20,9 @@
     # Rails environment for application
     passenger_app_env <%= fetch(:rails_env).to_s %>;
 
+    location ~ /.well-known {
+    allow all;
+    }
 
     # Applications root
     root <%= fetch(:deploy_to)%>/current/public;
