@@ -3,7 +3,7 @@ ActiveAdmin.register User do
 
   config.per_page = 10
 
-  before_filter :only => :index do
+  before_action :only => :index do
     @skip_sidebar = true
     @users = User.where.not('email in (?)', User::ADMIN_EMAILS).page(params[:page])
   end

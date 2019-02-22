@@ -3,7 +3,7 @@ ActiveAdmin.register Item do
   menu priority: 7, parent: 'Item Master'
 
   # =========== Show/Hide Filters ================================= #
-  # before_filter :only => :index do
+  # before_action :only => :index do
   #   @skip_sidebar = true
   # end
 
